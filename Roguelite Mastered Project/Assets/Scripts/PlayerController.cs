@@ -4,8 +4,8 @@ using UnityEngine;
 //2 Done - Handle Movement 
 //3 Done - Health regeneration
 //4 Done - Loose Health
+//5 Done - Handle Dying
 //------------------------------------------------------
-//5 - Handle Dying
 
 public class PlayerController : MonoBehaviour
 {
@@ -23,11 +23,16 @@ public class PlayerController : MonoBehaviour
     {
         Move();
 
-        playerStats.HealthRegeneration();
+        //playerStats.HealthRegeneration();
         
         if (Input.GetKeyDown(KeyCode.K))
         {
             playerStats.TakeDamage(1);
+        }
+
+        if (playerStats.Health <= 0)
+        {
+            //Handle death
         }
     }
 
