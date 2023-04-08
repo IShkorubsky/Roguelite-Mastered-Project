@@ -12,17 +12,23 @@ public class PlayerController : MonoBehaviour
     [SerializeField]private PlayerStats playerStats;
     
     private Rigidbody _myRigidbody;
+    private Animator _myAnimator;
     private Vector3 _movementInput;
+    private float smoothTime = 0.1f;
+    
+    private static readonly int Running = Animator.StringToHash("Running");
 
     private void Start()
     {
         _myRigidbody = gameObject.GetComponent<Rigidbody>();
+        _myAnimator = gameObject.GetComponent<Animator>();
     }
 
     private void Update()
     {
         Move();
 
+        Debug.Log(_myRigidbody.velocity);
         //playerStats.HealthRegeneration();
         
         if (Input.GetKeyDown(KeyCode.K))
@@ -42,7 +48,25 @@ public class PlayerController : MonoBehaviour
     private void Move()
     {
         _movementInput = new Vector3(Input.GetAxis("Horizontal"),0f,Input.GetAxis("Vertical"));
-        var moveVector = transform.TransformDirection(_movementInput) * playerStats.MoveSpeed;
-        _myRigidbody.velocity = new Vector3(moveVector.x,_myRigidbody.velocity.y,moveVector.z);
+        
+        if (_movementInput.magnitude > 0)
+        {
+            _myAnimator.SetBool(Running,true);
+            RotateCharacter();
+            var moveVector = transform.TransformDirection(Vector3.forward) * playerStats.MoveSpeed;
+            _myRigidbody.velocity = new Vector3(moveVector.x,_myRigidbody.velocity.y,moveVector.z);
+        }
+        else
+        {
+            //bug happens when going the contrary way of what was previously going
+            
+            _myAnimator.SetBool(Running,false);
+        }
+    }
+
+    private void RotateCharacter()
+    {
+        var targetAngle = Mathf.Atan2(_movementInput.x, _movementInput.z) * Mathf.Rad2Deg;
+        transform.rotation =  Quaternion.Slerp(transform.rotation,Quaternion.Euler(0.0f,targetAngle,0.0f),smoothTime);
     }
 }
