@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     {
         _myRigidbody = gameObject.GetComponent<Rigidbody>();
         _myAnimator = gameObject.GetComponent<Animator>();
+        playerStats.SetMaxHealth();
         _dodgeTimer = 1f;
     }
 
@@ -37,6 +38,14 @@ public class PlayerController : MonoBehaviour
     {
         if (!_isDodging)
         {
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                if (_movementInput.magnitude != 0)
+                {
+                    StartCoroutine(HandleDodging());
+                }
+            }
+
             Move();
         }
 
@@ -46,16 +55,9 @@ public class PlayerController : MonoBehaviour
             _myRigidbody.velocity = Vector3.zero;
         }
         healthBar.value = playerStats.Health * 0.01f;
-        Debug.Log(_myRigidbody.velocity.magnitude);
         //playerStats.HealthRegeneration();
-
-        if (Input.GetKeyDown(KeyCode.LeftShift) && !_isDodging)
-        {
-            if (_movementInput.magnitude != 0)
-            {
-                StartCoroutine(HandleDodging());
-            }
-        }
+        
+        //Test taking damage
         if (Input.GetKeyDown(KeyCode.K))
         {
             playerStats.TakeDamage(5);

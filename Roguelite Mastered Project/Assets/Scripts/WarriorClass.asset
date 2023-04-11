@@ -15,6 +15,7 @@ MonoBehaviour:
   className: Warrior
   characterAsset: {fileID: 1045401375514670, guid: f11fc98cf1e8d5547a9b2ec85cc9c664, type: 3}
   health: 100
+  maxHealth: 100
   healthRegen: 1
   moveSpeed: 10
   attackSpeed: 1
