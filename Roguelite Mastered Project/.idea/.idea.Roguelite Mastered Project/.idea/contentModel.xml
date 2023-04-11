@@ -27,6 +27,7 @@
           <e p="Audio" t="Include" />
           <e p="UI" t="Include" />
         </e>
+        <e p="CameraController.cs" t="Include" />
         <e p="Scenes" t="Include" />
         <e p="Scripts" t="Include">
           <e p="PlayerController.cs" t="Include" />

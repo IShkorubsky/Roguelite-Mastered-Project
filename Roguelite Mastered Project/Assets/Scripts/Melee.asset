@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   className: Warrior
   characterAsset: {fileID: 1045401375514670, guid: f11fc98cf1e8d5547a9b2ec85cc9c664, type: 3}
-  health: 10
+  health: 100
   healthRegen: 1
-  moveSpeed: 5
+  moveSpeed: 10
   attackSpeed: 1
   attackRange: 1

@@ -28,11 +28,15 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/CameraController.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerStats.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
+        <option value="$PROJECT_DIR$/Assets/CameraController.cs" />
       </list>
     </option>
   </component>
@@ -83,7 +87,8 @@
       <option name="presentableId" value="Default" />
       <updated>1680910499788</updated>
       <workItem from="1680910506581" duration="9435000" />
-      <workItem from="1680921015769" duration="1534000" />
+      <workItem from="1680921015769" duration="3903000" />
+      <workItem from="1681210875114" duration="4248000" />
     </task>
     <servers />
   </component>
