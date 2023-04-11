@@ -92,7 +92,7 @@
       <updated>1680910499788</updated>
       <workItem from="1680910506581" duration="9435000" />
       <workItem from="1680921015769" duration="3903000" />
-      <workItem from="1681210875114" duration="11127000" />
+      <workItem from="1681210875114" duration="13384000" />
     </task>
     <servers />
   </component>
@@ -115,5 +115,11 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="718" y="376" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1" timestamp="1681223011423">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="718" y="376" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1/-1920.6.1920.1032/1920.0.1920.1032/0.0.1920.1032@0.0.1920.1032" timestamp="1681223011423" />
   </component>
 </project>
