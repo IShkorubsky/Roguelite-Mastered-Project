@@ -14,6 +14,7 @@ public class PlayerStats : ScriptableObject
     [SerializeField]private float maxHealth;
     [SerializeField]private float healthRegen;
     [SerializeField]private int moveSpeed;
+    [SerializeField]private int attackDamage;
     [SerializeField]private int attackSpeed;
     [SerializeField]private int attackRange;
 
@@ -23,9 +24,10 @@ public class PlayerStats : ScriptableObject
     public float MAXHealth => maxHealth;
     public float HealthRegen => healthRegen;
     public int MoveSpeed => moveSpeed;
+    public int AttackDamage => attackDamage;
     public int AttackSpeed => attackSpeed;
     public int AttackRange => attackRange;
-    
+
     /// <summary>
     /// Set health based on maxHealth value
     /// </summary>
