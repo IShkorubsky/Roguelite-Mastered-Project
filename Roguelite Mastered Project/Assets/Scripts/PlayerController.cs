@@ -40,6 +40,11 @@ public class PlayerController : MonoBehaviour
             Move();
         }
 
+        if (Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0)
+        {
+            _myAnimator.SetBool(Running,false);
+            _myRigidbody.velocity = Vector3.zero;
+        }
         healthBar.value = playerStats.Health * 0.01f;
         Debug.Log(_myRigidbody.velocity.magnitude);
         //playerStats.HealthRegeneration();

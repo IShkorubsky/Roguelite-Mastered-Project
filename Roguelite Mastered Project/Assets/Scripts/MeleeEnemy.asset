@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b3cb5fc874b6b446889c6f814ec5cf7, type: 3}
-  m_Name: Melee
+  m_Name: MeleeEnemy
   m_EditorClassIdentifier: 
-  className: Warrior
-  characterAsset: {fileID: 1045401375514670, guid: f11fc98cf1e8d5547a9b2ec85cc9c664, type: 3}
-  health: 100
-  healthRegen: 1
-  moveSpeed: 10
-  attackSpeed: 1
-  attackRange: 1
+  className: Melee Enemy
+  characterAsset: {fileID: 1283017171755564, guid: f10c394033f254647873f3d28a75a062, type: 3}
+  health: 50
+  healthRegen: 0
+  moveSpeed: 0
+  attackSpeed: 0
+  attackRange: 0

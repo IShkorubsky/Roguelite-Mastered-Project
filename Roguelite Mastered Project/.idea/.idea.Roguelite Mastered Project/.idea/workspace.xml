@@ -35,8 +35,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerStats.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
         <option value="$PROJECT_DIR$/Assets/CameraController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
       </list>
     </option>
   </component>
@@ -88,7 +88,7 @@
       <updated>1680910499788</updated>
       <workItem from="1680910506581" duration="9435000" />
       <workItem from="1680921015769" duration="3903000" />
-      <workItem from="1681210875114" duration="4248000" />
+      <workItem from="1681210875114" duration="5282000" />
     </task>
     <servers />
   </component>
