@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -25,9 +26,11 @@ public class PlayerController : MonoBehaviour
     private Animator _myAnimator;
     
     private Vector3 _movementInput;
+    private Vector3 _mousePosition;
     private const float SmoothTime = 0.1f;
 
     private bool _isDodging;
+    private bool _isAttacking;
     private float _dodgeTimer;
     private float _attackTimer;
     private int _combo;
@@ -49,41 +52,14 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        #region Movement
-        
-        if (!_isDodging)
-        {
-            if (Input.GetKeyDown(KeyCode.LeftShift))
-            {
-                if (_movementInput.magnitude != 0)
-                {
-                    StartCoroutine(HandleDodging());
-                }
-            }
-
-            Move();
-        }
-        
-        if (Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0)
-        {
-            _myAnimator.SetBool(Running, false);
-            _myRigidbody.velocity = Vector3.zero;
-        }
-        
-        #endregion
+        _movementInput = new Vector3(Input.GetAxis("Horizontal"),0,Input.GetAxis("Vertical")).normalized;
 
         #region Attacking
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             //Look towards mouse position
-            var ray = _myCamera.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray,out RaycastHit raycastHit))
-            {
-                //Rotate player model towards hit point
-                transform.LookAt(new Vector3(raycastHit.point.x,0f,raycastHit.point.z));
-                StartCoroutine(PlayerAttack());
-            }
+            StartCoroutine(PlayerAttack());
         }
 
         #endregion
@@ -108,28 +84,52 @@ public class PlayerController : MonoBehaviour
         #endregion
     }
 
+    private void FixedUpdate()
+    {
+        #region Movement
+
+        if (!_isDodging)
+        {
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                if (_movementInput.magnitude != 0)
+                {
+                    StartCoroutine(HandleDodging());
+                }
+            }
+
+            LookTowardsMouse();
+            var distanceToMouse = _mousePosition - transform.position;
+            if (distanceToMouse.magnitude > 1f)
+            {
+                Move(_movementInput);
+            }
+            else
+            {
+                _myRigidbody.velocity = Vector3.zero;
+                _myAnimator.SetBool(Running, false);
+            }
+        }
+
+        #endregion
+    }
+
     #region Methods
 
      /// <summary>
     /// Handle Movement
     /// </summary>
-    private void Move()
+    private void Move(Vector3 direction)
     {
-        _movementInput = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
-
-        if (_movementInput.magnitude > 0)
+        if (_movementInput.magnitude > 0 && !_isAttacking)
         {
             _myAnimator.SetBool(Running, true);
-            RotateCharacter();
-            var moveVector = transform.TransformDirection(Vector3.forward) * Stats.MoveSpeed;
-            _myRigidbody.velocity = new Vector3(moveVector.x, _myRigidbody.velocity.y, moveVector.z);
+            _myRigidbody.velocity = direction * (playerStats.MoveSpeed * Time.fixedDeltaTime);
         }
-
-        if (_myRigidbody.velocity.magnitude == 0)
+        else
         {
-            //bug happens when going the contrary way of what was previously going
-
-            _myAnimator.SetBool(Running, false);
+            _myRigidbody.velocity = Vector3.zero;
+            _myAnimator.SetBool(Running,false);
         }
     }
 
@@ -141,6 +141,17 @@ public class PlayerController : MonoBehaviour
         var targetAngle = Mathf.Atan2(_movementInput.x, _movementInput.z) * Mathf.Rad2Deg;
         transform.rotation =
             Quaternion.Slerp(transform.rotation, Quaternion.Euler(0.0f, targetAngle, 0.0f), SmoothTime);
+    }
+
+    private void LookTowardsMouse()
+    {
+        var ray = _myCamera.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray,out RaycastHit raycastHit))
+        {
+            //Rotate player model towards hit point
+            transform.LookAt(new Vector3(raycastHit.point.x,0f,raycastHit.point.z));
+            _mousePosition = raycastHit.point;
+        }
     }
 
     /// <summary>
@@ -179,6 +190,7 @@ public class PlayerController : MonoBehaviour
 
         if (timer < _attackTimer)
         {
+            _isAttacking = true;
             _combo++;
             _myAnimator.SetInteger(Combo, _combo);
         }
@@ -189,6 +201,7 @@ public class PlayerController : MonoBehaviour
         }
 
         yield return new WaitForSeconds(_attackTimer);
+        _isAttacking = false;
         _combo = 0;
         _myAnimator.SetInteger(Combo, _combo);
     }
