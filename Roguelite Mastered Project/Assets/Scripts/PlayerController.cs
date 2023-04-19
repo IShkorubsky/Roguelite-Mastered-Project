@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 _mousePosition;
     private const float SmoothTime = 0.1f;
 
-    private bool _isDodging;
+    public bool _isDodging;
     private bool _isAttacking;
     private float _dodgeTimer;
     private float _attackTimer;
@@ -52,8 +52,23 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        #region Movement
+
         _movementInput = new Vector3(Input.GetAxis("Horizontal"),0,Input.GetAxis("Vertical")).normalized;
 
+        if (!_isDodging)
+        {
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                if (_movementInput.magnitude != 0)
+                {
+                    StartCoroutine(HandleDodging());
+                }
+            }
+        }
+
+        #endregion
+        
         #region Attacking
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
@@ -90,14 +105,6 @@ public class PlayerController : MonoBehaviour
 
         if (!_isDodging)
         {
-            if (Input.GetKeyDown(KeyCode.LeftShift))
-            {
-                if (_movementInput.magnitude != 0)
-                {
-                    StartCoroutine(HandleDodging());
-                }
-            }
-
             LookTowardsMouse();
             var distanceToMouse = _mousePosition - transform.position;
             if (distanceToMouse.magnitude > 1f)
@@ -121,7 +128,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void Move(Vector3 direction)
     {
-        if (_movementInput.magnitude > 0 && !_isAttacking)
+        if (_movementInput.magnitude > 0)
         {
             _myAnimator.SetBool(Running, true);
             _myRigidbody.velocity = direction * (playerStats.MoveSpeed * Time.fixedDeltaTime);
@@ -165,7 +172,7 @@ public class PlayerController : MonoBehaviour
         if (timer < _dodgeTimer)
         {
             _myAnimator.SetTrigger(Dodging);
-            var playerRollSpeed = Stats.MoveSpeed / 2;
+            var playerRollSpeed = Stats.MoveSpeed / 50;
             var dir = transform.forward * (playerRollSpeed) + Vector3.up * _myRigidbody.velocity.y;
             _myRigidbody.AddForce(dir, ForceMode.Impulse);
             yield return null;
