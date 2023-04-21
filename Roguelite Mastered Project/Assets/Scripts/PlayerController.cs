@@ -228,7 +228,7 @@ public class PlayerController : MonoBehaviour
     private IEnumerator RangedPlayerAttack()
     {
         var bullet = Instantiate(bulletPrefab, arrowSpawnPosition.position, Quaternion.identity);
-        bullet.GetComponent<Rigidbody>().AddForce(arrowSpawnPosition.forward * 30,ForceMode.VelocityChange);
+        bullet.GetComponent<Rigidbody>().AddForce(arrowSpawnPosition.forward * playerStats.RangedAttackSpeed,ForceMode.VelocityChange);
         yield break;
     }
 

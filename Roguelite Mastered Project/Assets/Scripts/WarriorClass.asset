@@ -20,4 +20,4 @@ MonoBehaviour:
   moveSpeed: 500
   attackDamage: 10
   attackSpeed: 1
-  attackRange: 1
+  rangedAttackSpeed: 30
