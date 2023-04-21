@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             //Look towards mouse position
-            StartCoroutine(PlayerAttack());
+            StartCoroutine(MeleePlayerAttack());
         }
 
         #endregion
@@ -188,10 +188,10 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// Handles Attacking
+    /// Handles Melee Attacking
     /// </summary>
     /// <returns></returns>
-    private IEnumerator PlayerAttack()
+    private IEnumerator MeleePlayerAttack()
     {
         float timer = 0;
 
@@ -211,6 +211,15 @@ public class PlayerController : MonoBehaviour
         _isAttacking = false;
         _combo = 0;
         _myAnimator.SetInteger(Combo, _combo);
+    }
+
+    /// <summary>
+    /// Handles Ranged Attacking
+    /// </summary>
+    /// <returns></returns>
+    private void RangedPlayerAttack()
+    {
+        
     }
 
     /// <summary>
