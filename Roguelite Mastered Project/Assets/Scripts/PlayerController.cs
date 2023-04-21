@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
     #region Variables
 
     [SerializeField] private PlayerStats playerStats;
+    [SerializeField] private Transform arrowSpawnPosition;
+    [SerializeField] private GameObject bulletPrefab;
     public PlayerStats Stats => playerStats;
     [SerializeField] private DealDamage swordScript;
     [SerializeField] private Slider healthBar;
@@ -42,6 +44,7 @@ public class PlayerController : MonoBehaviour
     #endregion
     private void Start()
     {
+        arrowSpawnPosition = transform.GetChild(1).GetComponent<Transform>();
         _myRigidbody = gameObject.GetComponent<Rigidbody>();
         _myAnimator = gameObject.GetComponent<Animator>();
         _myCamera = Camera.main;
@@ -75,6 +78,11 @@ public class PlayerController : MonoBehaviour
         {
             //Look towards mouse position
             StartCoroutine(MeleePlayerAttack());
+        }
+
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            StartCoroutine(RangedPlayerAttack());
         }
 
         #endregion
@@ -217,9 +225,11 @@ public class PlayerController : MonoBehaviour
     /// Handles Ranged Attacking
     /// </summary>
     /// <returns></returns>
-    private void RangedPlayerAttack()
+    private IEnumerator RangedPlayerAttack()
     {
-        
+        var bullet = Instantiate(bulletPrefab, arrowSpawnPosition.position, Quaternion.identity);
+        bullet.GetComponent<Rigidbody>().AddForce(arrowSpawnPosition.forward * 30,ForceMode.VelocityChange);
+        yield break;
     }
 
     /// <summary>
