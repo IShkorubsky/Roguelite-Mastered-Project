@@ -25,8 +25,10 @@
             </e>
           </e>
           <e p="Audio" t="Include" />
+          <e p="Prefabs" t="Include" />
           <e p="UI" t="Include" />
         </e>
+        <e p="Pool.cs" t="Include" />
         <e p="Scenes" t="Include" />
         <e p="Scripts" t="Include">
           <e p="CameraController.cs" t="Include" />
