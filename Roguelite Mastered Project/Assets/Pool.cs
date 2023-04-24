@@ -7,10 +7,11 @@ public class PoolItem
 {
     public GameObject objectPrefab;
     public int amount;
+    public bool expandable;
 }
 public class Pool : MonoBehaviour
 {
-    private static Pool _instance;
+    public static Pool _instance;
     public List<PoolItem> items;
     public List<GameObject> pooledItems;
 
@@ -19,6 +20,29 @@ public class Pool : MonoBehaviour
         _instance = this;
     }
 
+    public GameObject Get(string myTag)
+    {
+        foreach (var item in pooledItems)
+        {
+            if (!item.activeInHierarchy && item.CompareTag(myTag))
+            {
+                return item;
+            }
+        }
+
+        foreach (PoolItem item in items)
+        {
+            if (item.objectPrefab.CompareTag(myTag) && item.expandable)
+            {
+                var obj = Instantiate(item.objectPrefab);
+                obj.SetActive(false);
+                pooledItems.Add(obj);
+                return obj;
+            }
+        }
+        return null;
+    }
+    
     // Start is called before the first frame update
     private void Start()
     {
@@ -31,6 +55,11 @@ public class Pool : MonoBehaviour
                 obj.SetActive(false);
                 pooledItems.Add(obj);
             }
+        }
+
+        foreach (var item in items)
+        {
+            
         }
     }
 }

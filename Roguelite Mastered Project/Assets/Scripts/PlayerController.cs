@@ -227,7 +227,10 @@ public class PlayerController : MonoBehaviour
     /// <returns></returns>
     private IEnumerator RangedPlayerAttack()
     {
-        var bullet = Instantiate(bulletPrefab, arrowSpawnPosition.position, Quaternion.identity);
+        var bullet = Pool._instance.Get("Bullet");
+        bullet.transform.position = arrowSpawnPosition.transform.position;
+        bullet.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        bullet.SetActive(true);
         bullet.GetComponent<Rigidbody>().AddForce(arrowSpawnPosition.forward * playerStats.RangedAttackSpeed,ForceMode.VelocityChange);
         yield break;
     }

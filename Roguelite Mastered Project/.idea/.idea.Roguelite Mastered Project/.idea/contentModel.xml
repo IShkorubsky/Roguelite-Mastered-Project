@@ -28,6 +28,7 @@
           <e p="Prefabs" t="Include" />
           <e p="UI" t="Include" />
         </e>
+        <e p="DeactivateBullet.cs" t="Include" />
         <e p="Pool.cs" t="Include" />
         <e p="Scenes" t="Include" />
         <e p="Scripts" t="Include">
