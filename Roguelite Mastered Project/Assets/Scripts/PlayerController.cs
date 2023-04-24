@@ -18,7 +18,6 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private PlayerStats playerStats;
     [SerializeField] private Transform arrowSpawnPosition;
-    [SerializeField] private GameObject bulletPrefab;
     public PlayerStats Stats => playerStats;
     [SerializeField] private DealDamage swordScript;
     [SerializeField] private Slider healthBar;
