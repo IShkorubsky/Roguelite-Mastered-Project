@@ -49,13 +49,16 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerStats.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/StateMachine.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/DieState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/IdleState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/RoamState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/PursueState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/EnemyAI.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/AttackState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PracticeDummy.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DeactivateBullet.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DealDamage.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/EnemyAI.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/IdleState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/StateMachine.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/PursueState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/RoamState.cs" />
       </list>
     </option>
   </component>
@@ -113,7 +116,7 @@
       <workItem from="1682042532851" duration="1842000" />
       <workItem from="1682130711092" duration="631000" />
       <workItem from="1682357400588" duration="2900000" />
-      <workItem from="1682391448837" duration="5612000" />
+      <workItem from="1682391448837" duration="10080000" />
     </task>
     <servers />
   </component>

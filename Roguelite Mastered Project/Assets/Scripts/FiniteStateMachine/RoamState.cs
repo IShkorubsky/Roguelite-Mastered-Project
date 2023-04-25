@@ -13,6 +13,16 @@ namespace FiniteStateMachine
             Name = State.Roam;
         }
 
+        public static Vector3 RandomNavSphere (Vector3 origin, float distance, int layermask) {
+            var randomDirection = Random.insideUnitSphere * distance;
+           
+            randomDirection += origin;
+
+            NavMesh.SamplePosition (randomDirection, out var navHit, distance, layermask);
+           
+            return navHit.position;
+        }
+        
         protected override void Enter()
         {
             Agent.speed = EnemyStats.MoveSpeed;
@@ -22,10 +32,13 @@ namespace FiniteStateMachine
 
         protected override void Update()
         {
-            if (Physics.SphereCast(Agent.transform.position, 30f, Vector3.zero, out RaycastHit hit) == PlayerTransform)
+            Agent.SetDestination(RandomNavSphere(EnemyGameObject.transform.position,EnemyStats.AttackRange * 2,-1));
+            if (Agent.hasPath)
             {
-                NextState = new PursueState(EnemyGameObject,EnemyStats,Agent,MyAnimator,PlayerTransform);
-                Stage = Event.Exit;
+                if (Agent.remainingDistance < 0.1f)
+                {
+                    
+                }
             }
         }
 

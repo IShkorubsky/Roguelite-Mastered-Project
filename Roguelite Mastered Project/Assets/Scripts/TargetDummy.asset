@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   className: TargeDummy
   characterAsset: {fileID: 1283017171755564, guid: f10c394033f254647873f3d28a75a062, type: 3}
-  health: 70
+  health: 150
   maxHealth: 150
-  healthRegen: 0
-  moveSpeed: 0
-  attackDamage: 0
-  attackSpeed: 0
-  attackRange: 0
+  healthRegen: 1
+  moveSpeed: 3
+  attackDamage: 10
+  attackSpeed: 1
+  attackRange: 3
+  rangedAttackSpeed: 0

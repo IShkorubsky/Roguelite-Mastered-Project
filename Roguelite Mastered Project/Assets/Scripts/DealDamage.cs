@@ -6,7 +6,7 @@ public class DealDamage : MonoBehaviour
 
     private void Start()
     {
-        attackDamage = gameObject.GetComponentInParent<PlayerController>().Stats.AttackDamage;
+        attackDamage = gameObject.GetComponentInParent<PlayerController>().PlayerStats.AttackDamage;
     }
 
     private void OnCollisionEnter(Collision other)

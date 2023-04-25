@@ -3,10 +3,10 @@ using UnityEngine.UI;
 
 public class PracticeDummy : MonoBehaviour
 {
-    [SerializeField] private PlayerStats dummyStats;
+    [SerializeField] private Stats dummyStats;
     [SerializeField] private Slider healthSlider;
 
-    public PlayerStats DummyStats => dummyStats;
+    public Stats DummyStats => dummyStats;
 
     private void Start()
     {

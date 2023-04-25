@@ -22,11 +22,15 @@ namespace FiniteStateMachine
         protected override void Update()
         {
             Agent.speed = EnemyStats.MoveSpeed;
+            Agent.isStopped = false;
             Agent.SetDestination(PlayerTransform.position);
-            if (Agent.remainingDistance < EnemyStats.AttackRange)
+            if (Agent.hasPath)
             {
-                NextState = new AttackState(EnemyGameObject,EnemyStats,Agent,MyAnimator,PlayerTransform);
-                Stage = Event.Exit;
+                if (CanAttackPlayer())
+                {
+                    NextState = new AttackState(EnemyGameObject,EnemyStats,Agent,MyAnimator,PlayerTransform);
+                    Stage = Event.Exit;
+                }
             }
         }
 
