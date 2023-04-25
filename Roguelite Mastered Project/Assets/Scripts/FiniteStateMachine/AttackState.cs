@@ -1,19 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
-using FiniteStateMachine;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class AttackState : StateMachine
+namespace FiniteStateMachine
 {
-    // Start is called before the first frame update
-    void Start()
+    public class AttackState : StateMachine
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public AttackState(GameObject enemyGameObject, NavMeshAgent agent, Animator myAnimator, Transform playerTransform)
+            : base(enemyGameObject, agent, myAnimator, playerTransform)
+        {
+            Name = State.Roam;
+        }
     }
 }

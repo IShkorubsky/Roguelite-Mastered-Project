@@ -21,9 +21,9 @@ namespace FiniteStateMachine
 
         public override void Update()
         {
-            if (Random.Range(0, 100) < 10)
+            if (Physics.SphereCast(Agent.transform.position, 30f, Vector3.zero, out RaycastHit hit) == PlayerTransform)
             {
-                NextState = new RoamState(EnemyGameObject, Agent, MyAnimator, PlayerTransform);
+                NextState = new PursueState(EnemyGameObject,Agent,MyAnimator,PlayerTransform);
                 Stage = Event.Exit;
             }
         }

@@ -30,6 +30,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/RoamState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/AttackState.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -46,11 +47,12 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/EnemyAI.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/StateMachine.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/IdleState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/RoamState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/PursueState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/AttackState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/DieState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/StateMachine.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/IdleState.cs" />
       </list>
     </option>
   </component>
@@ -108,7 +110,7 @@
       <workItem from="1682042532851" duration="1842000" />
       <workItem from="1682130711092" duration="631000" />
       <workItem from="1682357400588" duration="2900000" />
-      <workItem from="1682391448837" duration="2549000" />
+      <workItem from="1682391448837" duration="3134000" />
     </task>
     <servers />
   </component>

@@ -1,9 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
-using FiniteStateMachine;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class DieState : StateMachine
+namespace FiniteStateMachine
 {
-   
+    public class DieState : StateMachine
+    {
+        public DieState(GameObject enemyGameObject, NavMeshAgent agent, Animator myAnimator, Transform playerTransform)
+            : base(enemyGameObject, agent, myAnimator, playerTransform)
+        {
+            Name = State.Roam;
+        }
+    }
 }
