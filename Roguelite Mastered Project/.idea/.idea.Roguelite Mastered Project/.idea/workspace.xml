@@ -28,16 +28,23 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/StateMachine.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Assets/CameraController.cs" />
         <option value="$PROJECT_DIR$/Assets/PracticeDummy.cs" />
         <option value="$PROJECT_DIR$/Assets/DealDamage.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerStats.cs" />
         <option value="$PROJECT_DIR$/Assets/Pool.cs" />
         <option value="$PROJECT_DIR$/Assets/DeactivateBullet.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/State.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerStats.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine.cs" />
       </list>
     </option>
   </component>
@@ -94,7 +101,8 @@
       <workItem from="1681888970267" duration="799000" />
       <workItem from="1682042532851" duration="1842000" />
       <workItem from="1682130711092" duration="631000" />
-      <workItem from="1682357400588" duration="2503000" />
+      <workItem from="1682357400588" duration="2900000" />
+      <workItem from="1682391448837" duration="872000" />
     </task>
     <servers />
   </component>
