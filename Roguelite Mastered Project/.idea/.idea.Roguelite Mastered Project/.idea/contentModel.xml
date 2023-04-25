@@ -33,12 +33,20 @@
           <e p="CameraController.cs" t="Include" />
           <e p="DeactivateBullet.cs" t="Include" />
           <e p="DealDamage.cs" t="Include" />
+          <e p="EnemyAI.cs" t="Include" />
+          <e p="FiniteStateMachine" t="Include">
+            <e p="AttackState.cs" t="Include" />
+            <e p="DieState.cs" t="Include" />
+            <e p="IdleState.cs" t="Include" />
+            <e p="PursueState.cs" t="Include" />
+            <e p="RoamState.cs" t="Include" />
+            <e p="StateMachine.cs" t="Include" />
+          </e>
           <e p="GameManager.cs" t="Include" />
           <e p="PlayerController.cs" t="Include" />
           <e p="PlayerStats.cs" t="Include" />
           <e p="Pool.cs" t="Include" />
           <e p="PracticeDummy.cs" t="Include" />
-          <e p="StateMachine.cs" t="Include" />
         </e>
       </e>
       <e p="obj" t="ExcludeRecursive" />
