@@ -7,28 +7,28 @@ namespace FiniteStateMachine
     {
         private static readonly int IsIdle = Animator.StringToHash("isIdle");
 
-        public IdleState(GameObject enemyGameObject, NavMeshAgent agent, Animator myAnimator, Transform playerTransform) : 
-            base(enemyGameObject,agent,myAnimator,playerTransform)
+        public IdleState(GameObject enemyGameObject,Stats enemyStats, NavMeshAgent agent, Animator myAnimator, Transform playerTransform) : 
+            base(enemyGameObject,enemyStats,agent,myAnimator,playerTransform)
         {
             Name = State.Idle;
         }
-        
-        public override void Enter()
+
+        protected override void Enter()
         {
             MyAnimator.SetTrigger(IsIdle);
             base.Enter();
         }
 
-        public override void Update()
+        protected override void Update()
         {
             if (Random.Range(0, 100) < 10)
             {
-                NextState = new RoamState(EnemyGameObject, Agent, MyAnimator, PlayerTransform);
+                NextState = new RoamState(EnemyGameObject,EnemyStats, Agent, MyAnimator, PlayerTransform);
                 Stage = Event.Exit;
             }
         }
 
-        public override void Exit()
+        protected override void Exit()
         {
             MyAnimator.ResetTrigger(IsIdle);
             base.Exit();

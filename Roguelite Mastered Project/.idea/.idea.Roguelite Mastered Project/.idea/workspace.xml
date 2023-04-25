@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -41,18 +44,18 @@
         <option value="$PROJECT_DIR$/Assets/DealDamage.cs" />
         <option value="$PROJECT_DIR$/Assets/Pool.cs" />
         <option value="$PROJECT_DIR$/Assets/DeactivateBullet.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/State.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerStats.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/EnemyAI.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerStats.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/StateMachine.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/DieState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/IdleState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/RoamState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/PursueState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/EnemyAI.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/AttackState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/DieState.cs" />
       </list>
     </option>
   </component>
@@ -110,7 +113,7 @@
       <workItem from="1682042532851" duration="1842000" />
       <workItem from="1682130711092" duration="631000" />
       <workItem from="1682357400588" duration="2900000" />
-      <workItem from="1682391448837" duration="3134000" />
+      <workItem from="1682391448837" duration="5612000" />
     </task>
     <servers />
   </component>
@@ -139,5 +142,9 @@
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
     <state x="718" y="376" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1/-1920.6.1920.1032/1920.0.1920.1032/0.0.1920.1032@0.0.1920.1032" timestamp="1681223011423" />
+    <state x="623" y="223" width="672" height="678" key="search.everywhere.popup" timestamp="1682395352398">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="623" y="223" width="672" height="678" key="search.everywhere.popup/-1920.6.1920.1032/1920.0.1920.1032/0.0.1920.1032@0.0.1920.1032" timestamp="1682395352398" />
   </component>
 </project>

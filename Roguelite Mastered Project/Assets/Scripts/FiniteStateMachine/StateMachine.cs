@@ -5,7 +5,7 @@ namespace FiniteStateMachine
 {
     public class StateMachine
     {
-        public enum State
+        protected enum State
         {
             Idle,
             Roam,
@@ -22,17 +22,19 @@ namespace FiniteStateMachine
         }
 
         protected State Name;
-        protected StateMachine NextState;
         protected Event Stage;
-    
+        protected StateMachine NextState;
+        
         protected readonly GameObject EnemyGameObject;
+        protected readonly Stats EnemyStats;
         protected readonly Animator MyAnimator;
         protected readonly Transform PlayerTransform;
         protected readonly NavMeshAgent Agent;
 
-        public StateMachine(GameObject enemyGameObject, NavMeshAgent agent, Animator myAnimator, Transform playerTransform)
+        protected StateMachine(GameObject enemyGameObject, Stats enemyStats,NavMeshAgent agent, Animator myAnimator, Transform playerTransform)
         {
             EnemyGameObject = enemyGameObject;
+            EnemyStats = enemyStats;
             Agent = agent;
             MyAnimator = myAnimator;
             PlayerTransform = playerTransform;
@@ -40,17 +42,17 @@ namespace FiniteStateMachine
             Stage = Event.Enter;
         }
 
-        public virtual void Enter()
+        protected virtual void Enter()
         {
             Stage = Event.Update;
         }
 
-        public virtual void Update()
+        protected virtual void Update()
         {
             Stage = Event.Update;
         }
 
-        public virtual void Exit()
+        protected virtual void Exit()
         {
             Stage = Event.Exit;
         }
@@ -79,7 +81,7 @@ namespace FiniteStateMachine
         public bool CanAttackPlayer()
         {
             var direction = PlayerTransform.position - EnemyGameObject.transform.position;
-            if (direction.magnitude < Agent.GetComponent<PlayerStats>().AttackRange)
+            if (direction.magnitude < EnemyStats.AttackRange)
             {
                 return true;
             }

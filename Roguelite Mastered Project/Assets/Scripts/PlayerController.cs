@@ -16,9 +16,9 @@ public class PlayerController : MonoBehaviour
 {
     #region Variables
 
-    [SerializeField] private PlayerStats playerStats;
+    [SerializeField] private Stats playerStats;
     [SerializeField] private Transform arrowSpawnPosition;
-    public PlayerStats Stats => playerStats;
+    public Stats PlayerStats => playerStats;
     [SerializeField] private DealDamage swordScript;
     [SerializeField] private Slider healthBar;
     
@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
         _myRigidbody = gameObject.GetComponent<Rigidbody>();
         _myAnimator = gameObject.GetComponent<Animator>();
         _myCamera = Camera.main;
-        Stats.SetMaxHealth();
+        playerStats.SetMaxHealth();
         _dodgeTimer = 1f;
         _attackTimer = 0.8f;
     }
@@ -88,16 +88,16 @@ public class PlayerController : MonoBehaviour
 
         #region Health
 
-        healthBar.value = Stats.Health * 0.01f;
+        healthBar.value = playerStats.Health * 0.01f;
         //playerStats.HealthRegeneration();
 
         //Test taking damage
         if (Input.GetKeyDown(KeyCode.K))
         {
-            Stats.TakeDamage(5);
+            playerStats.TakeDamage(5);
         }
 
-        if (Stats.Health <= 0)
+        if (playerStats.Health <= 0)
         {
             //Handle death
             Debug.Log("Player Dead!");
@@ -179,7 +179,7 @@ public class PlayerController : MonoBehaviour
         if (timer < _dodgeTimer)
         {
             _myAnimator.SetTrigger(Dodging);
-            var playerRollSpeed = Stats.MoveSpeed / 50;
+            var playerRollSpeed = playerStats.MoveSpeed / 50;
             var dir = transform.forward * (playerRollSpeed) + Vector3.up * _myRigidbody.velocity.y;
             _myRigidbody.AddForce(dir, ForceMode.Impulse);
             yield return null;
