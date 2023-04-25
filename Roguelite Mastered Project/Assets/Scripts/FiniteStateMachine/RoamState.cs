@@ -6,11 +6,13 @@ namespace FiniteStateMachine
     public class RoamState : StateMachine
     {
         private static readonly int IsWalking = Animator.StringToHash("isWalking");
+        private static EnemyAI _enemyAI;
 
         public RoamState(GameObject enemyGameObject,Stats enemyStats, NavMeshAgent agent, Animator myAnimator, Transform playerTransform)
             : base(enemyGameObject,enemyStats, agent, myAnimator, playerTransform)
         {
             Name = State.Roam;
+            _enemyAI = EnemyGameObject.GetComponent<EnemyAI>();
         }
 
         public static Vector3 RandomNavSphere (Vector3 origin, float distance, int layermask) {
@@ -32,12 +34,20 @@ namespace FiniteStateMachine
 
         protected override void Update()
         {
+            Agent.speed = EnemyStats.MoveSpeed;
             Agent.SetDestination(RandomNavSphere(EnemyGameObject.transform.position,EnemyStats.AttackRange * 2,-1));
             if (Agent.hasPath)
             {
+                if (_enemyAI.playerInRange)
+                {
+                    NextState = new PursueState(EnemyGameObject,EnemyStats, Agent, MyAnimator, PlayerTransform);
+                    Stage = Event.Exit;
+                }
+                
                 if (Agent.remainingDistance < 0.1f)
                 {
-                    
+                    NextState = new RoamState(EnemyGameObject,EnemyStats, Agent, MyAnimator, PlayerTransform);
+                    Stage = Event.Exit;
                 }
             }
         }

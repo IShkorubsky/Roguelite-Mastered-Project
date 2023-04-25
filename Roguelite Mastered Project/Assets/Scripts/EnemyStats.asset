@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b3cb5fc874b6b446889c6f814ec5cf7, type: 3}
-  m_Name: TargetDummy
+  m_Name: EnemyStats
   m_EditorClassIdentifier: 
   className: TargeDummy
   characterAsset: {fileID: 1283017171755564, guid: f10c394033f254647873f3d28a75a062, type: 3}
-  health: 150
+  health: 0
   maxHealth: 150
   healthRegen: 1
   moveSpeed: 3

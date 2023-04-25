@@ -1,28 +1,42 @@
+using System;
 using FiniteStateMachine;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class EnemyAI : MonoBehaviour
 {
     private NavMeshAgent _agent;
     private Animator _myAnimator;
     public Transform playerTransform;
-    public StateMachine _currentState;
-    private Stats _enemyStats;
+    private StateMachine _currentState;
+    public bool playerInRange;
     
-    // Start is called before the first frame update
+    [SerializeField] private Stats enemyStats;
+    [SerializeField] private Slider healthSlider;
+
+    public Stats EnemyStats => enemyStats;
+
     private void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
         _myAnimator = GetComponent<Animator>();
-        _enemyStats = GetComponent<PracticeDummy>().DummyStats;
-        _currentState = new IdleState(gameObject,_enemyStats,_agent,_myAnimator,playerTransform);
+        _currentState = new IdleState(gameObject,EnemyStats,_agent,_myAnimator,playerTransform);
+        
+        EnemyStats.SetMaxHealth();
+        healthSlider.maxValue = EnemyStats.MAXHealth;
     }
 
-    // Update is called once per frame
     private void Update()
     {
         _currentState = _currentState.Process();
         Debug.Log(_currentState);
+        
+        healthSlider.value = EnemyStats.Health;
+
+        if (EnemyStats.Health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }

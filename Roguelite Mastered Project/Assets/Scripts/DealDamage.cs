@@ -13,7 +13,7 @@ public class DealDamage : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            other.gameObject.GetComponent<PracticeDummy>().DummyStats.TakeDamage(attackDamage);
+            other.gameObject.GetComponent<EnemyAI>().EnemyStats.TakeDamage(attackDamage);
         }
     }
 

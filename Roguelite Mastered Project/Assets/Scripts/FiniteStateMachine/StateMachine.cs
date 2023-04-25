@@ -88,5 +88,17 @@ namespace FiniteStateMachine
 
             return false;
         }
+        
+        public bool CanSeePlayer()
+        {
+            var direction = PlayerTransform.position - EnemyGameObject.transform.position;
+            var angle = Vector3.Angle(direction, EnemyGameObject.transform.forward);
+            if (direction.magnitude < EnemyStats.AttackRange * 2 && angle < 30)
+            {
+                return true;
+            }
+
+            return false;
+        }
     }
 }

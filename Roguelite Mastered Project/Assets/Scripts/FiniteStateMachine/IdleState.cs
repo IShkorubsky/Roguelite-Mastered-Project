@@ -23,7 +23,7 @@ namespace FiniteStateMachine
         {
             if (Random.Range(0, 100) < 10)
             {
-                NextState = new PursueState(EnemyGameObject,EnemyStats, Agent, MyAnimator, PlayerTransform);
+                NextState = new RoamState(EnemyGameObject,EnemyStats, Agent, MyAnimator, PlayerTransform);
                 Stage = Event.Exit;
             }
         }

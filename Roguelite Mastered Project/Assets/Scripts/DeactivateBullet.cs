@@ -24,7 +24,7 @@ public class DeactivateBullet : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            other.gameObject.GetComponent<PracticeDummy>().DummyStats.TakeDamage(_playerController.PlayerStats.AttackDamage);
+            other.gameObject.GetComponent<EnemyAI>().EnemyStats.TakeDamage(_playerController.PlayerStats.AttackDamage);
             _timer = 0;
             Deactivate();
         }
