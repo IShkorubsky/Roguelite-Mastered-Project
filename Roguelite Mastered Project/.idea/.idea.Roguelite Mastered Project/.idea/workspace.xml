@@ -49,7 +49,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerStats.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/DieState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/AttackState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PracticeDummy.cs" />
@@ -58,9 +57,10 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/StateMachine.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/EnemyAI.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/PursueState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/IdleState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/RoamState.cs" />
         <option value="$PROJECT_DIR$/Assets/PlayerDetectionCollider.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/IdleState.cs" />
       </list>
     </option>
   </component>
@@ -119,6 +119,7 @@
       <workItem from="1682130711092" duration="631000" />
       <workItem from="1682357400588" duration="2900000" />
       <workItem from="1682391448837" duration="13544000" />
+      <workItem from="1682523580485" duration="5876000" />
     </task>
     <servers />
   </component>
@@ -147,9 +148,9 @@
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
     <state x="718" y="376" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1/-1920.6.1920.1032/1920.0.1920.1032/0.0.1920.1032@0.0.1920.1032" timestamp="1681223011423" />
-    <state x="623" y="223" width="672" height="678" key="search.everywhere.popup" timestamp="1682395352398">
+    <state x="623" y="223" width="672" height="678" key="search.everywhere.popup" timestamp="1682524471805">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
-    <state x="623" y="223" width="672" height="678" key="search.everywhere.popup/-1920.6.1920.1032/1920.0.1920.1032/0.0.1920.1032@0.0.1920.1032" timestamp="1682395352398" />
+    <state x="623" y="223" width="672" height="678" key="search.everywhere.popup/-1920.6.1920.1032/1920.0.1920.1032/0.0.1920.1032@0.0.1920.1032" timestamp="1682524471805" />
   </component>
 </project>

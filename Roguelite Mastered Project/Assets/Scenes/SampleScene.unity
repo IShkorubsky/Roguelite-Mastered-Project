@@ -1222,7 +1222,7 @@ GameObject:
   - component: {fileID: 171105585}
   - component: {fileID: 171105584}
   - component: {fileID: 171105583}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Floor (3)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -2468,7 +2468,7 @@ GameObject:
   - component: {fileID: 398204718}
   m_Layer: 0
   m_Name: DetectionCollider
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2495,8 +2495,8 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 398204715}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
+  m_IsTrigger: 0
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 20
   m_Center: {x: 0, y: 0, z: 0}
@@ -4910,7 +4910,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 871431657}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5492,13 +5492,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.5271694, y: -0, z: -0, w: 0.8497602}
-  m_LocalPosition: {x: 0, y: 73.3, z: -45.5}
+  m_LocalRotation: {x: 0.41174325, y: -0, z: -0, w: 0.91129994}
+  m_LocalPosition: {x: 0, y: 59.42037, z: -61.259308}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 63.629, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 48.629, y: 0, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10471,7 +10471,7 @@ GameObject:
   - component: {fileID: 1762322919}
   - component: {fileID: 1762322918}
   - component: {fileID: 1762322917}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Floor (2)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -12336,6 +12336,7 @@ MonoBehaviour:
   arrowSpawnPosition: {fileID: 283394455}
   swordScript: {fileID: 1917389444687929}
   healthBar: {fileID: 1374871399}
+  dashAmount: 500
   _isDodging: 0
 --- !u!54 &2087478668
 Rigidbody:
@@ -12348,7 +12349,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
@@ -12379,7 +12380,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: f480cb185025ecc46bbeaf3ce3767dd2, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -12753,7 +12754,7 @@ GameObject:
   - component: {fileID: 2125387956}
   - component: {fileID: 2125387955}
   - component: {fileID: 2125387954}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Floor (1)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -13367,7 +13368,7 @@ GameObject:
   - component: {fileID: 23999643021694615}
   - component: {fileID: 65913366713758823}
   - component: {fileID: 1449304545}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Floor
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -14069,7 +14070,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1449620653622069}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.25, y: 0, z: 0}
+  m_LocalPosition: {x: 0.25, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 871431657}
