@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -29,6 +30,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 _movementInput;
     private Vector3 _mousePosition;
     private const float SmoothTime = 0.1f;
+    [SerializeField] private float dashAmount;
 
     public bool _isDodging;
     private bool _isAttacking;
@@ -39,6 +41,7 @@ public class PlayerController : MonoBehaviour
     private static readonly int Running = Animator.StringToHash("Running");
     private static readonly int Dodging = Animator.StringToHash("Dodging");
     private static readonly int Combo = Animator.StringToHash("Combo");
+    private static readonly int IsRunning = Animator.StringToHash("isRunning");
 
     #endregion
     private void Start()
@@ -58,6 +61,9 @@ public class PlayerController : MonoBehaviour
 
         _movementInput = new Vector3(Input.GetAxis("Horizontal"),0,Input.GetAxis("Vertical")).normalized;
 
+        Debug.Log(Input.mousePosition);
+
+        
         if (!_isDodging)
         {
             if (Input.GetKeyDown(KeyCode.LeftShift))
@@ -114,15 +120,6 @@ public class PlayerController : MonoBehaviour
         {
             LookTowardsMouse();
             var distanceToMouse = _mousePosition - transform.position;
-            if (distanceToMouse.magnitude > 1f)
-            {
-                Move(_movementInput);
-            }
-            else
-            {
-                _myRigidbody.velocity = Vector3.zero;
-                _myAnimator.SetBool(Running, false);
-            }
         }
 
         #endregion
@@ -133,19 +130,19 @@ public class PlayerController : MonoBehaviour
      /// <summary>
     /// Handle Movement
     /// </summary>
-    private void Move(Vector3 direction)
-    {
-        if (_movementInput.magnitude > 0)
-        {
-            _myAnimator.SetBool(Running, true);
-            _myRigidbody.velocity = direction * (playerStats.MoveSpeed * Time.fixedDeltaTime);
-        }
-        else
-        {
-            _myRigidbody.velocity = Vector3.zero;
-            _myAnimator.SetBool(Running,false);
-        }
-    }
+    private IEnumerator Move(Vector3 target)
+     {
+         float playerDistanceToFloor = transform.position.y - target.y;
+         target.y += playerDistanceToFloor;
+         _myAnimator.SetTrigger(IsRunning);
+         while (Vector3.Distance(transform.position,target) > 0.1f)
+         {
+             Vector3 direction = target - transform.position;
+             _myRigidbody.velocity = direction.normalized * (playerStats.MoveSpeed * Time.fixedDeltaTime);
+
+             yield return null;
+         }
+     }
 
     /// <summary>
     /// Handles character rotation
@@ -160,11 +157,14 @@ public class PlayerController : MonoBehaviour
     private void LookTowardsMouse()
     {
         var ray = _myCamera.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray,out RaycastHit raycastHit))
+        if (Physics.Raycast(ray: ray, hitInfo: out RaycastHit hit))
         {
-            //Rotate player model towards hit point
-            transform.LookAt(new Vector3(raycastHit.point.x,0f,raycastHit.point.z));
-            _mousePosition = raycastHit.point;
+            if (hit.collider.transform.CompareTag("Ground"))
+            {
+                transform.LookAt(new Vector3(hit.point.x,0f,hit.point.z));
+                _mousePosition = hit.point;
+                StartCoroutine(Move(new Vector3(hit.point.x,0f,hit.point.z)));
+            }
         }
     }
 
@@ -205,8 +205,10 @@ public class PlayerController : MonoBehaviour
         if (timer < _attackTimer)
         {
             _isAttacking = true;
+            var direction = _mousePosition - transform.position;
             _combo++;
             _myAnimator.SetInteger(Combo, _combo);
+            _myRigidbody.AddForce(direction * dashAmount);
         }
 
         while (timer < _dodgeTimer)
