@@ -32,7 +32,6 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/PlayerDetectionCollider.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/RoamState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/AttackState.cs" root0="FORCE_HIGHLIGHTING" />
@@ -47,7 +46,6 @@
         <option value="$PROJECT_DIR$/Assets/DeactivateBullet.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/State.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/StateMachine.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerStats.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/DieState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/AttackState.cs" />
@@ -60,6 +58,8 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/RoamState.cs" />
         <option value="$PROJECT_DIR$/Assets/PlayerDetectionCollider.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MainMenuManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/IdleState.cs" />
       </list>
     </option>
@@ -120,6 +120,7 @@
       <workItem from="1682357400588" duration="2900000" />
       <workItem from="1682391448837" duration="13544000" />
       <workItem from="1682523580485" duration="6470000" />
+      <workItem from="1682838277520" duration="2281000" />
     </task>
     <servers />
   </component>
