@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 _mousePosition;
     private const float SmoothTime = 0.1f;
     [SerializeField] private float dashAmount;
+    [SerializeField] private float dashTimer;
 
     public bool _isDodging;
     private bool _isAttacking;
@@ -68,10 +69,7 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.LeftShift))
             {
-                if (_movementInput.magnitude != 0)
-                {
-                    StartCoroutine(HandleDodging());
-                }
+                StartCoroutine(HandleDodging());
             }
         }
 
@@ -139,9 +137,8 @@ public class PlayerController : MonoBehaviour
          {
              Vector3 direction = target - transform.position;
              _myRigidbody.velocity = direction.normalized * (playerStats.MoveSpeed * Time.fixedDeltaTime);
-
-             yield return null;
          }
+         yield break;
      }
 
     /// <summary>
@@ -163,7 +160,7 @@ public class PlayerController : MonoBehaviour
             {
                 transform.LookAt(new Vector3(hit.point.x,0f,hit.point.z));
                 _mousePosition = hit.point;
-                StartCoroutine(Move(new Vector3(hit.point.x,0f,hit.point.z)));
+                Move(new Vector3(hit.point.x,0f,hit.point.z));
             }
         }
     }
@@ -175,19 +172,12 @@ public class PlayerController : MonoBehaviour
     private IEnumerator HandleDodging()
     {
         _isDodging = true;
-        float timer = 0;
-        if (timer < _dodgeTimer)
+        float startTimer = Time.time;
+
+        while (Time.time < startTimer + _dodgeTimer)
         {
             _myAnimator.SetTrigger(Dodging);
-            var playerRollSpeed = playerStats.MoveSpeed / 50;
-            var dir = transform.forward * (playerRollSpeed) + Vector3.up * _myRigidbody.velocity.y;
-            _myRigidbody.AddForce(dir, ForceMode.Impulse);
-            yield return null;
-        }
-
-        while (timer < _dodgeTimer)
-        {
-            timer += Time.deltaTime;
+            Move(_mousePosition.normalized * (dashAmount * Time.deltaTime));
         }
 
         yield return new WaitForSeconds(_dodgeTimer);
@@ -200,20 +190,15 @@ public class PlayerController : MonoBehaviour
     /// <returns></returns>
     private IEnumerator MeleePlayerAttack()
     {
-        float timer = 0;
+        float startTimer = Time.time;
 
-        if (timer < _attackTimer)
+        if (startTimer < _attackTimer + dashAmount)
         {
             _isAttacking = true;
             var direction = _mousePosition - transform.position;
             _combo++;
             _myAnimator.SetInteger(Combo, _combo);
-            _myRigidbody.AddForce(direction * dashAmount);
-        }
-
-        while (timer < _dodgeTimer)
-        {
-            timer += Time.deltaTime;
+            _myRigidbody.AddForce(direction * (dashAmount * Time.fixedDeltaTime));
         }
 
         yield return new WaitForSeconds(_attackTimer);
