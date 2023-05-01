@@ -62,15 +62,14 @@ public class PlayerController : MonoBehaviour
 
         _movementInput = new Vector3(Input.GetAxis("Horizontal"),0,Input.GetAxis("Vertical")).normalized;
 
-        Debug.Log(Input.mousePosition);
-
-        
-        if (!_isDodging)
+        if (_movementInput != Vector3.zero)
         {
-            if (Input.GetKeyDown(KeyCode.LeftShift))
-            {
-                StartCoroutine(HandleDodging());
-            }
+            StartCoroutine(Move(_movementInput));
+        }
+
+        if (!_isDodging && Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            StartCoroutine(HandleDodging());
         }
 
         #endregion
@@ -137,21 +136,11 @@ public class PlayerController : MonoBehaviour
          {
              Vector3 direction = target - transform.position;
              _myRigidbody.velocity = direction.normalized * (playerStats.MoveSpeed * Time.fixedDeltaTime);
+             yield return null;
          }
-         yield break;
      }
 
-    /// <summary>
-    /// Handles character rotation
-    /// </summary>
-    private void RotateCharacter()
-    {
-        var targetAngle = Mathf.Atan2(_movementInput.x, _movementInput.z) * Mathf.Rad2Deg;
-        transform.rotation =
-            Quaternion.Slerp(transform.rotation, Quaternion.Euler(0.0f, targetAngle, 0.0f), SmoothTime);
-    }
-
-    private void LookTowardsMouse()
+     private void LookTowardsMouse()
     {
         var ray = _myCamera.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray: ray, hitInfo: out RaycastHit hit))
@@ -160,7 +149,6 @@ public class PlayerController : MonoBehaviour
             {
                 transform.LookAt(new Vector3(hit.point.x,0f,hit.point.z));
                 _mousePosition = hit.point;
-                Move(new Vector3(hit.point.x,0f,hit.point.z));
             }
         }
     }
