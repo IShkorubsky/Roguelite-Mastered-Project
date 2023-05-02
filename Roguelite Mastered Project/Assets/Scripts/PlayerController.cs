@@ -1,7 +1,4 @@
-using System;
 using System.Collections;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
@@ -31,9 +28,6 @@ public class PlayerController : MonoBehaviour
     
     private Vector2 _movementInput;
     private Vector3 _mousePosition;
-    private const float SmoothTime = 0.1f;
-    [SerializeField] private float dashAmount;
-    [SerializeField] private float dashTimer;
 
     public bool _isDodging;
     private bool _isAttacking;
@@ -41,8 +35,7 @@ public class PlayerController : MonoBehaviour
     private float _attackTimer;
     private int _combo;
 
-    private static readonly int Running = Animator.StringToHash("Running");
-    private static readonly int Dodging = Animator.StringToHash("Dodging");
+    private static readonly int IsDodging = Animator.StringToHash("isDodging");
     private static readonly int Combo = Animator.StringToHash("Combo");
     private static readonly int IsRunning = Animator.StringToHash("isRunning");
     private static readonly int IsIdle = Animator.StringToHash("isIdle");
@@ -101,6 +94,9 @@ public class PlayerController : MonoBehaviour
          _movementInput = context.ReadValue<Vector2>();
      }
 
+     /// <summary>
+     /// Handles Player Movement
+     /// </summary>
      private void Move()
      {
          var movement = new Vector3(_movementInput.x,0f,_movementInput.y);
@@ -121,21 +117,6 @@ public class PlayerController : MonoBehaviour
          transform.Translate(movement * (playerStats.MoveSpeed * Time.deltaTime),Space.World);
      }
 
-     /*
-     private void LookTowardsMouse()
-    {
-        var ray = _myCamera.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray: ray, hitInfo: out RaycastHit hit))
-        {
-            if (hit.collider.transform.CompareTag("Ground"))
-            {
-                transform.LookAt(new Vector3(hit.point.x,0f,hit.point.z));
-                _mousePosition = hit.point;
-            }
-        }
-    }
-    */
-
     /// <summary>
     /// Handles dodging
     /// </summary>
@@ -147,7 +128,7 @@ public class PlayerController : MonoBehaviour
 
         while (Time.time < startTimer + _dodgeTimer)
         {
-            _myAnimator.SetTrigger(Dodging);
+            _myAnimator.SetTrigger(IsDodging);
         }
 
         yield return new WaitForSeconds(_dodgeTimer);
@@ -162,13 +143,13 @@ public class PlayerController : MonoBehaviour
     {
         float startTimer = Time.time;
 
-        if (startTimer < _attackTimer + dashAmount)
+        if (startTimer < _attackTimer)
         {
             _isAttacking = true;
             var direction = _mousePosition - transform.position;
             _combo++;
             _myAnimator.SetInteger(Combo, _combo);
-            _myRigidbody.AddForce(direction * (dashAmount * Time.fixedDeltaTime));
+            //_myRigidbody.AddForce(direction * (dashAmount * Time.fixedDeltaTime));
         }
 
         yield return new WaitForSeconds(_attackTimer);
