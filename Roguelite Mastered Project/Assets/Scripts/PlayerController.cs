@@ -60,12 +60,6 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        #region Movement
-
-        _movementInput = new Vector3(Input.GetAxis("Horizontal"),0,Input.GetAxis("Vertical")).normalized;
-
-        #endregion
-        
         #region Attacking
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
@@ -124,7 +118,7 @@ public class PlayerController : MonoBehaviour
      /// <summary>
      /// Handle Input
      /// </summary>
-     private void OnMove(InputAction.CallbackContext context)
+     public void OnMove(InputAction.CallbackContext context)
      {
          _movementInput = context.ReadValue<Vector2>();
      }
@@ -132,6 +126,8 @@ public class PlayerController : MonoBehaviour
      private void Move()
      {
          var movement = new Vector3(_movementInput.x,0f,_movementInput.y);
+         
+         transform.rotation = Quaternion.Slerp(transform.rotation,Quaternion.LookRotation(movement),0.15f);
          
          transform.Translate(movement * (playerStats.MoveSpeed * Time.fixedDeltaTime),Space.World);
      }
@@ -161,7 +157,6 @@ public class PlayerController : MonoBehaviour
         while (Time.time < startTimer + _dodgeTimer)
         {
             _myAnimator.SetTrigger(Dodging);
-            StartCoroutine(Move(_mousePosition.normalized * (dashAmount * Time.deltaTime)));
         }
 
         yield return new WaitForSeconds(_dodgeTimer);
