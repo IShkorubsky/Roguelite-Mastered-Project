@@ -45,6 +45,7 @@ public class PlayerController : MonoBehaviour
     private static readonly int Dodging = Animator.StringToHash("Dodging");
     private static readonly int Combo = Animator.StringToHash("Combo");
     private static readonly int IsRunning = Animator.StringToHash("isRunning");
+    private static readonly int IsIdle = Animator.StringToHash("isIdle");
 
     #endregion
     private void Start()
@@ -60,31 +61,18 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        
+        Move();
+
         #region Attacking
-
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            //Look towards mouse position
-            StartCoroutine(MeleePlayerAttack());
-        }
-
-        if (Input.GetKeyDown(KeyCode.Mouse1))
-        {
-            StartCoroutine(RangedPlayerAttack());
-        }
-
+        
+        
         #endregion
 
         #region Health
 
         healthBar.value = playerStats.Health * 0.01f;
         //playerStats.HealthRegeneration();
-
-        //Test taking damage
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            playerStats.TakeDamage(5);
-        }
 
         if (playerStats.Health <= 0)
         {
@@ -98,18 +86,8 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         #region Movement
-        Move();
         
-        if (!_isDodging)
-        {
-            LookTowardsMouse();
-            if (Input.GetKeyDown(KeyCode.LeftShift))
-            {
-                //Bug here
-                StartCoroutine(HandleDodging());
-            }
-        }
-
+        
         #endregion
     }
 
@@ -126,12 +104,24 @@ public class PlayerController : MonoBehaviour
      private void Move()
      {
          var movement = new Vector3(_movementInput.x,0f,_movementInput.y);
+
+         if (movement != Vector3.zero)
+         {
+             _myAnimator.ResetTrigger(IsIdle);
+             _myAnimator.SetTrigger(IsRunning);
+         }
+         else
+         {
+             _myAnimator.ResetTrigger(IsRunning);
+             _myAnimator.SetTrigger(IsIdle);
+         }
          
          transform.rotation = Quaternion.Slerp(transform.rotation,Quaternion.LookRotation(movement),0.15f);
          
-         transform.Translate(movement * (playerStats.MoveSpeed * Time.fixedDeltaTime),Space.World);
+         transform.Translate(movement * (playerStats.MoveSpeed * Time.deltaTime),Space.World);
      }
 
+     /*
      private void LookTowardsMouse()
     {
         var ray = _myCamera.ScreenPointToRay(Input.mousePosition);
@@ -144,6 +134,7 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+    */
 
     /// <summary>
     /// Handles dodging
