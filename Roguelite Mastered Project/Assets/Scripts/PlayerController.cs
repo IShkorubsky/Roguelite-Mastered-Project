@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -62,16 +63,6 @@ public class PlayerController : MonoBehaviour
 
         _movementInput = new Vector3(Input.GetAxis("Horizontal"),0,Input.GetAxis("Vertical")).normalized;
 
-        if (_movementInput != Vector3.zero)
-        {
-            StartCoroutine(Move(_movementInput));
-        }
-
-        if (!_isDodging && Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            StartCoroutine(HandleDodging());
-        }
-
         #endregion
         
         #region Attacking
@@ -112,11 +103,19 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         #region Movement
-
+        if (_movementInput != Vector3.zero)
+        {
+            StartCoroutine(Move(_movementInput));
+        }
+        
         if (!_isDodging)
         {
             LookTowardsMouse();
-            var distanceToMouse = _mousePosition - transform.position;
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                //Bug here
+                StartCoroutine(HandleDodging());
+            }
         }
 
         #endregion
@@ -134,7 +133,7 @@ public class PlayerController : MonoBehaviour
          _myAnimator.SetTrigger(IsRunning);
          while (Vector3.Distance(transform.position,target) > 0.1f)
          {
-             Vector3 direction = target - transform.position;
+             Vector3 direction = transform.position - target;
              _myRigidbody.velocity = direction.normalized * (playerStats.MoveSpeed * Time.fixedDeltaTime);
              yield return null;
          }
@@ -165,7 +164,7 @@ public class PlayerController : MonoBehaviour
         while (Time.time < startTimer + _dodgeTimer)
         {
             _myAnimator.SetTrigger(Dodging);
-            Move(_mousePosition.normalized * (dashAmount * Time.deltaTime));
+            StartCoroutine(Move(_mousePosition.normalized * (dashAmount * Time.deltaTime)));
         }
 
         yield return new WaitForSeconds(_dodgeTimer);
