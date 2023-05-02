@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 //1 Done - Use player SO to take values
 //2 Done - Handle Movement 
@@ -28,7 +29,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody _myRigidbody;
     private Animator _myAnimator;
     
-    private Vector3 _movementInput;
+    private Vector2 _movementInput;
     private Vector3 _mousePosition;
     private const float SmoothTime = 0.1f;
     [SerializeField] private float dashAmount;
@@ -103,10 +104,7 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         #region Movement
-        if (_movementInput != Vector3.zero)
-        {
-            StartCoroutine(Move(_movementInput));
-        }
+        Move();
         
         if (!_isDodging)
         {
@@ -124,19 +122,18 @@ public class PlayerController : MonoBehaviour
     #region Methods
 
      /// <summary>
-    /// Handle Movement
-    /// </summary>
-    private IEnumerator Move(Vector3 target)
+     /// Handle Input
+     /// </summary>
+     private void OnMove(InputAction.CallbackContext context)
      {
-         float playerDistanceToFloor = transform.position.y - target.y;
-         target.y += playerDistanceToFloor;
-         _myAnimator.SetTrigger(IsRunning);
-         while (Vector3.Distance(transform.position,target) > 0.1f)
-         {
-             Vector3 direction = transform.position - target;
-             _myRigidbody.velocity = direction.normalized * (playerStats.MoveSpeed * Time.fixedDeltaTime);
-             yield return null;
-         }
+         _movementInput = context.ReadValue<Vector2>();
+     }
+
+     private void Move()
+     {
+         var movement = new Vector3(_movementInput.x,0f,_movementInput.y);
+         
+         transform.Translate(movement * (playerStats.MoveSpeed * Time.fixedDeltaTime),Space.World);
      }
 
      private void LookTowardsMouse()
