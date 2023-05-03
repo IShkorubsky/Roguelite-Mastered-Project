@@ -12350,8 +12350,6 @@ MonoBehaviour:
   arrowSpawnPosition: {fileID: 283394455}
   swordScript: {fileID: 1917389444687929}
   healthBar: {fileID: 1374871399}
-  dashAmount: 500
-  dashTimer: 0
   _isDodging: 0
 --- !u!54 &2087478668
 Rigidbody:
@@ -12442,6 +12440,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 55eff9fa-677d-4d2d-a1a1-f3916f56b781
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2087478667}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnMouseLook
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: dbf38038-65ed-4e10-8df3-5ddaaf39bd4b
+    m_ActionName: Player/MouseLook[/Mouse/position]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2087478667}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnLeftMouseClick
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 17ee65ed-a3bb-4be5-9c44-75a43cebd248
+    m_ActionName: Player/LeftMouseAttack[/Mouse/leftButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -13857,8 +13887,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 0.21501301, y: 1.2564577, z: 0.053970408}
-  m_Center: {x: -0.00000031735132, y: 0.48822877, z: -0.00000016943493}
+  m_Size: {x: 0.44981217, y: 0.9981704, z: 0.28794563}
+  m_Center: {x: -0.0064314413, y: 0.65521604, z: 0.0027528016}
 --- !u!54 &1917389444687931
 Rigidbody:
   m_ObjectHideFlags: 0

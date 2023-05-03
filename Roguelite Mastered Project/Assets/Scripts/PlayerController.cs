@@ -21,11 +21,11 @@ public class PlayerController : MonoBehaviour
     public Stats PlayerStats => playerStats;
     [SerializeField] private DealDamage swordScript;
     [SerializeField] private Slider healthBar;
-    
+
     private Camera _myCamera;
     private Rigidbody _myRigidbody;
     private Animator _myAnimator;
-    
+
     private Vector2 _movementInput;
     private Vector2 _mousePosition;
     private Vector3 _rotationTarget;
@@ -33,15 +33,15 @@ public class PlayerController : MonoBehaviour
     public bool _isDodging;
     private bool _isAttacking;
     private float _dodgeTimer;
-    private float _attackTimer;
     private int _combo;
 
-    private static readonly int IsDodging = Animator.StringToHash("isDodging");
-    private static readonly int Combo = Animator.StringToHash("Combo");
     private static readonly int IsRunning = Animator.StringToHash("isRunning");
     private static readonly int IsIdle = Animator.StringToHash("isIdle");
+    private static readonly int IsAttacking = Animator.StringToHash("isAttacking");
+    private static readonly int IsDodging = Animator.StringToHash("isDodging");
 
     #endregion
+
     private void Start()
     {
         arrowSpawnPosition = transform.GetChild(1).GetComponent<Transform>();
@@ -50,7 +50,6 @@ public class PlayerController : MonoBehaviour
         _myCamera = Camera.main;
         playerStats.SetMaxHealth();
         _dodgeTimer = 1f;
-        _attackTimer = 0.8f;
     }
 
     private void Update()
@@ -61,9 +60,15 @@ public class PlayerController : MonoBehaviour
         {
             _rotationTarget = raycastHit.point;
         }
-        
+
         MoveWithAim();
 
+        if (_isAttacking)
+        {
+            Debug.Log("isAttacking");
+            MeleePlayerAttack();
+        }
+        
         #region Health
 
         healthBar.value = playerStats.Health * 0.01f;
@@ -80,62 +85,63 @@ public class PlayerController : MonoBehaviour
 
     #region Methods
 
-     /// <summary>
-     /// Handle Input
-     /// </summary>
-     public void OnMove(InputAction.CallbackContext context)
-     {
-         _movementInput = context.ReadValue<Vector2>();
-     }
+    #region Input Callbacks
 
-     public void OnMouseLook(InputAction.CallbackContext context)
-     {
-         _mousePosition = context.ReadValue<Vector2>();
-     }
+    public void OnMove(InputAction.CallbackContext context)
+    {
+        _movementInput = context.ReadValue<Vector2>();
+    }
 
-     /// <summary>
-     /// Handles Player Movement
-     /// </summary>
-     private void Move()
-     {
-         var movement = new Vector3(_movementInput.x,0f,_movementInput.y);
+    public void OnMouseLook(InputAction.CallbackContext context)
+    {
+        _mousePosition = context.ReadValue<Vector2>();
+    }
 
-         
-         
-         transform.Translate(movement * (playerStats.MoveSpeed * Time.deltaTime),Space.World);
-     }
+    public void OnLeftMouseClick(InputAction.CallbackContext context)
+    {
+        _isAttacking = context.ReadValueAsButton();
+    }
 
+    #endregion
+
+    #region Actions
+
+    /// <summary>
+    /// Handles moving while looking at the mouse position in the world
+    /// </summary>
      public void MoveWithAim()
-     {
-         var lookPosition = _rotationTarget - transform.position;
-         lookPosition.y = 0;
-         var rotation = Quaternion.LookRotation(lookPosition);
-         
-         var aimDirection = new Vector3(_rotationTarget.x,0f,_rotationTarget.z);
+    {
+        var lookPosition = _rotationTarget - transform.position;
+        lookPosition.y = 0;
+        var rotation = Quaternion.LookRotation(lookPosition);
 
-         if (aimDirection != Vector3.zero)
-         {
-             transform.rotation = Quaternion.Slerp(transform.rotation,rotation,0.15f);
-         }
-         
-         var movement = new Vector3(_movementInput.x,0f,_movementInput.y);
-         
-         if (movement != Vector3.zero)
-         {
-             _myAnimator.ResetTrigger(IsIdle);
-             _myAnimator.SetTrigger(IsRunning);
-         }
-         else
-         {
-             _myAnimator.ResetTrigger(IsRunning);
-             _myAnimator.SetTrigger(IsIdle);
-         }
-         
-         
-         
-         transform.Translate(movement * (playerStats.MoveSpeed * Time.deltaTime),Space.World);
-     }
-     
+        var aimDirection = new Vector3(_rotationTarget.x, 0f, _rotationTarget.z);
+        var distanceToMouse = _mousePosition - new Vector2(transform.position.x,transform.position.y);
+
+        if (aimDirection != Vector3.zero && distanceToMouse.magnitude > 3f)
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 0.15f);
+        }
+
+        var movement = new Vector3(_movementInput.x, 0f, _movementInput.y);
+
+        if (!_isAttacking)
+        {
+            if (movement != Vector3.zero)
+            {
+                _myAnimator.ResetTrigger(IsIdle);
+                _myAnimator.SetTrigger(IsRunning);
+            }
+            else
+            {
+                _myAnimator.ResetTrigger(IsRunning);
+                _myAnimator.SetTrigger(IsIdle);
+            }
+        }
+
+        transform.Translate(movement * (playerStats.MoveSpeed * Time.deltaTime), Space.World);
+    }
+
     /// <summary>
     /// Handles dodging
     /// </summary>
@@ -158,22 +164,12 @@ public class PlayerController : MonoBehaviour
     /// Handles Melee Attacking
     /// </summary>
     /// <returns></returns>
-    private IEnumerator MeleePlayerAttack()
+    private void MeleePlayerAttack()
     {
-        float startTimer = Time.time;
-        if (startTimer < _attackTimer)
-        {
-            _isAttacking = true;
-            //var direction = _mousePosition - transform.position;
-            _combo++;
-            _myAnimator.SetInteger(Combo, _combo);
-            //_myRigidbody.AddForce(direction * (dashAmount * Time.fixedDeltaTime));
-        }
-
-        yield return new WaitForSeconds(_attackTimer);
+        _myAnimator.ResetTrigger(IsIdle);
+        _myAnimator.ResetTrigger(IsRunning);
+        _myAnimator.SetTrigger(IsAttacking);
         _isAttacking = false;
-        _combo = 0;
-        _myAnimator.SetInteger(Combo, _combo);
     }
 
     /// <summary>
@@ -186,9 +182,14 @@ public class PlayerController : MonoBehaviour
         bullet.transform.position = arrowSpawnPosition.transform.position;
         bullet.GetComponent<Rigidbody>().velocity = Vector3.zero;
         bullet.SetActive(true);
-        bullet.GetComponent<Rigidbody>().AddForce(arrowSpawnPosition.forward * playerStats.RangedAttackSpeed,ForceMode.VelocityChange);
+        bullet.GetComponent<Rigidbody>().AddForce(arrowSpawnPosition.forward * playerStats.RangedAttackSpeed,
+            ForceMode.VelocityChange);
         yield break;
     }
+
+    #endregion
+
+   
 
     /// <summary>
     /// Activates collider on sword
