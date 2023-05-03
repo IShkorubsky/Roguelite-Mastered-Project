@@ -59,8 +59,8 @@
         <option value="$PROJECT_DIR$/Assets/PlayerDetectionCollider.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MainMenuManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/IdleState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CameraController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/IdleState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
       </list>
     </option>
@@ -123,7 +123,8 @@
       <workItem from="1682523580485" duration="6470000" />
       <workItem from="1682838277520" duration="2281000" />
       <workItem from="1682980316513" duration="362000" />
-      <workItem from="1683066013041" duration="1701000" />
+      <workItem from="1683066013041" duration="2063000" />
+      <workItem from="1683095277845" duration="1857000" />
     </task>
     <servers />
   </component>

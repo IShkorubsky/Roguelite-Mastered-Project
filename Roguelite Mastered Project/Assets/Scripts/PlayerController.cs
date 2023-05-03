@@ -27,7 +27,8 @@ public class PlayerController : MonoBehaviour
     private Animator _myAnimator;
     
     private Vector2 _movementInput;
-    private Vector3 _mousePosition;
+    private Vector2 _mousePosition;
+    private Vector3 _rotationTarget;
 
     public bool _isDodging;
     private bool _isAttacking;
@@ -54,13 +55,14 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        
-        Move();
+        var ray = _myCamera.ScreenPointToRay(_mousePosition);
 
-        #region Attacking
+        if (Physics.Raycast(ray, out var raycastHit))
+        {
+            _rotationTarget = raycastHit.point;
+        }
         
-        
-        #endregion
+        MoveWithAim();
 
         #region Health
 
@@ -76,14 +78,6 @@ public class PlayerController : MonoBehaviour
         #endregion
     }
 
-    private void FixedUpdate()
-    {
-        #region Movement
-        
-        
-        #endregion
-    }
-
     #region Methods
 
      /// <summary>
@@ -94,6 +88,11 @@ public class PlayerController : MonoBehaviour
          _movementInput = context.ReadValue<Vector2>();
      }
 
+     public void OnMouseLook(InputAction.CallbackContext context)
+     {
+         _mousePosition = context.ReadValue<Vector2>();
+     }
+
      /// <summary>
      /// Handles Player Movement
      /// </summary>
@@ -101,6 +100,26 @@ public class PlayerController : MonoBehaviour
      {
          var movement = new Vector3(_movementInput.x,0f,_movementInput.y);
 
+         
+         
+         transform.Translate(movement * (playerStats.MoveSpeed * Time.deltaTime),Space.World);
+     }
+
+     public void MoveWithAim()
+     {
+         var lookPosition = _rotationTarget - transform.position;
+         lookPosition.y = 0;
+         var rotation = Quaternion.LookRotation(lookPosition);
+         
+         var aimDirection = new Vector3(_rotationTarget.x,0f,_rotationTarget.z);
+
+         if (aimDirection != Vector3.zero)
+         {
+             transform.rotation = Quaternion.Slerp(transform.rotation,rotation,0.15f);
+         }
+         
+         var movement = new Vector3(_movementInput.x,0f,_movementInput.y);
+         
          if (movement != Vector3.zero)
          {
              _myAnimator.ResetTrigger(IsIdle);
@@ -112,11 +131,11 @@ public class PlayerController : MonoBehaviour
              _myAnimator.SetTrigger(IsIdle);
          }
          
-         transform.rotation = Quaternion.Slerp(transform.rotation,Quaternion.LookRotation(movement),0.15f);
+         
          
          transform.Translate(movement * (playerStats.MoveSpeed * Time.deltaTime),Space.World);
      }
-
+     
     /// <summary>
     /// Handles dodging
     /// </summary>
@@ -142,11 +161,10 @@ public class PlayerController : MonoBehaviour
     private IEnumerator MeleePlayerAttack()
     {
         float startTimer = Time.time;
-
         if (startTimer < _attackTimer)
         {
             _isAttacking = true;
-            var direction = _mousePosition - transform.position;
+            //var direction = _mousePosition - transform.position;
             _combo++;
             _myAnimator.SetInteger(Combo, _combo);
             //_myRigidbody.AddForce(direction * (dashAmount * Time.fixedDeltaTime));
