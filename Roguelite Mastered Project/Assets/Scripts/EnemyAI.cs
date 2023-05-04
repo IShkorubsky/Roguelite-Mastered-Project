@@ -32,7 +32,7 @@ public class EnemyAI : MonoBehaviour
     {
         _distanceToPlayer = (playerTransform.position - transform.position).magnitude;
 
-        if (_distanceToPlayer <= 2)
+        if (_distanceToPlayer <= 3)
         {
             playerInRange = true;
         }
