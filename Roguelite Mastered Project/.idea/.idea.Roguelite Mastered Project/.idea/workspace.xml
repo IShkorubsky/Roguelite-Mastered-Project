@@ -50,7 +50,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/DieState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/AttackState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PracticeDummy.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/DealDamage.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DeactivateBullet.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/StateMachine.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/EnemyAI.cs" />
@@ -61,6 +60,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CameraController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/IdleState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DealDamage.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
       </list>
     </option>
@@ -125,6 +125,7 @@
       <workItem from="1682980316513" duration="362000" />
       <workItem from="1683066013041" duration="2063000" />
       <workItem from="1683095277845" duration="5007000" />
+      <workItem from="1683168293898" duration="6582000" />
     </task>
     <servers />
   </component>
@@ -153,9 +154,9 @@
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
     <state x="718" y="376" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1/-1920.6.1920.1032/1920.0.1920.1032/0.0.1920.1032@0.0.1920.1032" timestamp="1681223011423" />
-    <state x="623" y="223" width="672" height="678" key="search.everywhere.popup" timestamp="1682524471805">
+    <state x="623" y="223" width="672" height="678" key="search.everywhere.popup" timestamp="1683224607063">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
-    <state x="623" y="223" width="672" height="678" key="search.everywhere.popup/-1920.6.1920.1032/1920.0.1920.1032/0.0.1920.1032@0.0.1920.1032" timestamp="1682524471805" />
+    <state x="623" y="223" width="672" height="678" key="search.everywhere.popup/-1920.6.1920.1032/1920.0.1920.1032/0.0.1920.1032@0.0.1920.1032" timestamp="1683224607063" />
   </component>
 </project>

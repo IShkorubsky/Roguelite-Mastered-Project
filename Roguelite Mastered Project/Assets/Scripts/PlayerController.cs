@@ -19,26 +19,24 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Stats playerStats;
     [SerializeField] private Transform arrowSpawnPosition;
     public Stats PlayerStats => playerStats;
-    [SerializeField] private DealDamage swordScript;
     [SerializeField] private Slider healthBar;
+    [SerializeField] private Slider dodgeCooldownBar;
 
     private Camera _myCamera;
     private Rigidbody _myRigidbody;
     private Animator _myAnimator;
+    [SerializeField] private Transform damageCollider;
 
     private Vector2 _movementInput;
     private Vector2 _mousePosition;
     private Vector3 _rotationTarget;
 
-    public bool _isDodging;
+    private bool _isDodging;
     private bool _isAttacking;
-    private float _dodgeTimer;
-    private int _combo;
 
     private static readonly int IsRunning = Animator.StringToHash("isRunning");
     private static readonly int IsIdle = Animator.StringToHash("isIdle");
     private static readonly int IsAttacking = Animator.StringToHash("isAttacking");
-    private static readonly int IsDodging = Animator.StringToHash("isDodging");
 
     #endregion
 
@@ -49,7 +47,6 @@ public class PlayerController : MonoBehaviour
         _myAnimator = gameObject.GetComponent<Animator>();
         _myCamera = Camera.main;
         playerStats.SetMaxHealth();
-        _dodgeTimer = 1f;
     }
 
     private void Update()
@@ -63,12 +60,6 @@ public class PlayerController : MonoBehaviour
 
         MoveWithAim();
 
-        if (_isAttacking)
-        {
-            Debug.Log("isAttacking");
-            MeleePlayerAttack();
-        }
-        
         #region Health
 
         healthBar.value = playerStats.Health * 0.01f;
@@ -100,6 +91,12 @@ public class PlayerController : MonoBehaviour
     public void OnLeftMouseClick(InputAction.CallbackContext context)
     {
         _isAttacking = context.ReadValueAsButton();
+        _myAnimator.SetBool(IsAttacking,_isAttacking);
+    }
+    
+    public void OnLeftShift(InputAction.CallbackContext context)
+    {
+        _isDodging = context.ReadValueAsButton();
     }
 
     #endregion
@@ -109,14 +106,14 @@ public class PlayerController : MonoBehaviour
     /// <summary>
     /// Handles moving while looking at the mouse position in the world
     /// </summary>
-     public void MoveWithAim()
+    public void MoveWithAim()
     {
         var lookPosition = _rotationTarget - transform.position;
         lookPosition.y = 0;
         var rotation = Quaternion.LookRotation(lookPosition);
 
         var aimDirection = new Vector3(_rotationTarget.x, 0f, _rotationTarget.z);
-        var distanceToMouse = _mousePosition - new Vector2(transform.position.x,transform.position.y);
+        var distanceToMouse = _mousePosition - new Vector2(transform.position.x, transform.position.y);
 
         if (aimDirection != Vector3.zero && distanceToMouse.magnitude > 3f)
         {
@@ -139,6 +136,21 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        if (dodgeCooldownBar.value >= 1)
+        {
+            dodgeCooldownBar.gameObject.SetActive(false);
+
+            if (_isDodging)
+            {
+                HandleDodging(movement);
+            }
+        }
+        else
+        {
+            dodgeCooldownBar.gameObject.SetActive(true);
+            dodgeCooldownBar.value += Time.deltaTime;
+        }
+        
         transform.Translate(movement * (playerStats.MoveSpeed * Time.deltaTime), Space.World);
     }
 
@@ -146,32 +158,22 @@ public class PlayerController : MonoBehaviour
     /// Handles dodging
     /// </summary>
     /// <returns></returns>
-    private IEnumerator HandleDodging()
+    private void HandleDodging(Vector3 movement)
     {
-        _isDodging = true;
-        float startTimer = Time.time;
-
-        while (Time.time < startTimer + _dodgeTimer)
-        {
-            _myAnimator.SetTrigger(IsDodging);
-        }
-
-        yield return new WaitForSeconds(_dodgeTimer);
-        _isDodging = false;
+        transform.Translate(movement * (playerStats.MoveSpeed * Time.deltaTime * 50), Space.World);
+        dodgeCooldownBar.value = 0;
     }
 
-    /// <summary>
-    /// Handles Melee Attacking
-    /// </summary>
-    /// <returns></returns>
-    private void MeleePlayerAttack()
+    public void ActivateAttackCollider()
     {
-        _myAnimator.ResetTrigger(IsIdle);
-        _myAnimator.ResetTrigger(IsRunning);
-        _myAnimator.SetTrigger(IsAttacking);
-        _isAttacking = false;
+        damageCollider.gameObject.SetActive(true);
     }
-
+    
+    public void DeactivateAttackCollider()
+    {
+        damageCollider.gameObject.SetActive(false);
+    }
+    
     /// <summary>
     /// Handles Ranged Attacking
     /// </summary>
@@ -188,24 +190,6 @@ public class PlayerController : MonoBehaviour
     }
 
     #endregion
-
-   
-
-    /// <summary>
-    /// Activates collider on sword
-    /// </summary>
-    private void ActivateSword()
-    {
-        swordScript.ActivateCollider();
-    }
-
-    /// <summary>
-    /// Deactivates collider on sword
-    /// </summary>
-    private void DeactivateSword()
-    {
-        swordScript.DeactivateCollider();
-    }
 
     #endregion
 }
