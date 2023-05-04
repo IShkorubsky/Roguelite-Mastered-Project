@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Stats playerStats;
     [SerializeField] private Transform arrowSpawnPosition;
     public Stats PlayerStats => playerStats;
+
     [SerializeField] private Slider healthBar;
     [SerializeField] private Slider dodgeCooldownBar;
 
@@ -33,6 +34,7 @@ public class PlayerController : MonoBehaviour
 
     private bool _isDodging;
     private bool _isAttacking;
+    public bool IsAttackingBool => _isAttacking;
 
     private static readonly int IsRunning = Animator.StringToHash("isRunning");
     private static readonly int IsIdle = Animator.StringToHash("isIdle");
