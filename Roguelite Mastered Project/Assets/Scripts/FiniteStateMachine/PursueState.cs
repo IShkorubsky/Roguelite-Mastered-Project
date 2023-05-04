@@ -33,11 +33,6 @@ namespace FiniteStateMachine
                     NextState = new AttackState(EnemyGameObject,EnemyStats,Agent,MyAnimator,PlayerTransform);
                     Stage = Event.Exit;
                 }
-                else if (!_enemyAI.playerInRange)
-                {
-                    NextState = new IdleState(EnemyGameObject,EnemyStats,Agent,MyAnimator,PlayerTransform);
-                    Stage = Event.Exit;
-                }
             }
         }
 

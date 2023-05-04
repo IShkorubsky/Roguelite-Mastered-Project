@@ -10,6 +10,7 @@ public class EnemyAI : MonoBehaviour
     private Animator _myAnimator;
     public Transform playerTransform;
     private StateMachine _currentState;
+    public float _distanceToPlayer;
     public bool playerInRange;
     
     [SerializeField] private Stats enemyStats;
@@ -29,14 +30,26 @@ public class EnemyAI : MonoBehaviour
 
     private void Update()
     {
+        _distanceToPlayer = (playerTransform.position - transform.position).magnitude;
+
+        if (_distanceToPlayer <= 5)
+        {
+            playerInRange = true;
+        }
+        else
+        {
+            playerInRange = false;
+        }
+        
         _currentState = _currentState.Process();
         Debug.Log(_currentState);
-        
+
         healthSlider.value = EnemyStats.Health;
 
         if (EnemyStats.Health <= 0)
         {
             Destroy(gameObject);
         }
+        
     }
 }

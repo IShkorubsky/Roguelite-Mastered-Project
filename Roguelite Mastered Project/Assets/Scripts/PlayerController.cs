@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     private Camera _myCamera;
     private Rigidbody _myRigidbody;
     private Animator _myAnimator;
-    [SerializeField] private Transform damageCollider;
+    [SerializeField] private Collider damageCollider;
 
     private Vector2 _movementInput;
     private Vector2 _mousePosition;
