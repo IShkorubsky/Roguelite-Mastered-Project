@@ -58,10 +58,10 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CameraController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/IdleState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/EnemyAI.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/PursueState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DealDamage.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/EnemyAI.cs" />
       </list>
     </option>
   </component>
@@ -125,7 +125,7 @@
       <workItem from="1682980316513" duration="362000" />
       <workItem from="1683066013041" duration="2063000" />
       <workItem from="1683095277845" duration="5007000" />
-      <workItem from="1683168293898" duration="9997000" />
+      <workItem from="1683168293898" duration="10651000" />
     </task>
     <servers />
   </component>
