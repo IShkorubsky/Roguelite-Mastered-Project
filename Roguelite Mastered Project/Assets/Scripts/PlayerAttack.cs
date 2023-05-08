@@ -5,17 +5,11 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class PlayerAttack : Player
+public class PlayerAttack : PlayerAnimator
 {
     [SerializeField] private Transform arrowSpawnPosition;
-    [SerializeField] private Collider damageCollider;
-
-    private bool _isAttacking;
-
-    public bool IsAttackingBool => _isAttacking;
-
-    private static readonly int IsAttacking = Animator.StringToHash("isAttacking");
-
+    [SerializeField] private Collider swordCollider;
+    
     private void OnEnable()
     {
         arrowSpawnPosition = transform.GetChild(1).GetComponent<Transform>();
@@ -27,14 +21,14 @@ public class PlayerAttack : Player
         SetAnimatorBool(IsAttacking,_isAttacking);
     }
     
-    public void ActivateAttackCollider()
+    public void ActivateSwordCollider()
     {
-        damageCollider.gameObject.SetActive(true);
+        swordCollider.gameObject.SetActive(true);
     }
     
     public void DeactivateAttackCollider()
     {
-        damageCollider.gameObject.SetActive(false);
+        swordCollider.gameObject.SetActive(false);
     }
     
     /// <summary>
@@ -47,7 +41,7 @@ public class PlayerAttack : Player
         bullet.transform.position = arrowSpawnPosition.transform.position;
         bullet.GetComponent<Rigidbody>().velocity = Vector3.zero;
         bullet.SetActive(true);
-        bullet.GetComponent<Rigidbody>().AddForce(arrowSpawnPosition.forward * playerStats.RangedAttackSpeed,
+        bullet.GetComponent<Rigidbody>().AddForce(arrowSpawnPosition.forward * GameController.Instance.ChosenClass.RangedAttackSpeed,
             ForceMode.VelocityChange);
         yield break;
     }

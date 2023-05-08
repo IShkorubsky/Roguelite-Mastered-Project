@@ -32,8 +32,8 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerHealth.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerAnimator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerAttack.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/RoamState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/AttackState.cs" root0="FORCE_HIGHLIGHTING" />
@@ -62,13 +62,15 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/PursueState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/EnemyAI.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerAttack.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerLocomotion.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/DealDamage.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerHealth.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerAnimator.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerLocomotion.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerHealth.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DeactivateBullet.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerAttack.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DealDamage.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GameController.cs" />
       </list>
     </option>
   </component>
@@ -133,7 +135,7 @@
       <workItem from="1683066013041" duration="2063000" />
       <workItem from="1683095277845" duration="5007000" />
       <workItem from="1683168293898" duration="11365000" />
-      <workItem from="1683551344239" duration="2424000" />
+      <workItem from="1683551344239" duration="4885000" />
     </task>
     <servers />
   </component>

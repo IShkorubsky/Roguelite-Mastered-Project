@@ -5,11 +5,11 @@ public class DeactivateBullet : MonoBehaviour
 {
     private float _timer;
     [SerializeField] private float timeBeforeDeactivation;
-    private Player _playerController;
+    private PlayerAnimator _playerController;
 
     private void Start()
     {
-        _playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        _playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerAnimator>();
     }
 
     private void Update()
@@ -24,7 +24,7 @@ public class DeactivateBullet : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            other.gameObject.GetComponent<EnemyAI>().EnemyStats.TakeDamage(_playerController.PlayerStats.AttackDamage);
+            other.gameObject.GetComponent<EnemyAI>().EnemyStats.TakeDamage(GameController.Instance.ChosenClass.AttackDamage);
             _timer = 0;
             Deactivate();
         }

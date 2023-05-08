@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerHealth : Player
+public class PlayerHealth : PlayerAnimator
 {
     [SerializeField] private Slider healthBar;
     
@@ -10,15 +10,18 @@ public class PlayerHealth : Player
 
     private void OnEnable()
     {
-        playerStats.SetMaxHealth();
+        if (!GameController.Instance)
+        {
+            GameController.Instance.ChosenClass.SetMaxHealth();
+        }
     }
 
     private void Update()
     {
-        healthBar.value = playerStats.Health * 0.01f;
+        healthBar.value = GameController.Instance.ChosenClass.Health * 0.01f;
         //playerStats.HealthRegeneration();
 
-        if (playerStats.Health <= 0)
+        if (GameController.Instance.ChosenClass.Health <= 0)
         {
             //Handle death
             Debug.Log("Player Dead!");

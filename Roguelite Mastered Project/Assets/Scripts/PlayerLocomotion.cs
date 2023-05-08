@@ -1,9 +1,8 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class PlayerLocomotion : Player
+public class PlayerLocomotion : PlayerAnimator
 {
     private Camera _myCamera;
     [SerializeField] private Slider dodgeCooldownBar;
@@ -11,11 +10,6 @@ public class PlayerLocomotion : Player
     private Vector2 _movementInput;
     private Vector2 _mousePosition;
     private Vector3 _rotationTarget;
-
-    private bool _isDodging;
-
-    private static readonly int IsRunning = Animator.StringToHash("isRunning");
-    private static readonly int IsIdle = Animator.StringToHash("isIdle");
 
     private void OnEnable()
     {
@@ -74,12 +68,12 @@ public class PlayerLocomotion : Player
 
         if (movement != Vector3.zero)
         {
-            SetAnimatorTrigger(IsIdle);
+            ResetAnimatorTrigger(IsIdle);
             SetAnimatorTrigger(IsRunning);
         }
         else
         {
-            SetAnimatorTrigger(IsRunning);
+            ResetAnimatorTrigger(IsRunning);
             SetAnimatorTrigger(IsIdle);
         }
 
@@ -99,7 +93,7 @@ public class PlayerLocomotion : Player
             dodgeCooldownBar.value += Time.deltaTime;
         }
 
-        transform.Translate(movement * (playerStats.MoveSpeed * Time.deltaTime), Space.World);
+        transform.Translate(movement * (GameController.Instance.ChosenClass.MoveSpeed * Time.deltaTime), Space.World);
     }
 
     /// <summary>
@@ -108,7 +102,8 @@ public class PlayerLocomotion : Player
     /// <returns></returns>
     private void HandleDodging(Vector3 movement)
     {
-        transform.Translate(movement * (playerStats.MoveSpeed * Time.deltaTime * 50), Space.World);
+        transform.Translate(movement * (GameController.Instance.ChosenClass.MoveSpeed * Time.deltaTime * 50),
+            Space.World);
         dodgeCooldownBar.value = 0;
     }
 }

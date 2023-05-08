@@ -73490,6 +73490,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91b61a797d5a57f458df7c3f1e73f782, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  classes:
+  - {fileID: 11400000, guid: 2e0ebbce55262764d883cf14e715c159, type: 2}
+  - {fileID: 11400000, guid: 9ad41aa87b78e2143afbb9ad7f7e56ff, type: 2}
+  _chosenClass: {fileID: 0}
 --- !u!4 &1721627253
 Transform:
   m_ObjectHideFlags: 0
@@ -88400,6 +88404,9 @@ GameObject:
   - component: {fileID: 2087478668}
   - component: {fileID: 2087478669}
   - component: {fileID: 2087478667}
+  - component: {fileID: 2087478674}
+  - component: {fileID: 2087478673}
+  - component: {fileID: 2087478672}
   - component: {fileID: 2087478671}
   m_Layer: 0
   m_Name: PlayerCharacter
@@ -88436,11 +88443,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7560bd3ab57341d428a6c41bbd3755b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStats: {fileID: 11400000, guid: 2e0ebbce55262764d883cf14e715c159, type: 2}
-  arrowSpawnPosition: {fileID: 283394455}
-  healthBar: {fileID: 1374871399}
-  dodgeCooldownBar: {fileID: 2146301958}
-  damageCollider: {fileID: 6297178980789927630}
 --- !u!54 &2087478668
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -88516,8 +88518,8 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2087478667}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+      - m_Target: {fileID: 2087478674}
+        m_TargetAssemblyTypeName: PlayerLocomotion, Assembly-CSharp
         m_MethodName: OnMove
         m_Mode: 0
         m_Arguments:
@@ -88532,8 +88534,8 @@ MonoBehaviour:
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2087478667}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+      - m_Target: {fileID: 2087478674}
+        m_TargetAssemblyTypeName: PlayerLocomotion, Assembly-CSharp
         m_MethodName: OnMouseLook
         m_Mode: 0
         m_Arguments:
@@ -88548,8 +88550,8 @@ MonoBehaviour:
     m_ActionName: Player/MouseLook[/Mouse/position]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2087478667}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+      - m_Target: {fileID: 2087478672}
+        m_TargetAssemblyTypeName: PlayerAttack, Assembly-CSharp
         m_MethodName: OnLeftMouseClick
         m_Mode: 0
         m_Arguments:
@@ -88564,8 +88566,8 @@ MonoBehaviour:
     m_ActionName: Player/LeftMouseAttack[/Mouse/leftButton]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2087478667}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+      - m_Target: {fileID: 2087478674}
+        m_TargetAssemblyTypeName: PlayerLocomotion, Assembly-CSharp
         m_MethodName: OnLeftShift
         m_Mode: 0
         m_Arguments:
@@ -88583,6 +88585,46 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 963194227}
+--- !u!114 &2087478672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2087478665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 713e787617aa9614a89af87ef9e7b11c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrowSpawnPosition: {fileID: 283394455}
+  swordCollider: {fileID: 6297178980789927630}
+--- !u!114 &2087478673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2087478665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02bdd97e5300b7b4e80ab4ed45477dd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 1374871399}
+--- !u!114 &2087478674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2087478665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba94d7acc0e2fb84092fc287d9c551ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dodgeCooldownBar: {fileID: 2146301958}
 --- !u!1 &2088528413
 GameObject:
   m_ObjectHideFlags: 0
@@ -93966,7 +94008,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackDamage: 0
-  playerController: {fileID: 2087478667}
 --- !u!65 &6297178980789927630
 BoxCollider:
   m_ObjectHideFlags: 0

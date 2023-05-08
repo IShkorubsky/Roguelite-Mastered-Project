@@ -76,8 +76,8 @@
             <e p="RoamState.cs" t="Include" />
             <e p="StateMachine.cs" t="Include" />
           </e>
-          <e p="GameManager.cs" t="Include" />
-          <e p="Player.cs" t="Include" />
+          <e p="GameController.cs" t="Include" />
+          <e p="PlayerAnimator.cs" t="Include" />
           <e p="PlayerAttack.cs" t="Include" />
           <e p="PlayerDetectionCollider.cs" t="Include" />
           <e p="PlayerHealth.cs" t="Include" />
