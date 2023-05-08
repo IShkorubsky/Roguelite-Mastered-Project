@@ -93,7 +93,7 @@ public class PlayerLocomotion : PlayerAnimator
             dodgeCooldownBar.value += Time.deltaTime;
         }
 
-        transform.Translate(movement * (GameController.Instance.ChosenClass.MoveSpeed * Time.deltaTime), Space.World);
+        transform.Translate(movement * (GameManager.Instance.ChosenClass.MoveSpeed * Time.deltaTime), Space.World);
     }
 
     /// <summary>
@@ -102,7 +102,7 @@ public class PlayerLocomotion : PlayerAnimator
     /// <returns></returns>
     private void HandleDodging(Vector3 movement)
     {
-        transform.Translate(movement * (GameController.Instance.ChosenClass.MoveSpeed * Time.deltaTime * 50),
+        transform.Translate(movement * (GameManager.Instance.ChosenClass.MoveSpeed * Time.deltaTime * 50),
             Space.World);
         dodgeCooldownBar.value = 0;
     }

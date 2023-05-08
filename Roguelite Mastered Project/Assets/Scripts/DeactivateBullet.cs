@@ -6,6 +6,8 @@ public class DeactivateBullet : MonoBehaviour
     private float _timer;
     [SerializeField] private float timeBeforeDeactivation;
     private PlayerAnimator _playerController;
+    
+    public static event Action OnDamageTaken;
 
     private void Start()
     {
@@ -24,7 +26,7 @@ public class DeactivateBullet : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            other.gameObject.GetComponent<EnemyAI>().EnemyStats.TakeDamage(GameController.Instance.ChosenClass.AttackDamage);
+            OnDamageTaken?.Invoke();
             _timer = 0;
             Deactivate();
         }

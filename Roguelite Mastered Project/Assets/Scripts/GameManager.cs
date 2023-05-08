@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class GameController : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
-    private static GameController _instance;
+    private static GameManager _instance;
     [SerializeField] private Stats[] classes;
-    [SerializeField] private Stats _chosenClass;
+    private Stats _chosenClass;
     private int _chosenClassInt;
     
     private bool _gameOver;
@@ -12,13 +12,13 @@ public class GameController : MonoBehaviour
     
     public Stats ChosenClass => _chosenClass;
 
-    public static GameController Instance
+    public static GameManager Instance
     {
         get
         {
             if (_instance == null)
             {
-                _instance = new GameController();
+                _instance = new GameManager();
             }
             return _instance;
         }

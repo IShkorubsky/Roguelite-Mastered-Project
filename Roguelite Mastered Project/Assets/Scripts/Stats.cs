@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 //Create a player scriptable object to be used as a holder for stats and creating different classes
@@ -30,6 +31,12 @@ public class Stats : ScriptableObject
     public int AttackRange => attackRange;
     public int RangedAttackSpeed => rangedAttackSpeed;
 
+    private void OnEnable()
+    {
+        DealDamage.OnDamageTaken += GetDamage;
+        DeactivateBullet.OnDamageTaken += GetDamage;
+    }
+
     /// <summary>
     /// Set health based on maxHealth value
     /// </summary>
@@ -42,9 +49,9 @@ public class Stats : ScriptableObject
     /// Take damage based on the desired amount
     /// </summary>
     /// <param name="damageAmount"></param> Desired damage amount
-    public void TakeDamage(int damageAmount)
+    private void GetDamage()
     {
-        health -= damageAmount;
+        health -= attackDamage;
     }
 
     /// <summary>

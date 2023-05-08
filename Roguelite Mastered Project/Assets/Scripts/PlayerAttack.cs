@@ -41,7 +41,7 @@ public class PlayerAttack : PlayerAnimator
         bullet.transform.position = arrowSpawnPosition.transform.position;
         bullet.GetComponent<Rigidbody>().velocity = Vector3.zero;
         bullet.SetActive(true);
-        bullet.GetComponent<Rigidbody>().AddForce(arrowSpawnPosition.forward * GameController.Instance.ChosenClass.RangedAttackSpeed,
+        bullet.GetComponent<Rigidbody>().AddForce(arrowSpawnPosition.forward * GameManager.Instance.ChosenClass.RangedAttackSpeed,
             ForceMode.VelocityChange);
         yield break;
     }

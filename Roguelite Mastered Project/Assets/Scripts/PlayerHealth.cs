@@ -10,18 +10,18 @@ public class PlayerHealth : PlayerAnimator
 
     private void OnEnable()
     {
-        if (!GameController.Instance)
+        if (!GameManager.Instance)
         {
-            GameController.Instance.ChosenClass.SetMaxHealth();
+            GameManager.Instance.ChosenClass.SetMaxHealth();
         }
     }
 
     private void Update()
     {
-        healthBar.value = GameController.Instance.ChosenClass.Health * 0.01f;
+        healthBar.value = GameManager.Instance.ChosenClass.Health * 0.01f;
         //playerStats.HealthRegeneration();
 
-        if (GameController.Instance.ChosenClass.Health <= 0)
+        if (GameManager.Instance.ChosenClass.Health <= 0)
         {
             //Handle death
             Debug.Log("Player Dead!");

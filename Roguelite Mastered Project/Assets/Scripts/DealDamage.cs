@@ -6,17 +6,19 @@ public class DealDamage : MonoBehaviour
     [SerializeField] private int attackDamage;
 
     private GameObject _enemyObject;
+    
+    public static event Action OnDamageTaken;
 
     private void Start()
     {
-        attackDamage = GameController.Instance.ChosenClass.AttackDamage;
+        attackDamage = GameManager.Instance.ChosenClass.AttackDamage;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            other.gameObject.GetComponent<EnemyAI>().EnemyStats.TakeDamage(attackDamage);
+            OnDamageTaken?.Invoke();
         }
     }
 }
