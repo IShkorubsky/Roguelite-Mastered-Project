@@ -4,13 +4,13 @@ using UnityEngine;
 public class DealDamage : MonoBehaviour
 {
     [SerializeField] private int attackDamage;
-    [SerializeField] private PlayerController playerController;
+    [SerializeField] private Player playerController;
 
     private GameObject _enemyObject;
 
     private void Start()
     {
-        attackDamage = gameObject.GetComponentInParent<PlayerController>().PlayerStats.AttackDamage;
+        attackDamage = gameObject.GetComponentInParent<Player>().PlayerStats.AttackDamage;
     }
 
     private void OnTriggerEnter(Collider other)

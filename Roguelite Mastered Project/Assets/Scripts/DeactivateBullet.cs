@@ -5,11 +5,11 @@ public class DeactivateBullet : MonoBehaviour
 {
     private float _timer;
     [SerializeField] private float timeBeforeDeactivation;
-    private PlayerController _playerController;
+    private Player _playerController;
 
     private void Start()
     {
-        _playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        _playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 
     private void Update()
