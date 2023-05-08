@@ -3967,6 +3967,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 2087478666}
   _distanceToPlayer: 0
+  _enemyHealth: 0
   playerInRange: 0
   enemyStats: {fileID: 11400000, guid: 9ad41aa87b78e2143afbb9ad7f7e56ff, type: 2}
   healthSlider: {fileID: 779771638}
@@ -4048,7 +4049,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 61460253}
   m_LocalRotation: {x: -0, y: -0.00000035762784, z: -0, w: -1}
-  m_LocalPosition: {x: 3, y: 0, z: 9.999998}
+  m_LocalPosition: {x: 14.08, y: 0, z: 19.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 47619340}
@@ -18479,6 +18480,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 2087478666}
   _distanceToPlayer: 0
+  _enemyHealth: 0
   playerInRange: 0
   enemyStats: {fileID: 11400000, guid: 9ad41aa87b78e2143afbb9ad7f7e56ff, type: 2}
   healthSlider: {fileID: 1385500473}
@@ -18560,7 +18562,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 393818757}
   m_LocalRotation: {x: -0, y: -0.00000035762784, z: -0, w: -1}
-  m_LocalPosition: {x: -3, y: 0, z: 10.000002}
+  m_LocalPosition: {x: -3, y: 0, z: 21.92}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 616659555}
@@ -69547,6 +69549,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 2087478666}
   _distanceToPlayer: 0
+  _enemyHealth: 0
   playerInRange: 0
   enemyStats: {fileID: 11400000, guid: 9ad41aa87b78e2143afbb9ad7f7e56ff, type: 2}
   healthSlider: {fileID: 2083384899}
@@ -73493,7 +73496,6 @@ MonoBehaviour:
   classes:
   - {fileID: 11400000, guid: 2e0ebbce55262764d883cf14e715c159, type: 2}
   - {fileID: 11400000, guid: 9ad41aa87b78e2143afbb9ad7f7e56ff, type: 2}
-  _chosenClass: {fileID: 0}
 --- !u!4 &1721627253
 Transform:
   m_ObjectHideFlags: 0
@@ -94007,7 +94009,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cb37d9a23d62c5499e07fcc07b056ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 0
 --- !u!65 &6297178980789927630
 BoxCollider:
   m_ObjectHideFlags: 0
