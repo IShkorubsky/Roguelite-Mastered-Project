@@ -1,4 +1,3 @@
-using System;
 using FiniteStateMachine;
 using UnityEngine;
 using UnityEngine.AI;
@@ -11,13 +10,14 @@ public class EnemyAI : MonoBehaviour
     public Transform playerTransform;
     private StateMachine _currentState;
     public float _distanceToPlayer;
+    public float _enemyHealth;
     public bool playerInRange;
     
     [SerializeField] private Stats enemyStats;
     [SerializeField] private Slider healthSlider;
 
     public Stats EnemyStats => enemyStats;
-
+    
     private void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
@@ -25,6 +25,7 @@ public class EnemyAI : MonoBehaviour
         _currentState = new IdleState(gameObject,EnemyStats,_agent,_myAnimator,playerTransform);
         
         EnemyStats.SetMaxHealth();
+        _enemyHealth = enemyStats.Health;
         healthSlider.maxValue = EnemyStats.MAXHealth;
     }
 
@@ -44,12 +45,16 @@ public class EnemyAI : MonoBehaviour
         _currentState = _currentState.Process();
         Debug.Log(_currentState);
 
-        healthSlider.value = EnemyStats.Health;
+        healthSlider.value = _enemyHealth;
 
-        if (EnemyStats.Health <= 0)
+        if (_enemyHealth <= 0)
         {
             Destroy(gameObject);
         }
-        
+    }
+
+    public void GetDamaged()
+    {
+        _enemyHealth -= GameManager.Instance.ChosenClass.AttackDamage;
     }
 }

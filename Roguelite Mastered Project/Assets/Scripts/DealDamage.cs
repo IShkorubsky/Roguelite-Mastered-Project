@@ -3,22 +3,15 @@ using UnityEngine;
 
 public class DealDamage : MonoBehaviour
 {
-    [SerializeField] private int attackDamage;
-
     private GameObject _enemyObject;
     
-    public static event Action OnDamageTaken;
-
-    private void Start()
-    {
-        attackDamage = GameManager.Instance.ChosenClass.AttackDamage;
-    }
+    public static event Action OnEnemyDamagedMelee;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            OnDamageTaken?.Invoke();
+            other.GetComponent<EnemyAI>().GetDamaged();
         }
     }
 }

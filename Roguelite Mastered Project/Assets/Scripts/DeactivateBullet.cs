@@ -7,7 +7,6 @@ public class DeactivateBullet : MonoBehaviour
     [SerializeField] private float timeBeforeDeactivation;
     private PlayerAnimator _playerController;
     
-    public static event Action OnDamageTaken;
 
     private void Start()
     {
@@ -26,7 +25,6 @@ public class DeactivateBullet : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            OnDamageTaken?.Invoke();
             _timer = 0;
             Deactivate();
         }

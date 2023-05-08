@@ -4,12 +4,12 @@ public class PlayerAnimator : MonoBehaviour
 {
     private Animator _myAnimator;
     
-    protected bool _isAttacking;
-    protected bool _isDodging;
+    protected bool IsAttacking;
+    protected bool IsDodging;
 
-    protected static readonly int IsAttacking = Animator.StringToHash("isAttacking");
-    protected static readonly int IsRunning = Animator.StringToHash("isRunning");
-    protected static readonly int IsIdle = Animator.StringToHash("isIdle");
+    protected static readonly int IsAttackingHash = Animator.StringToHash("isAttacking");
+    protected static readonly int IsRunningHash = Animator.StringToHash("isRunning");
+    protected static readonly int IsIdleHash = Animator.StringToHash("isIdle");
 
     private void Start()
     {

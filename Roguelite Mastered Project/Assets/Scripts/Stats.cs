@@ -31,12 +31,6 @@ public class Stats : ScriptableObject
     public int AttackRange => attackRange;
     public int RangedAttackSpeed => rangedAttackSpeed;
 
-    private void OnEnable()
-    {
-        DealDamage.OnDamageTaken += GetDamage;
-        DeactivateBullet.OnDamageTaken += GetDamage;
-    }
-
     /// <summary>
     /// Set health based on maxHealth value
     /// </summary>

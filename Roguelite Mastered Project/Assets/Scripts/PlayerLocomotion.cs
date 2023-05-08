@@ -42,7 +42,7 @@ public class PlayerLocomotion : PlayerAnimator
 
     public void OnLeftShift(InputAction.CallbackContext context)
     {
-        _isDodging = context.ReadValueAsButton();
+        IsDodging = context.ReadValueAsButton();
     }
 
     #endregion
@@ -68,13 +68,13 @@ public class PlayerLocomotion : PlayerAnimator
 
         if (movement != Vector3.zero)
         {
-            ResetAnimatorTrigger(IsIdle);
-            SetAnimatorTrigger(IsRunning);
+            ResetAnimatorTrigger(IsIdleHash);
+            SetAnimatorTrigger(IsRunningHash);
         }
         else
         {
-            ResetAnimatorTrigger(IsRunning);
-            SetAnimatorTrigger(IsIdle);
+            ResetAnimatorTrigger(IsRunningHash);
+            SetAnimatorTrigger(IsIdleHash);
         }
 
 
@@ -82,7 +82,7 @@ public class PlayerLocomotion : PlayerAnimator
         {
             dodgeCooldownBar.gameObject.SetActive(false);
 
-            if (_isDodging)
+            if (IsDodging)
             {
                 HandleDodging(movement);
             }

@@ -17,18 +17,18 @@ public class PlayerAttack : PlayerAnimator
 
     public void OnLeftMouseClick(InputAction.CallbackContext context)
     {
-        _isAttacking = context.ReadValueAsButton();
-        SetAnimatorBool(IsAttacking,_isAttacking);
+        IsAttacking = context.ReadValueAsButton();
+        SetAnimatorBool(IsAttackingHash,IsAttacking);
     }
     
     public void ActivateSwordCollider()
     {
-        swordCollider.gameObject.SetActive(true);
+        swordCollider.gameObject.GetComponent<Collider>().enabled = true;
     }
     
-    public void DeactivateAttackCollider()
+    public void DeactivateSwordCollider()
     {
-        swordCollider.gameObject.SetActive(false);
+        swordCollider.gameObject.GetComponent<Collider>().enabled = false;
     }
     
     /// <summary>
