@@ -4,12 +4,16 @@ public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
     [SerializeField] private Stats[] classes;
+    [SerializeField] private LevelSO[] levels;
+    [SerializeField] private Transform gameWorldSpawnPosition;
+    
     private int _currentLevel;
     private Stats _chosenClass;
     private int _chosenClassInt;
     
     private bool _gameOver;
     private GameObject _playerGameObject;
+    private GameObject _currentGameWorld;
     
     public Stats ChosenClass => _chosenClass;
     public int CurrentLevel => _currentLevel;
@@ -47,5 +51,13 @@ public class GameManager : MonoBehaviour
         {
             return;
         }
+    }
+
+    private void StartLevel(int levelIndex)
+    {
+        _currentGameWorld = Instantiate(levels[levelIndex].GameWorld, gameWorldSpawnPosition.position, Quaternion.identity);
+        EnemySpawner.Instance.spawnPoints = levels[levelIndex].EnemySpawnPositions;
+        _playerGameObject.transform.position = levels[levelIndex].PlayerSpawnPosition.position;
+        _currentLevel = levelIndex;
     }
 }

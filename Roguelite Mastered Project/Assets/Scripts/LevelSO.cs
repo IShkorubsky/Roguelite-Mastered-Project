@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,4 +8,12 @@ public class LevelSO : ScriptableObject
     [SerializeField] private int levelIndex;
     [SerializeField] private Transform playerSpawnPosition;
     [SerializeField] private List<Transform> enemySpawnPositions;
+
+    public GameObject GameWorld => gameWorld;
+
+    public int LevelIndex => levelIndex;
+
+    public Transform PlayerSpawnPosition => playerSpawnPosition;
+
+    public List<Transform> EnemySpawnPositions => enemySpawnPositions;
 }

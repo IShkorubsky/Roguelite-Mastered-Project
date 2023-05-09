@@ -4,7 +4,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     private static EnemySpawner _instance;
-    private List<Transform> _spawnPoints;
+    public List<Transform> spawnPoints;
 
     public static EnemySpawner Instance
     {
@@ -24,7 +24,7 @@ public class EnemySpawner : MonoBehaviour
     
     public void SpawnEnemies(string enemyTag)
     {
-        foreach (var spawnPoint in _spawnPoints)
+        foreach (var spawnPoint in spawnPoints)
         {
             var spawnedEnemy = Pool.Instance.Get(enemyTag);
             spawnedEnemy.SetActive(true);
