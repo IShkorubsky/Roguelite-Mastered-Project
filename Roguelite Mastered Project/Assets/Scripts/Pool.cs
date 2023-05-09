@@ -23,6 +23,7 @@ public class Pool : MonoBehaviour
 
     public GameObject Get(string myTag)
     {
+        //If an item can be used the it will be returned to the asking method
         foreach (var item in pooledItems)
         {
             if (!item.activeInHierarchy && item.CompareTag(myTag))
@@ -31,6 +32,7 @@ public class Pool : MonoBehaviour
             }
         }
 
+        //If an item does not exists a new one is added to the pool
         foreach (PoolItem item in poolItems)
         {
             foreach (var objectItem in item.objectPrefab)
@@ -46,9 +48,9 @@ public class Pool : MonoBehaviour
         return null;
     }
     
-    // Start is called before the first frame update
     private void Start()
     {
+        //Creating the pool
         pooledItems = new List<GameObject>();
         
         foreach (var item in poolItems)
