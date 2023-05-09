@@ -12,13 +12,25 @@ public class PoolItem
 
 public class Pool : MonoBehaviour
 {
-    public static Pool Instance;
+    private static Pool _instance;
     public List<PoolItem> poolItems;
     public List<GameObject> pooledItems;
 
+    
+    public static Pool Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = new Pool();
+            }
+            return _instance;
+        }
+    }
     private void Awake()
     {
-        Instance = this;
+        _instance = this;
     }
 
     public GameObject Get(string myTag)
