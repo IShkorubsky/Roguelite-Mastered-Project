@@ -4,6 +4,7 @@ public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
     [SerializeField] private Stats[] classes;
+    private int _currentLevel;
     private Stats _chosenClass;
     private int _chosenClassInt;
     
@@ -11,6 +12,7 @@ public class GameManager : MonoBehaviour
     private GameObject _playerGameObject;
     
     public Stats ChosenClass => _chosenClass;
+    public int CurrentLevel => _currentLevel;
 
     public static GameManager Instance
     {
@@ -24,6 +26,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
     private void Awake()
     {
         _instance = this;
@@ -31,6 +34,7 @@ public class GameManager : MonoBehaviour
     
     private void Start()
     {
+        _currentLevel = 0;
         Time.timeScale = 1;
         _gameOver = false;
         _chosenClassInt = 0;

@@ -37,7 +37,7 @@ public class PlayerAttack : PlayerAnimator
     /// <returns></returns>
     private IEnumerator RangedPlayerAttack()
     {
-        var bullet = Pool._instance.Get("Bullet");
+        var bullet = Pool.Instance.Get("Bullet");
         bullet.transform.position = arrowSpawnPosition.transform.position;
         bullet.GetComponent<Rigidbody>().velocity = Vector3.zero;
         bullet.SetActive(true);

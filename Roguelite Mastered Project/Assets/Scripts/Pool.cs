@@ -5,19 +5,20 @@ using UnityEngine;
 [Serializable]
 public class PoolItem
 {
-    public GameObject objectPrefab;
+    public GameObject[] objectPrefab;
     public int amount;
     public bool expandable;
 }
+
 public class Pool : MonoBehaviour
 {
-    public static Pool _instance;
-    public List<PoolItem> items;
+    public static Pool Instance;
+    public List<PoolItem> poolItems;
     public List<GameObject> pooledItems;
 
     private void Awake()
     {
-        _instance = this;
+        Instance = this;
     }
 
     public GameObject Get(string myTag)
@@ -30,14 +31,16 @@ public class Pool : MonoBehaviour
             }
         }
 
-        foreach (PoolItem item in items)
+        foreach (PoolItem item in poolItems)
         {
-            if (item.objectPrefab.CompareTag(myTag) && item.expandable)
+            foreach (var objectItem in item.objectPrefab)
             {
-                var obj = Instantiate(item.objectPrefab);
-                obj.SetActive(false);
-                pooledItems.Add(obj);
-                return obj;
+                for (var i = 0; i < item.amount; i++)
+                {
+                    var obj = Instantiate(objectItem);
+                    obj.SetActive(false);
+                    pooledItems.Add(obj);
+                }
             }
         }
         return null;
@@ -47,19 +50,18 @@ public class Pool : MonoBehaviour
     private void Start()
     {
         pooledItems = new List<GameObject>();
-        foreach (var item in items)
+        
+        foreach (var item in poolItems)
         {
-            for (var i = 0; i < item.amount; i++)
+            foreach (var objectItem in item.objectPrefab)
             {
-                var obj = Instantiate(item.objectPrefab);
-                obj.SetActive(false);
-                pooledItems.Add(obj);
+                for (var i = 0; i < item.amount; i++)
+                {
+                    var obj = Instantiate(objectItem);
+                    obj.SetActive(false);
+                    pooledItems.Add(obj);
+                }
             }
-        }
-
-        foreach (var item in items)
-        {
-            
         }
     }
 }
