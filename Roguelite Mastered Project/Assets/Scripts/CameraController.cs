@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
@@ -7,6 +8,7 @@ public class CameraController : MonoBehaviour
     public Vector3 offset;
     private Vector3 _camVelocity = Vector3.zero;
 
+
     // Update is called once per frame
     private void Update()
     {
@@ -15,6 +17,10 @@ public class CameraController : MonoBehaviour
             Vector3 targetPosition = target.position + offset;
 
             transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref _camVelocity, smoothTime);
+        }
+        else
+        {
+            target = GameManager.Instance.playerGameObject.transform;
         }
     }
 }

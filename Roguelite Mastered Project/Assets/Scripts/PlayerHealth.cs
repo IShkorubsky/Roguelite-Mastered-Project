@@ -1,9 +1,9 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerHealth : PlayerAnimator
 {
-    private float _playerHealth;
     [SerializeField] private Slider healthBar;
     
     #region Health
@@ -13,12 +13,17 @@ public class PlayerHealth : PlayerAnimator
         if (!GameManager.Instance)
         {
             GameManager.Instance.ChosenClass.SetMaxHealth();
-            _playerHealth = GameManager.Instance.ChosenClass.Health;
         }
+    }
+
+    private void Awake()
+    {
+        healthBar = UIManager.Instance.HealthBarSlider;
     }
 
     private void Update()
     {
+
         healthBar.value = GameManager.Instance.ChosenClass.Health * 0.01f;
         //playerStats.HealthRegeneration();
 

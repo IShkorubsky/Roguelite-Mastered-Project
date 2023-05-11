@@ -1,18 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private static UIManager _instance;
 
-    // Update is called once per frame
-    void Update()
+    [SerializeField] private Slider healthBarSlider;
+    [SerializeField] private Slider dodgeCooldownSlider;
+
+    public Slider HealthBarSlider => healthBarSlider;
+
+    public Slider DodgeCooldownSlider => dodgeCooldownSlider;
+    
+    public static UIManager Instance
     {
-        
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = new UIManager();
+            }
+            return _instance;
+        }
+    }
+    
+    private void Awake()
+    {
+        _instance = this;
     }
 }

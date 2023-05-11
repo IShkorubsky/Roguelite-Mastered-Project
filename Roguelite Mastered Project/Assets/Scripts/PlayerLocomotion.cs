@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -77,22 +78,28 @@ public class PlayerLocomotion : PlayerAnimator
             SetAnimatorTrigger(IsIdleHash);
         }
 
-
-        if (dodgeCooldownBar.value >= 1)
+        if (dodgeCooldownBar != null)
         {
-            dodgeCooldownBar.gameObject.SetActive(false);
-
-            if (IsDodging)
+            if (dodgeCooldownBar.value >= 1)
             {
-                HandleDodging(movement);
+                dodgeCooldownBar.gameObject.SetActive(false);
+
+                if (IsDodging)
+                {
+                    HandleDodging(movement);
+                }
+            }
+            else
+            {
+                dodgeCooldownBar.gameObject.SetActive(true);
+                dodgeCooldownBar.value += Time.deltaTime;
             }
         }
         else
         {
-            dodgeCooldownBar.gameObject.SetActive(true);
-            dodgeCooldownBar.value += Time.deltaTime;
+            dodgeCooldownBar = UIManager.Instance.DodgeCooldownSlider;
         }
-
+        
         transform.Translate(movement * (GameManager.Instance.ChosenClass.MoveSpeed * Time.deltaTime), Space.World);
     }
 
