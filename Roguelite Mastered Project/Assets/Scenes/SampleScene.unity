@@ -327,13 +327,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poolItems:
-  - objectPrefab:
-    - {fileID: 4244579412705372985, guid: f43480c32521875438cc2d2483e239f6, type: 3}
+  - objectPrefab: {fileID: 4244579412705372985, guid: f43480c32521875438cc2d2483e239f6, type: 3}
     amount: 5
     expandable: 1
-  - objectPrefab:
-    - {fileID: 660506797293807615, guid: 18a24e8fe71b39f44b4b3f9c6806221c, type: 3}
-    amount: 10
+  - objectPrefab: {fileID: 660506797293807615, guid: 18a24e8fe71b39f44b4b3f9c6806221c, type: 3}
+    amount: 3
     expandable: 1
   pooledItems: []
 --- !u!4 &147380829

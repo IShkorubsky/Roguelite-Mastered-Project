@@ -5,7 +5,7 @@ using UnityEngine;
 [Serializable]
 public class PoolItem
 {
-    public GameObject[] objectPrefab;
+    public GameObject objectPrefab;
     public int amount;
     public bool expandable;
 }
@@ -16,7 +16,7 @@ public class Pool : MonoBehaviour
     public List<PoolItem> poolItems;
     public List<GameObject> pooledItems;
 
-    
+
     public static Pool Instance
     {
         get
@@ -25,9 +25,11 @@ public class Pool : MonoBehaviour
             {
                 _instance = new Pool();
             }
+
             return _instance;
         }
     }
+
     private void Awake()
     {
         _instance = this;
@@ -45,21 +47,19 @@ public class Pool : MonoBehaviour
         }
 
         //If an item does not exists a new one is added to the pool
-        foreach (PoolItem item in poolItems)
+        foreach (var item in poolItems)
         {
-            foreach (var objectItem in item.objectPrefab)
-            {
-                for (var i = 0; i < item.amount; i++)
-                {
-                    var obj = Instantiate(objectItem);
-                    obj.SetActive(false);
-                    pooledItems.Add(obj);
-                }
+            for (var i = 0; i < item.amount; i++)
+            { 
+                var obj = Instantiate(item.objectPrefab); 
+                obj.SetActive(false);
+                pooledItems.Add(obj);
             }
         }
+
         return null;
     }
-    
+
     private void Start()
     {
         //Creating the pool
@@ -67,19 +67,11 @@ public class Pool : MonoBehaviour
         
         foreach (var item in poolItems)
         {
-            foreach (var objectItem in item.objectPrefab)
-            {
-                for (var i = 0; i < item.amount; i++)
-                {
-                    var obj = Instantiate(objectItem);
-                    if (objectItem.CompareTag("Enemy"))
-                    {
-                        obj.GetComponent<EnemyAI>().playerTransform =
-                            GameManager.Instance.playerGameObject.transform;
-                    }
-                    obj.SetActive(false);
-                    pooledItems.Add(obj);
-                }
+            for (var i = 0; i < item.amount; i++)
+            { 
+                var obj = Instantiate(item.objectPrefab); 
+                obj.SetActive(false);
+                pooledItems.Add(obj);
             }
         }
     }

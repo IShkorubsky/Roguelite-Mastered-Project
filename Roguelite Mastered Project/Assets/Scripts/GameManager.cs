@@ -64,6 +64,7 @@ public class GameManager : MonoBehaviour
         _currentGameWorld = Instantiate(levels[levelIndex].GameWorld, gameWorldSpawnPosition.position, Quaternion.identity);
         EnemySpawner.Instance.spawnPoints = levels[levelIndex].EnemySpawnPositions;
         SpawnPlayer();
+        EnemySpawner.Instance.SpawnEnemies("Enemy");
         _currentLevel = levelIndex;
     }
     
