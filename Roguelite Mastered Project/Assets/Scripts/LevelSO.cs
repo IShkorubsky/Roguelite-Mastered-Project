@@ -30,4 +30,9 @@ public class LevelSO : ScriptableObject
             }
         }
     }
+
+    private void OnDestroy()
+    {
+        enemySpawnPositions.Clear();
+    }
 }
