@@ -14,5 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameWorld: {fileID: 3461857881218995298, guid: 6a63652bdc1929a4a9ed1e2c73d1d93b, type: 3}
   levelIndex: 0
-  playerSpawnPosition: {fileID: 0}
-  enemySpawnPositions: []
+  playerSpawnPosition: {fileID: 6462892141738834386, guid: 6a63652bdc1929a4a9ed1e2c73d1d93b, type: 3}
+  enemySpawnPositions:
+  - {fileID: 1731699195124706101, guid: 6a63652bdc1929a4a9ed1e2c73d1d93b, type: 3}
+  - {fileID: 6472715475637149731, guid: 6a63652bdc1929a4a9ed1e2c73d1d93b, type: 3}
+  - {fileID: 6966586193451199787, guid: 6a63652bdc1929a4a9ed1e2c73d1d93b, type: 3}
+  - {fileID: 1731699195124706101, guid: 6a63652bdc1929a4a9ed1e2c73d1d93b, type: 3}
+  - {fileID: 6472715475637149731, guid: 6a63652bdc1929a4a9ed1e2c73d1d93b, type: 3}
+  - {fileID: 6966586193451199787, guid: 6a63652bdc1929a4a9ed1e2c73d1d93b, type: 3}
+  - {fileID: 1731699195124706101, guid: 6a63652bdc1929a4a9ed1e2c73d1d93b, type: 3}
+  - {fileID: 6472715475637149731, guid: 6a63652bdc1929a4a9ed1e2c73d1d93b, type: 3}
+  - {fileID: 6966586193451199787, guid: 6a63652bdc1929a4a9ed1e2c73d1d93b, type: 3}
+  - {fileID: 1731699195124706101, guid: 6a63652bdc1929a4a9ed1e2c73d1d93b, type: 3}
+  - {fileID: 6472715475637149731, guid: 6a63652bdc1929a4a9ed1e2c73d1d93b, type: 3}
+  - {fileID: 6966586193451199787, guid: 6a63652bdc1929a4a9ed1e2c73d1d93b, type: 3}
+  - {fileID: 1731699195124706101, guid: 6a63652bdc1929a4a9ed1e2c73d1d93b, type: 3}
+  - {fileID: 6472715475637149731, guid: 6a63652bdc1929a4a9ed1e2c73d1d93b, type: 3}
+  - {fileID: 6966586193451199787, guid: 6a63652bdc1929a4a9ed1e2c73d1d93b, type: 3}

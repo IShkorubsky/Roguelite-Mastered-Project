@@ -5,6 +5,8 @@ public class GameManager : MonoBehaviour
     private static GameManager _instance;
     [SerializeField] private Stats[] classes;
     [SerializeField] private LevelSO[] levels;
+    [SerializeField] private GameObject playerPrefab;
+    public GameObject playerGameObject;
     [SerializeField] private Transform gameWorldSpawnPosition;
     
     private int _currentLevel;
@@ -12,11 +14,11 @@ public class GameManager : MonoBehaviour
     private int _chosenClassInt;
     
     private bool _gameOver;
-    private GameObject _playerGameObject;
     private GameObject _currentGameWorld;
     
     public Stats ChosenClass => _chosenClass;
     public int CurrentLevel => _currentLevel;
+    public GameObject PlayerGameObject => playerGameObject;
 
     public static GameManager Instance
     {
@@ -29,8 +31,7 @@ public class GameManager : MonoBehaviour
             return _instance;
         }
     }
-
-
+    
     private void Awake()
     {
         _instance = this;
@@ -58,12 +59,13 @@ public class GameManager : MonoBehaviour
     {
         _currentGameWorld = Instantiate(levels[levelIndex].GameWorld, gameWorldSpawnPosition.position, Quaternion.identity);
         EnemySpawner.Instance.spawnPoints = levels[levelIndex].EnemySpawnPositions;
+        SpawnPlayer();
         _currentLevel = levelIndex;
     }
 
     private void SpawnPlayer()
     {
-        _playerGameObject = Instantiate()
-        _playerGameObject.transform.position = levels[_currentLevel].PlayerSpawnPosition.position;
+        playerGameObject = Instantiate(playerPrefab, gameWorldSpawnPosition.position, Quaternion.identity);
+        playerGameObject.transform.position = levels[_currentLevel].PlayerSpawnPosition.position;
     }
 }

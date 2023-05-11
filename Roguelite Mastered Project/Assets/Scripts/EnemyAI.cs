@@ -1,3 +1,4 @@
+using System;
 using FiniteStateMachine;
 using UnityEngine;
 using UnityEngine.AI;
@@ -23,14 +24,23 @@ public class EnemyAI : MonoBehaviour
         _agent = GetComponent<NavMeshAgent>();
         _myAnimator = GetComponent<Animator>();
         _currentState = new IdleState(gameObject,EnemyStats,_agent,_myAnimator,playerTransform);
-        
         EnemyStats.SetMaxHealth();
         _enemyHealth = enemyStats.Health;
         healthSlider.maxValue = EnemyStats.MAXHealth;
     }
 
+    private void Awake()
+    {
+        playerTransform = GameManager.Instance.PlayerGameObject.transform;
+    }
+
     private void Update()
     {
+        if (playerTransform == null)
+        {
+            playerTransform = GameManager.Instance.PlayerGameObject.transform;
+        }
+        
         _distanceToPlayer = (playerTransform.position - transform.position).magnitude;
 
         if (_distanceToPlayer <= 3)

@@ -72,6 +72,11 @@ public class Pool : MonoBehaviour
                 for (var i = 0; i < item.amount; i++)
                 {
                     var obj = Instantiate(objectItem);
+                    if (objectItem.CompareTag("Enemy"))
+                    {
+                        obj.GetComponent<EnemyAI>().playerTransform =
+                            GameManager.Instance.playerGameObject.transform;
+                    }
                     obj.SetActive(false);
                     pooledItems.Add(obj);
                 }
