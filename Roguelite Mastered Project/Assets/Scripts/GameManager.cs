@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
         _gameOver = false;
         _chosenClassInt = 0;
         _chosenClass = classes[_chosenClassInt];
+        StartLevel(0);
     }
     
     private void Update()

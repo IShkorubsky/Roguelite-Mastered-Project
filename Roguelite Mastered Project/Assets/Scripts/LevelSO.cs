@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,4 +17,13 @@ public class LevelSO : ScriptableObject
     public Transform PlayerSpawnPosition => playerSpawnPosition;
 
     public List<Transform> EnemySpawnPositions => enemySpawnPositions;
+
+    private void Awake()
+    {
+        playerSpawnPosition = gameWorld.transform.GetChild(0).GetComponent<Transform>();
+        foreach (var enemySpawnPosition in gameWorld.gameObject.GetComponentsInChildren<Transform>())
+        {
+            enemySpawnPositions.Add(enemySpawnPosition);
+        }
+    }
 }
