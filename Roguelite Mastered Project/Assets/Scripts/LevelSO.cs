@@ -18,12 +18,16 @@ public class LevelSO : ScriptableObject
 
     public List<Transform> EnemySpawnPositions => enemySpawnPositions;
 
-    private void Awake()
+    private void OnEnable()
     {
         playerSpawnPosition = gameWorld.transform.GetChild(0).GetComponent<Transform>();
-        foreach (var enemySpawnPosition in gameWorld.gameObject.GetComponentsInChildren<Transform>())
+        
+        foreach (var enemySpawnPosition in gameWorld.transform.GetChild(1).gameObject.GetComponentsInChildren<Transform>())
         {
-            enemySpawnPositions.Add(enemySpawnPosition);
+            if (enemySpawnPosition.CompareTag("EnemySpawnPosition"))
+            {
+                enemySpawnPositions.Add(enemySpawnPosition);
+            }
         }
     }
 }

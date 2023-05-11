@@ -75,8 +75,8 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/DeactivateBullet.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Pool.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/EnemySpawner.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/LevelSO.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
       </list>
     </option>
   </component>
@@ -143,7 +143,7 @@
       <workItem from="1683168293898" duration="11365000" />
       <workItem from="1683551344239" duration="7750000" />
       <workItem from="1683663730402" duration="2510000" />
-      <workItem from="1683838938847" duration="839000" />
+      <workItem from="1683838938847" duration="2494000" />
     </task>
     <servers />
   </component>
