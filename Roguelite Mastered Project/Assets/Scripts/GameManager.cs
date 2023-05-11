@@ -55,6 +55,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Starts level based on desired level index
+    /// </summary>
+    /// <param name="levelIndex"></param>
     private void StartLevel(int levelIndex)
     {
         _currentGameWorld = Instantiate(levels[levelIndex].GameWorld, gameWorldSpawnPosition.position, Quaternion.identity);
@@ -62,7 +66,10 @@ public class GameManager : MonoBehaviour
         SpawnPlayer();
         _currentLevel = levelIndex;
     }
-
+    
+    /// <summary>
+    /// Spawns The player in the world
+    /// </summary>
     private void SpawnPlayer()
     {
         playerGameObject = Instantiate(playerPrefab, gameWorldSpawnPosition.position, Quaternion.identity);
