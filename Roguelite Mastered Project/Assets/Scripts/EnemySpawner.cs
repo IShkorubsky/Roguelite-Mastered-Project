@@ -28,6 +28,7 @@ public class EnemySpawner : MonoBehaviour
         {
             var spawnedEnemy = Pool.Instance.Get(enemyTag);
             spawnedEnemy.SetActive(true);
+            spawnedEnemy.GetComponent<EnemyAI>().Spawn();
             spawnedEnemy.transform.position = spawnPoint.transform.position;
         }
     }

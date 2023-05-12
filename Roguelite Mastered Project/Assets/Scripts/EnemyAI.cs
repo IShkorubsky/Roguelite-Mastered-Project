@@ -9,7 +9,7 @@ public class EnemyAI : MonoBehaviour
     private NavMeshAgent _agent;
     private Animator _myAnimator;
     public Transform playerTransform;
-    [SerializeField]private StateMachine _currentState;
+    private StateMachine _currentState;
     public float _distanceToPlayer;
     public float _enemyHealth;
     public bool playerInRange;
@@ -18,20 +18,16 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private Slider healthSlider;
 
     public Stats EnemyStats => enemyStats;
-    
-    private void Start()
+
+    private void Awake()
     {
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         _agent = GetComponent<NavMeshAgent>();
         _myAnimator = GetComponent<Animator>();
         
         EnemyStats.SetMaxHealth();
         _enemyHealth = enemyStats.Health;
         healthSlider.maxValue = EnemyStats.MAXHealth;
-    }
-
-    private void Awake()
-    {
-        playerTransform = GameManager.Instance.PlayerGameObject.transform;
     }
 
     private void Update()
@@ -62,12 +58,16 @@ public class EnemyAI : MonoBehaviour
         else
         {
             playerTransform = GameManager.Instance.PlayerGameObject.transform;
-            _currentState = new IdleState(gameObject,EnemyStats,_agent,_myAnimator,playerTransform);
         }
     }
 
     public void GetDamaged()
     {
         _enemyHealth -= GameManager.Instance.ChosenClass.AttackDamage;
+    }
+
+    public void Spawn()
+    {
+        _currentState = new IdleState(gameObject,enemyStats,_agent,_myAnimator,playerTransform);
     }
 }
