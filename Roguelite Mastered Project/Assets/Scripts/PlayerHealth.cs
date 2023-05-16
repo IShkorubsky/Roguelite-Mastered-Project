@@ -8,23 +8,18 @@ public class PlayerHealth : PlayerAnimator
     
     #region Health
 
-    private void OnEnable()
+    private void Awake()
     {
-        if (!GameManager.Instance)
+        healthBar = UIManager.Instance.HealthBarSlider;
+        
+        if (GameManager.Instance != null)
         {
             GameManager.Instance.ChosenClass.SetMaxHealth();
         }
     }
 
-    private void Awake()
-    {
-        healthBar = UIManager.Instance.HealthBarSlider;
-    }
-
     private void Update()
     {
-
-        healthBar.value = GameManager.Instance.ChosenClass.Health * 0.01f;
         //playerStats.HealthRegeneration();
 
         if (GameManager.Instance.ChosenClass.Health <= 0)
@@ -32,6 +27,13 @@ public class PlayerHealth : PlayerAnimator
             //Handle death
             Debug.Log("Player Dead!");
         }
+        
+        if (!healthBar)
+        {
+            return;
+        }
+        
+        healthBar.value = GameManager.Instance.ChosenClass.Health * 0.01f;
     }
 
     #endregion
