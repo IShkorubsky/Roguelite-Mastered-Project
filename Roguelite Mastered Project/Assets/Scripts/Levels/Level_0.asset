@@ -12,7 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8c63e3d81403824fae1ecaa66e3b023, type: 3}
   m_Name: Level_0
   m_EditorClassIdentifier: 
-  gameWorld: {fileID: 3461857881218995298, guid: 6a63652bdc1929a4a9ed1e2c73d1d93b, type: 3}
+  gameWorld: {fileID: 1183269661975985211, guid: 6a63652bdc1929a4a9ed1e2c73d1d93b, type: 3}
   levelIndex: 0
-  playerSpawnPosition: {fileID: 6462892141738834386, guid: 6a63652bdc1929a4a9ed1e2c73d1d93b, type: 3}
-  enemySpawnPositions: []
+  playerSpawnPosition: {fileID: 8778045855268819339, guid: 6a63652bdc1929a4a9ed1e2c73d1d93b, type: 3}
+  enemySpawnPositions:
+  - {fileID: 1746218835174003557, guid: 6a63652bdc1929a4a9ed1e2c73d1d93b, type: 3}
+  - {fileID: 6476281366506821747, guid: 6a63652bdc1929a4a9ed1e2c73d1d93b, type: 3}
+  - {fileID: 6961899553366005115, guid: 6a63652bdc1929a4a9ed1e2c73d1d93b, type: 3}
+  - {fileID: 4064805588714783596, guid: 6a63652bdc1929a4a9ed1e2c73d1d93b, type: 3}
+  - {fileID: 8769239056394766458, guid: 6a63652bdc1929a4a9ed1e2c73d1d93b, type: 3}
+  - {fileID: 4670062530053162354, guid: 6a63652bdc1929a4a9ed1e2c73d1d93b, type: 3}
+  - {fileID: 4064805588714783596, guid: 6a63652bdc1929a4a9ed1e2c73d1d93b, type: 3}
+  - {fileID: 8769239056394766458, guid: 6a63652bdc1929a4a9ed1e2c73d1d93b, type: 3}
+  - {fileID: 4670062530053162354, guid: 6a63652bdc1929a4a9ed1e2c73d1d93b, type: 3}

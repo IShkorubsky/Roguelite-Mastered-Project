@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
     /// <param name="levelIndex"></param>
     private void StartLevel(int levelIndex)
     {
-        _currentGameWorld = Instantiate(levels[levelIndex].GameWorld, gameWorldSpawnPosition.position, Quaternion.identity);
+        _currentGameWorld = Instantiate(levels[levelIndex].GameWorld, gameWorldSpawnPosition.position, gameWorldSpawnPosition.rotation);
         EnemySpawner.Instance.spawnPoints = levels[levelIndex].EnemySpawnPositions;
         SpawnPlayer();
         EnemySpawner.Instance.SpawnEnemies("Enemy");
