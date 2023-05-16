@@ -70,7 +70,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/LevelSO.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CameraController.cs" />
         <option value="$PROJECT_DIR$/Assets/UIManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerHealth.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerLocomotion.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Pool.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/EnemySpawner.cs" />
@@ -79,6 +78,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerDetectionCollider.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/PursueState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/RoamState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerHealth.cs" />
       </list>
     </option>
   </component>
@@ -147,7 +147,7 @@
       <workItem from="1683663730402" duration="2510000" />
       <workItem from="1683838938847" duration="8751000" />
       <workItem from="1683876057880" duration="1879000" />
-      <workItem from="1684262112180" duration="1515000" />
+      <workItem from="1684262112180" duration="1819000" />
     </task>
     <servers />
   </component>

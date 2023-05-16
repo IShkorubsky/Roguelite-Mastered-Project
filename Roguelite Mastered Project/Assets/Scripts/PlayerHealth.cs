@@ -12,7 +12,7 @@ public class PlayerHealth : PlayerAnimator
     {
         healthBar = UIManager.Instance.HealthBarSlider;
         
-        if (GameManager.Instance != null)
+        if (GameManager.Instance.ChosenClass != null)
         {
             GameManager.Instance.ChosenClass.SetMaxHealth();
         }

@@ -1135,8 +1135,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 1
-  m_Acceleration: 8
+  m_Speed: 100
+  m_Acceleration: 5
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
@@ -1159,10 +1159,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 597069edbf8d3b543bc244da6fb95836, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransform: {fileID: 0}
-  _distanceToPlayer: 0
+  targetTransform: {fileID: 0}
+  _distanceToTarget: 0
   _enemyHealth: 0
-  playerInRange: 0
+  targetInRange: 0
   enemyStats: {fileID: 11400000, guid: 9ad41aa87b78e2143afbb9ad7f7e56ff, type: 2}
   healthSlider: {fileID: 660506797780617337}
 --- !u!1 &660506797325574985
