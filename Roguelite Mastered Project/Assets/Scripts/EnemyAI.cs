@@ -8,11 +8,11 @@ public class EnemyAI : MonoBehaviour
 {
     private NavMeshAgent _agent;
     private Animator _myAnimator;
-    public Transform playerTransform;
+    public Transform targetTransform;
     private StateMachine _currentState;
-    public float _distanceToPlayer;
+    public float _distanceToTarget;
     public float _enemyHealth;
-    public bool playerInRange;
+    public bool targetInRange;
     
     [SerializeField] private Stats enemyStats;
     [SerializeField] private Slider healthSlider;
@@ -21,7 +21,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Awake()
     {
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        targetTransform = GameObject.FindGameObjectWithTag("EnemyTarget").transform;
         _agent = GetComponent<NavMeshAgent>();
         _myAnimator = GetComponent<Animator>();
         
@@ -32,17 +32,17 @@ public class EnemyAI : MonoBehaviour
 
     private void Update()
     {
-        if (playerTransform != null)
+        if (targetTransform != null)
         {
-            _distanceToPlayer = (playerTransform.position - transform.position).magnitude;
+            _distanceToTarget = (targetTransform.position - transform.position).magnitude;
 
-            if (_distanceToPlayer <= 3)
+            if (_distanceToTarget <= 3)
             {
-                playerInRange = true;
+                targetInRange = true;
             }
             else
             {
-                playerInRange = false;
+                targetInRange = false;
             }
         
             _currentState = _currentState.Process();
@@ -57,7 +57,7 @@ public class EnemyAI : MonoBehaviour
         }
         else
         {
-            playerTransform = GameManager.Instance.PlayerGameObject.transform;
+            targetTransform = GameManager.Instance.PlayerGameObject.transform;
         }
     }
 
@@ -68,6 +68,6 @@ public class EnemyAI : MonoBehaviour
 
     public void Spawn()
     {
-        _currentState = new IdleState(gameObject,enemyStats,_agent,_myAnimator,playerTransform);
+        _currentState = new IdleState(gameObject,enemyStats,_agent,_myAnimator,targetTransform);
     }
 }

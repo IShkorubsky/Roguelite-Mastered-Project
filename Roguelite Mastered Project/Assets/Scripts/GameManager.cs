@@ -4,8 +4,8 @@ public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
     [SerializeField] private Stats[] classes;
-    [SerializeField] private LevelSO[] levels;
-    [SerializeField] private GameObject playerPrefab;
+    //[SerializeField] private LevelSO[] levels;
+    //[SerializeField] private GameObject playerPrefab;
     public GameObject playerGameObject;
     [SerializeField] private Transform gameWorldSpawnPosition;
     
@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     private int _chosenClassInt;
     
     private bool _gameOver;
-    private GameObject _currentGameWorld;
+    //private GameObject _currentGameWorld;
     
     public Stats ChosenClass => _chosenClass;
     public int CurrentLevel => _currentLevel;
@@ -61,13 +61,14 @@ public class GameManager : MonoBehaviour
     /// <param name="levelIndex"></param>
     private void StartLevel(int levelIndex)
     {
-        _currentGameWorld = Instantiate(levels[levelIndex].GameWorld, gameWorldSpawnPosition.position, gameWorldSpawnPosition.rotation);
-        EnemySpawner.Instance.spawnPoints = levels[levelIndex].EnemySpawnPositions;
-        SpawnPlayer();
+        //_currentGameWorld = Instantiate(levels[levelIndex].GameWorld, gameWorldSpawnPosition.position, gameWorldSpawnPosition.rotation);
+        //EnemySpawner.Instance.spawnPoints = levels[levelIndex].EnemySpawnPositions;
+        //SpawnPlayer();
         EnemySpawner.Instance.SpawnEnemies("Enemy");
         _currentLevel = levelIndex;
     }
     
+    /*
     /// <summary>
     /// Spawns The player in the world
     /// </summary>
@@ -76,4 +77,5 @@ public class GameManager : MonoBehaviour
         playerGameObject = Instantiate(playerPrefab, gameWorldSpawnPosition.position, Quaternion.identity);
         playerGameObject.transform.position = levels[_currentLevel].PlayerSpawnPosition.position;
     }
+    */
 }

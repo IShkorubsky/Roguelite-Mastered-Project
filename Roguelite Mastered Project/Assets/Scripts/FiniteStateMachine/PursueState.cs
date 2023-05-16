@@ -28,7 +28,7 @@ namespace FiniteStateMachine
             Agent.SetDestination(PlayerTransform.position);
             if (Agent.hasPath)
             {
-                if (CanAttackPlayer() && _enemyAI.playerInRange)
+                if (CanAttackPlayer() && _enemyAI.targetInRange)
                 {
                     NextState = new AttackState(EnemyGameObject,EnemyStats,Agent,MyAnimator,PlayerTransform);
                     Stage = Event.Exit;

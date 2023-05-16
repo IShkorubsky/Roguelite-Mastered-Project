@@ -38,7 +38,7 @@ namespace FiniteStateMachine
             Agent.SetDestination(RandomNavSphere(EnemyGameObject.transform.position,EnemyStats.AttackRange * 2,-1));
             if (Agent.hasPath)
             {
-                if (_enemyAI.playerInRange)
+                if (_enemyAI.targetInRange)
                 {
                     NextState = new PursueState(EnemyGameObject,EnemyStats, Agent, MyAnimator, PlayerTransform);
                     Stage = Event.Exit;

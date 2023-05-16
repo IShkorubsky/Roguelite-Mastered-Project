@@ -8,6 +8,7 @@ TagManager:
   - Ground
   - Bullet
   - EnemySpawnPosition
+  - EnemyTarget
   layers:
   - Default
   - TransparentFX

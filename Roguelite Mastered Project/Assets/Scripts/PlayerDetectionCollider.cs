@@ -10,7 +10,7 @@ public class PlayerDetectionCollider : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            enemyAI.playerInRange = true;
+            enemyAI.targetInRange = true;
         }
     }
 
@@ -18,7 +18,7 @@ public class PlayerDetectionCollider : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            enemyAI.playerInRange = false;
+            enemyAI.targetInRange = false;
         }
     }
 }
