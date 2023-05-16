@@ -8,8 +8,8 @@ namespace FiniteStateMachine
         private static readonly int IsRunning = Animator.StringToHash("isRunning");
         private static EnemyAI _enemyAI;
 
-        public PursueState(GameObject enemyGameObject,Stats enemyStats, NavMeshAgent agent, Animator myAnimator, Transform playerTransform)
-            : base(enemyGameObject,enemyStats, agent, myAnimator, playerTransform)
+        public PursueState(GameObject enemyGameObject,Stats enemyStats, NavMeshAgent agent, Animator myAnimator, Transform targetTransform)
+            : base(enemyGameObject,enemyStats, agent, myAnimator, targetTransform)
         {
             Name = State.Pursue;
             _enemyAI = EnemyGameObject.GetComponent<EnemyAI>();
@@ -25,12 +25,12 @@ namespace FiniteStateMachine
         {
             Agent.speed = EnemyStats.MoveSpeed;
             Agent.isStopped = false;
-            Agent.SetDestination(PlayerTransform.position);
+            Agent.SetDestination(TargetTransform.position);
             if (Agent.hasPath)
             {
                 if (CanAttackPlayer() && _enemyAI.targetInRange)
                 {
-                    NextState = new AttackState(EnemyGameObject,EnemyStats,Agent,MyAnimator,PlayerTransform);
+                    NextState = new AttackState(EnemyGameObject,EnemyStats,Agent,MyAnimator,TargetTransform);
                     Stage = Event.Exit;
                 }
             }

@@ -7,8 +7,8 @@ namespace FiniteStateMachine
     {
         private static readonly int IsIdle = Animator.StringToHash("isIdle");
 
-        public IdleState(GameObject enemyGameObject,Stats enemyStats, NavMeshAgent agent, Animator myAnimator, Transform playerTransform) : 
-            base(enemyGameObject,enemyStats,agent,myAnimator,playerTransform)
+        public IdleState(GameObject enemyGameObject,Stats enemyStats, NavMeshAgent agent, Animator myAnimator, Transform targetTransform) : 
+            base(enemyGameObject,enemyStats,agent,myAnimator,targetTransform)
         {
             Name = State.Idle;
         }
@@ -23,7 +23,7 @@ namespace FiniteStateMachine
         {
             if (Random.Range(0, 100) < 10)
             {
-                NextState = new PursueState(EnemyGameObject,EnemyStats, Agent, MyAnimator, PlayerTransform);
+                NextState = new PursueState(EnemyGameObject,EnemyStats, Agent, MyAnimator, TargetTransform);
                 Stage = Event.Exit;
             }
         }

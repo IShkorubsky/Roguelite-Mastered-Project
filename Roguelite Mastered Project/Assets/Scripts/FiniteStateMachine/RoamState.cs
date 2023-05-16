@@ -8,8 +8,8 @@ namespace FiniteStateMachine
         private static readonly int IsWalking = Animator.StringToHash("isWalking");
         private static EnemyAI _enemyAI;
 
-        public RoamState(GameObject enemyGameObject,Stats enemyStats, NavMeshAgent agent, Animator myAnimator, Transform playerTransform)
-            : base(enemyGameObject,enemyStats, agent, myAnimator, playerTransform)
+        public RoamState(GameObject enemyGameObject,Stats enemyStats, NavMeshAgent agent, Animator myAnimator, Transform targetTransform)
+            : base(enemyGameObject,enemyStats, agent, myAnimator, targetTransform)
         {
             Name = State.Roam;
             _enemyAI = EnemyGameObject.GetComponent<EnemyAI>();
@@ -40,13 +40,13 @@ namespace FiniteStateMachine
             {
                 if (_enemyAI.targetInRange)
                 {
-                    NextState = new PursueState(EnemyGameObject,EnemyStats, Agent, MyAnimator, PlayerTransform);
+                    NextState = new PursueState(EnemyGameObject,EnemyStats, Agent, MyAnimator, TargetTransform);
                     Stage = Event.Exit;
                 }
                 
                 if (Agent.remainingDistance < 0.1f)
                 {
-                    NextState = new RoamState(EnemyGameObject,EnemyStats, Agent, MyAnimator, PlayerTransform);
+                    NextState = new RoamState(EnemyGameObject,EnemyStats, Agent, MyAnimator, TargetTransform);
                     Stage = Event.Exit;
                 }
             }

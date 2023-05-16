@@ -8,8 +8,8 @@ namespace FiniteStateMachine
         private const float RotationSpeed = 2.0f;
         private static readonly int IsAttacking = Animator.StringToHash("isAttacking");
 
-        public AttackState(GameObject enemyGameObject,Stats enemyStats, NavMeshAgent agent, Animator myAnimator, Transform playerTransform)
-            : base(enemyGameObject,enemyStats, agent, myAnimator, playerTransform)
+        public AttackState(GameObject enemyGameObject,Stats enemyStats, NavMeshAgent agent, Animator myAnimator, Transform targetTransform)
+            : base(enemyGameObject,enemyStats, agent, myAnimator, targetTransform)
         {
             Name = State.Attack;
         }
@@ -23,14 +23,14 @@ namespace FiniteStateMachine
 
         protected override void Update()
         {
-            var direction = PlayerTransform.position - EnemyGameObject.transform.position;
+            var direction = TargetTransform.position - EnemyGameObject.transform.position;
             direction.y = 0;
             
             EnemyGameObject.transform.rotation = Quaternion.Slerp(EnemyGameObject.transform.rotation,Quaternion.LookRotation(direction),Time.deltaTime * RotationSpeed );
 
             if (!CanAttackPlayer())
             {
-                NextState = new IdleState(EnemyGameObject,EnemyStats,Agent,MyAnimator,PlayerTransform);
+                NextState = new IdleState(EnemyGameObject,EnemyStats,Agent,MyAnimator,TargetTransform);
                 Stage = Event.Exit;
             }
         }

@@ -5,8 +5,8 @@ namespace FiniteStateMachine
 {
     public class DieState : StateMachine
     {
-        public DieState(GameObject enemyGameObject,Stats enemyStats, NavMeshAgent agent, Animator myAnimator, Transform playerTransform)
-            : base(enemyGameObject,enemyStats, agent, myAnimator, playerTransform)
+        public DieState(GameObject enemyGameObject,Stats enemyStats, NavMeshAgent agent, Animator myAnimator, Transform targetTransform)
+            : base(enemyGameObject,enemyStats, agent, myAnimator, targetTransform)
         {
             Name = State.Die;
         }
