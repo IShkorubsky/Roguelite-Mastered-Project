@@ -28,16 +28,16 @@ namespace FiniteStateMachine
         protected readonly GameObject EnemyGameObject;
         protected readonly Stats EnemyStats;
         protected readonly Animator MyAnimator;
-        protected readonly Transform PlayerTransform;
+        protected readonly Transform TargetTransform;
         protected readonly NavMeshAgent Agent;
 
-        protected StateMachine(GameObject enemyGameObject, Stats enemyStats,NavMeshAgent agent, Animator myAnimator, Transform playerTransform)
+        protected StateMachine(GameObject enemyGameObject, Stats enemyStats,NavMeshAgent agent, Animator myAnimator, Transform targetTransform)
         {
             EnemyGameObject = enemyGameObject;
             EnemyStats = enemyStats;
             Agent = agent;
             MyAnimator = myAnimator;
-            PlayerTransform = playerTransform;
+            TargetTransform = targetTransform;
             
             Stage = Event.Enter;
         }
@@ -80,7 +80,7 @@ namespace FiniteStateMachine
 
         public bool CanAttackPlayer()
         {
-            var direction = PlayerTransform.position - EnemyGameObject.transform.position;
+            var direction = TargetTransform.position - EnemyGameObject.transform.position;
             if (direction.magnitude < EnemyStats.AttackRange)
             {
                 return true;
@@ -91,7 +91,7 @@ namespace FiniteStateMachine
         
         public bool CanSeePlayer()
         {
-            var direction = PlayerTransform.position - EnemyGameObject.transform.position;
+            var direction = TargetTransform.position - EnemyGameObject.transform.position;
             var angle = Vector3.Angle(direction, EnemyGameObject.transform.forward);
             if (direction.magnitude < EnemyStats.AttackRange * 2 && angle < 30)
             {

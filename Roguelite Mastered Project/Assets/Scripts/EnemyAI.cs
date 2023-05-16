@@ -36,7 +36,7 @@ public class EnemyAI : MonoBehaviour
         {
             _distanceToTarget = (targetTransform.position - transform.position).magnitude;
 
-            if (_distanceToTarget <= 3)
+            if (_distanceToTarget <= 4)
             {
                 targetInRange = true;
             }
