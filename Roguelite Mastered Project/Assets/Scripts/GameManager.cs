@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -44,12 +45,12 @@ public class GameManager : MonoBehaviour
         _gameOver = false;
         _chosenClassInt = 0;
         _chosenClass = classes[_chosenClassInt];
-        StartLevel(0);
+        StartCoroutine(SpawnRound());
     }
     
     private void Update()
     {
-        if (_gameOver)
+        if (!_gameOver)
         {
             return;
         }
@@ -59,7 +60,7 @@ public class GameManager : MonoBehaviour
     /// Starts level based on desired level index
     /// </summary>
     /// <param name="levelIndex"></param>
-    private void StartLevel(int levelIndex)
+    private void StartRound(int levelIndex)
     {
         //_currentGameWorld = Instantiate(levels[levelIndex].GameWorld, gameWorldSpawnPosition.position, gameWorldSpawnPosition.rotation);
         //EnemySpawner.Instance.spawnPoints = levels[levelIndex].EnemySpawnPositions;
@@ -67,7 +68,16 @@ public class GameManager : MonoBehaviour
         EnemySpawner.Instance.SpawnEnemies("Enemy");
         _currentLevel = levelIndex;
     }
-    
+
+    private IEnumerator SpawnRound()
+    {
+        for (int i = 0; i < _currentLevel; i++)
+        {
+            EnemySpawner.Instance.SpawnEnemies("Enemy");
+        }
+        yield return new WaitForSeconds(2f);
+        StartRound(_currentLevel + 1);
+    }
     /*
     /// <summary>
     /// Spawns The player in the world
