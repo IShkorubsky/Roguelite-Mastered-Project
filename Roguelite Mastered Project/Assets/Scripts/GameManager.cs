@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     private int _currentLevel;
     private Stats _chosenClass;
     private int _chosenClassInt;
+    private int _numberOfWaves;
     
     private bool _gameOver;
     //private GameObject _currentGameWorld;
@@ -40,12 +41,12 @@ public class GameManager : MonoBehaviour
     
     private void Start()
     {
+        _numberOfWaves = 3;
         _currentLevel = 0;
         Time.timeScale = 1;
         _gameOver = false;
         _chosenClassInt = 0;
         _chosenClass = classes[_chosenClassInt];
-        StartCoroutine(SpawnRound());
     }
     
     private void Update()
@@ -65,17 +66,18 @@ public class GameManager : MonoBehaviour
         //_currentGameWorld = Instantiate(levels[levelIndex].GameWorld, gameWorldSpawnPosition.position, gameWorldSpawnPosition.rotation);
         //EnemySpawner.Instance.spawnPoints = levels[levelIndex].EnemySpawnPositions;
         //SpawnPlayer();
-        EnemySpawner.Instance.SpawnEnemies("Enemy");
+        StartCoroutine(SpawnWave());
         _currentLevel = levelIndex;
     }
 
-    private IEnumerator SpawnRound()
+    private IEnumerator SpawnWave()
     {
-        for (int i = 0; i < _currentLevel; i++)
+        for (int i = 0; i < _numberOfWaves; i++)
         {
             EnemySpawner.Instance.SpawnEnemies("Enemy");
+            yield return new WaitForSeconds(2f);
         }
-        yield return new WaitForSeconds(2f);
+        _numberOfWaves *= 2;
         StartRound(_currentLevel + 1);
     }
     /*

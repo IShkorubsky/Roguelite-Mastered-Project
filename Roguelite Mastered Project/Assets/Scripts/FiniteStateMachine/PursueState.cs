@@ -17,18 +17,18 @@ namespace FiniteStateMachine
 
         protected override void Enter()
         {
+            Agent.speed = EnemyStats.MoveSpeed;
             MyAnimator.SetTrigger(IsRunning);
             base.Enter();
         }
 
         protected override void Update()
         {
-            Agent.speed = EnemyStats.MoveSpeed;
             Agent.isStopped = false;
             Agent.SetDestination(TargetTransform.position);
             if (Agent.hasPath)
             {
-                if (CanAttackPlayer() && _enemyAI.targetInRange)
+                if (_enemyAI.targetInRange)
                 {
                     NextState = new AttackState(EnemyGameObject,EnemyStats,Agent,MyAnimator,TargetTransform);
                     Stage = Event.Exit;
