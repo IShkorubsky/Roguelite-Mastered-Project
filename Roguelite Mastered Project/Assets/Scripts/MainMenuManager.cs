@@ -16,4 +16,14 @@ public class MainMenuManager : MonoBehaviour
             Screen.fullScreenMode = FullScreenMode.ExclusiveFullScreen;
         }
     }
+    
+    /// <summary>
+    /// Used to show main menu screen
+    /// </summary>
+    public void ShowMainMenu()
+    {
+        uiClickSFX.Play();
+        settingsMenuPanel.SetActive(false);
+        mainMenuPanel.SetActive(true);
+    }
 }
