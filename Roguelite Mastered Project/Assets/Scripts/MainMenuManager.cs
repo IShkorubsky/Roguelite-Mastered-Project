@@ -26,4 +26,14 @@ public class MainMenuManager : MonoBehaviour
         settingsMenuPanel.SetActive(false);
         mainMenuPanel.SetActive(true);
     }
+    
+    /// <summary>
+    /// Used to show the settings menu
+    /// </summary>
+    public void EnableSettingsMenu()
+    {
+        uiClickSFX.Play();
+        mainMenuPanel.SetActive(false);
+        settingsMenuPanel.SetActive(true);
+    }
 }
