@@ -45,4 +45,14 @@ public class MainMenuManager : MonoBehaviour
         uiClickSFX.Play();
         PlayerPrefs.DeleteAll();
     }
+    
+        
+    /// <summary>
+    /// Used to quit the game
+    /// </summary>
+    public void Quit()
+    {
+        uiClickSFX.Play();
+        Application.Quit();
+    }
 }
