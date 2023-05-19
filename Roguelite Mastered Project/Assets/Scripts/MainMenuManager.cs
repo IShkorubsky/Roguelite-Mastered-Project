@@ -36,4 +36,13 @@ public class MainMenuManager : MonoBehaviour
         mainMenuPanel.SetActive(false);
         settingsMenuPanel.SetActive(true);
     }
+    
+    /// <summary>
+    /// Deletes Player Prefs
+    /// </summary>
+    public void DeleteAllPlayerPrefs()
+    {
+        uiClickSFX.Play();
+        PlayerPrefs.DeleteAll();
+    }
 }
