@@ -66,7 +66,7 @@ public class EnemyAI : MonoBehaviour
         _enemyHealth -= GameManager.Instance.ChosenClass.AttackDamage;
     }
 
-    public void Spawn()
+    public void SetIdleState()
     {
         _currentState = new IdleState(gameObject,enemyStats,_agent,_myAnimator,targetTransform);
     }

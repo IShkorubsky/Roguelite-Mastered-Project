@@ -14,22 +14,22 @@ public class EnemySpawner : MonoBehaviour
             {
                 _instance = new EnemySpawner();
             }
+
             return _instance;
         }
     }
+
     private void Awake()
     {
         _instance = this;
     }
-    
-    public void SpawnEnemies(string enemyTag)
+
+    public void SpawnEnemy(string enemyTag)
     {
-        foreach (var spawnPoint in spawnPoints)
-        {
-            var spawnedEnemy = Pool.Instance.Get(enemyTag);
-            spawnedEnemy.SetActive(true);
-            spawnedEnemy.GetComponent<EnemyAI>().Spawn();
-            spawnedEnemy.transform.position = spawnPoint.transform.position;
-        }
+        var spawnedEnemy = Pool.Instance.Get(enemyTag);
+        var randomSpawnPoint = spawnPoints[Random.Range(0, 3)];
+        spawnedEnemy.SetActive(true);
+        spawnedEnemy.GetComponent<EnemyAI>().SetIdleState();
+        spawnedEnemy.transform.position = randomSpawnPoint.transform.position;
     }
 }

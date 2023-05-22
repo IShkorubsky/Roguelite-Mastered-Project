@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     private int _currentLevel;
     private Stats _chosenClass;
     private int _chosenClassInt;
-    private int _numberOfWaves;
+    private int _numberOfEnemies;
     
     private bool _gameOver;
     private bool _enemiesSpawning;
@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
     
     private void Start()
     {
-        _numberOfWaves = 3;
+        _numberOfEnemies = 3;
         _currentLevel = 0;
         Time.timeScale = 1;
         _gameOver = false;
@@ -52,15 +52,11 @@ public class GameManager : MonoBehaviour
     
     private void Update()
     {
-        if (!_enemiesSpawning)
-        {
-            StartRound(_currentLevel + 1);
-        }
-        
-        if (!_gameOver)
+        if (_enemiesSpawning)
         {
             return;
         }
+        StartRound(0);
     }
 
     /// <summary>
@@ -69,24 +65,14 @@ public class GameManager : MonoBehaviour
     /// <param name="levelIndex"></param>
     private void StartRound(int levelIndex)
     {
-        //_currentGameWorld = Instantiate(levels[levelIndex].GameWorld, gameWorldSpawnPosition.position, gameWorldSpawnPosition.rotation);
-        //EnemySpawner.Instance.spawnPoints = levels[levelIndex].EnemySpawnPositions;
-        //SpawnPlayer();
         _currentLevel = levelIndex;
-        _numberOfWaves = _currentLevel * 2;
-        StartCoroutine(SpawnWave());
-    }
-
-    private IEnumerator SpawnWave()
-    {
-        _enemiesSpawning = true;
-        for (int i = 0; i < _numberOfWaves; i++)
+        for (int i = 0; i < _numberOfEnemies; i++)
         {
-            EnemySpawner.Instance.SpawnEnemies("Enemy");
+            EnemySpawner.Instance.SpawnEnemy("Enemy");
         }
-        yield return new WaitForSeconds(3f);
-        _enemiesSpawning = false;
+        _numberOfEnemies = _currentLevel * 2;
     }
+    
     /*
     /// <summary>
     /// Spawns The player in the world
