@@ -4,7 +4,8 @@ public class PlayerAnimator : MonoBehaviour
 {
     private Animator _myAnimator;
     
-    protected bool IsAttacking;
+    protected bool IsAttackingMelee;
+    protected bool IsAttackingRanged;
     protected bool IsDodging;
 
     protected static readonly int IsAttackingHash = Animator.StringToHash("isAttacking");

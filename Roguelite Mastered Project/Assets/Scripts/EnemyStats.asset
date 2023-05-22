@@ -20,5 +20,5 @@ MonoBehaviour:
   moveSpeed: 1000
   attackDamage: 10
   attackSpeed: 1
-  attackRange: 6
+  attackRange: 7
   rangedAttackSpeed: 0

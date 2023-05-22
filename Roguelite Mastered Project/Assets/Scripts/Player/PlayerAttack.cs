@@ -17,15 +17,14 @@ public class PlayerAttack : PlayerAnimator
 
     public void OnLeftMouseClick(InputAction.CallbackContext context)
     {
-        IsAttacking = context.ReadValueAsButton();
-        SetAnimatorBool(IsAttackingHash,IsAttacking);
+        IsAttackingMelee = context.ReadValueAsButton();
+        SetAnimatorBool(IsAttackingHash,IsAttackingMelee);
     }
 
     public void OnRightMouseClick(InputAction.CallbackContext context)
     {
-        IsAttacking = context.ReadValueAsButton();
-        SetAnimatorBool(IsAttackingHash,IsAttacking);
-        StartCoroutine(RangedPlayerAttack());
+        IsAttackingRanged = context.ReadValueAsButton();
+        SetAnimatorBool(IsAttackingHash,IsAttackingRanged);
     }
     
     public void ActivateSwordCollider()
@@ -37,12 +36,20 @@ public class PlayerAttack : PlayerAnimator
     {
         swordCollider.gameObject.GetComponent<Collider>().enabled = false;
     }
-    
+
+    private void Update()
+    {
+        if (IsAttackingRanged)
+        {
+            RangedPlayerAttack();
+        }
+    }
+
     /// <summary>
     /// Handles Ranged Attacking
     /// </summary>
     /// <returns></returns>
-    private IEnumerator RangedPlayerAttack()
+    private void RangedPlayerAttack()
     {
         var bullet = Pool.Instance.Get("Bullet");
         bullet.transform.position = arrowSpawnPosition.transform.position;
@@ -50,6 +57,5 @@ public class PlayerAttack : PlayerAnimator
         bullet.SetActive(true);
         bullet.GetComponent<Rigidbody>().AddForce(arrowSpawnPosition.forward * GameManager.Instance.ChosenClass.RangedAttackSpeed,
             ForceMode.VelocityChange);
-        yield break;
     }
 }
