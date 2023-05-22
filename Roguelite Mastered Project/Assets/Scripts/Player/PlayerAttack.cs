@@ -20,6 +20,13 @@ public class PlayerAttack : PlayerAnimator
         IsAttacking = context.ReadValueAsButton();
         SetAnimatorBool(IsAttackingHash,IsAttacking);
     }
+
+    public void OnRightMouseClick(InputAction.CallbackContext context)
+    {
+        IsAttacking = context.ReadValueAsButton();
+        SetAnimatorBool(IsAttackingHash,IsAttacking);
+        StartCoroutine(RangedPlayerAttack());
+    }
     
     public void ActivateSwordCollider()
     {

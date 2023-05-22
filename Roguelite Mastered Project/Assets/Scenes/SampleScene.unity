@@ -108,8 +108,8 @@ NavMeshSettings:
     agentTypeID: 0
     agentRadius: 0.5
     agentHeight: 2
-    agentSlope: 0
-    agentClimb: 0.05
+    agentSlope: 45
+    agentClimb: 0.4
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 49.3
@@ -5907,6 +5907,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4860110041139720807, guid: 6a63652bdc1929a4a9ed1e2c73d1d93b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.798
+      objectReference: {fileID: 0}
     - target: {fileID: 4860110042692130401, guid: 6a63652bdc1929a4a9ed1e2c73d1d93b, type: 3}
       propertyPath: healthBar
       value: 
@@ -5919,8 +5923,63 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 3.79
       objectReference: {fileID: 0}
+    - target: {fileID: 4860110042692130431, guid: 6a63652bdc1929a4a9ed1e2c73d1d93b, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4860110042692130431, guid: 6a63652bdc1929a4a9ed1e2c73d1d93b, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_ActionId
+      value: e989e8f3-b513-4874-8c29-f079cd4faf3d
+      objectReference: {fileID: 0}
+    - target: {fileID: 4860110042692130431, guid: 6a63652bdc1929a4a9ed1e2c73d1d93b, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_ActionName
+      value: Player/RightMouseAttack[/Mouse/rightButton]
+      objectReference: {fileID: 0}
+    - target: {fileID: 4860110042692130431, guid: 6a63652bdc1929a4a9ed1e2c73d1d93b, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4860110042692130431, guid: 6a63652bdc1929a4a9ed1e2c73d1d93b, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4860110042692130431, guid: 6a63652bdc1929a4a9ed1e2c73d1d93b, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4707719034928764483}
+    - target: {fileID: 4860110042692130431, guid: 6a63652bdc1929a4a9ed1e2c73d1d93b, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4860110042692130431, guid: 6a63652bdc1929a4a9ed1e2c73d1d93b, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnRightMouseClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 4860110042692130431, guid: 6a63652bdc1929a4a9ed1e2c73d1d93b, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerAttack, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4860110042692130431, guid: 6a63652bdc1929a4a9ed1e2c73d1d93b, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7394357790932687781, guid: 6a63652bdc1929a4a9ed1e2c73d1d93b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a63652bdc1929a4a9ed1e2c73d1d93b, type: 3}
+--- !u!114 &4707719034928764483 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4860110042692130400, guid: 6a63652bdc1929a4a9ed1e2c73d1d93b, type: 3}
+  m_PrefabInstance: {fileID: 4707719034928764482}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469992381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 713e787617aa9614a89af87ef9e7b11c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5055655065500541096 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 539419287716525802, guid: 6a63652bdc1929a4a9ed1e2c73d1d93b, type: 3}

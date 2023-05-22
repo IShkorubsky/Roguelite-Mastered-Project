@@ -25,6 +25,8 @@ public class DeactivateBullet : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
+            Debug.Log("Entered");
+            other.gameObject.GetComponent<EnemyAI>()._enemyHealth -= 10;
             _timer = 0;
             Deactivate();
         }

@@ -30,6 +30,14 @@
                     "interactions": ""
                 },
                 {
+                    "name": "RightMouseAttack",
+                    "type": "Button",
+                    "id": "e989e8f3-b513-4874-8c29-f079cd4faf3d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "LeftShift",
                     "type": "Button",
                     "id": "3f0fb065-a899-408b-acb5-44f11fb5ea55",
@@ -124,6 +132,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "LeftShift",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0d856923-ea7a-432e-9474-abd01a588650",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RightMouseAttack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

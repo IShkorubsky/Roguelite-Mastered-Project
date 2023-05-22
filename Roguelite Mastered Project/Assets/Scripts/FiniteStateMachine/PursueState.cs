@@ -17,7 +17,7 @@ namespace FiniteStateMachine
 
         protected override void Enter()
         {
-            Agent.speed = EnemyStats.MoveSpeed;
+            //Agent.speed = EnemyStats.MoveSpeed;
             MyAnimator.SetTrigger(IsRunning);
             base.Enter();
         }
