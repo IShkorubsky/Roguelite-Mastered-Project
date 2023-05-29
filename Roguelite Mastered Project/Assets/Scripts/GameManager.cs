@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     private int _currentLevel;
     private Stats _chosenClass;
     private int _chosenClassInt;
-    private int _numberOfEnemies;
+    public int _numberOfEnemies;
     
     private bool _gameOver;
     private bool _enemiesSpawning;
@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
         _gameOver = false;
         _chosenClassInt = 0;
         _chosenClass = classes[_chosenClassInt];
+        StartRound(6);
     }
     
     private void Update()
@@ -56,7 +57,6 @@ public class GameManager : MonoBehaviour
         {
             return;
         }
-        StartRound(0);
     }
 
     /// <summary>
@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour
     private void StartRound(int levelIndex)
     {
         _currentLevel = levelIndex;
-        for (int i = 0; i < _numberOfEnemies; i++)
+        for (int i = 0; i <= _numberOfEnemies; i++)
         {
             EnemySpawner.Instance.SpawnEnemy("Enemy");
         }
