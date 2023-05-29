@@ -26,8 +26,8 @@ public class PlayerAttack : PlayerAnimator
     {
         if (context.interaction is PressInteraction)
         {
-            IsAttackingRanged = context.action.triggered;
-            SetAnimatorBool(IsAttackingHash, IsAttackingRanged);
+            HasInput = context.action.triggered;
+            SetAnimatorBool(IsAttackingHash, HasInput);
         }
     }
 
@@ -43,9 +43,9 @@ public class PlayerAttack : PlayerAnimator
 
     private void Update()
     {
-        if (IsAttackingRanged)
+        if (HasInput && !IsAttackingRanged)
         {
-            RangedPlayerAttack();
+            StartCoroutine(RangedPlayerAttack());
         }
     }
 
@@ -55,6 +55,7 @@ public class PlayerAttack : PlayerAnimator
     /// <returns></returns>
     private IEnumerator RangedPlayerAttack()
     {
+        IsAttackingRanged = true;
         var bullet = Pool.Instance.Get("Bullet");
         bullet.transform.position = arrowSpawnPosition.transform.position;
         bullet.GetComponent<Rigidbody>().velocity = Vector3.zero;
@@ -62,6 +63,7 @@ public class PlayerAttack : PlayerAnimator
         bullet.GetComponent<Rigidbody>().AddForce(
             arrowSpawnPosition.forward * GameManager.Instance.ChosenClass.RangedAttackSpeed,
             ForceMode.VelocityChange);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.5f);
+        IsAttackingRanged = false;
     }
 }

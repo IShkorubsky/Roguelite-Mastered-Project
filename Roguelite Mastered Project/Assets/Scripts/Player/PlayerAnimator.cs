@@ -6,6 +6,7 @@ public class PlayerAnimator : MonoBehaviour
     
     protected bool IsAttackingMelee;
     protected bool IsAttackingRanged;
+    protected bool HasInput;
     protected bool IsDodging;
 
     protected static readonly int IsAttackingHash = Animator.StringToHash("isAttacking");
