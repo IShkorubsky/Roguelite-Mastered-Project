@@ -66,11 +66,11 @@ public class GameManager : MonoBehaviour
     private void StartRound(int levelIndex)
     {
         _currentLevel = levelIndex;
+        _numberOfEnemies = _currentLevel * 2;
         for (int i = 0; i <= _numberOfEnemies; i++)
         {
             EnemySpawner.Instance.SpawnEnemy("Enemy");
         }
-        _numberOfEnemies = _currentLevel * 2;
     }
     
     /*
