@@ -139,7 +139,7 @@
                     "name": "",
                     "id": "0d856923-ea7a-432e-9474-abd01a588650",
                     "path": "<Mouse>/rightButton",
-                    "interactions": "",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "",
                     "action": "RightMouseAttack",
