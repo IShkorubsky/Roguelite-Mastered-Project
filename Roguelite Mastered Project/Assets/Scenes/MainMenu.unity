@@ -408,6 +408,7 @@ GameObject:
   m_Component:
   - component: {fileID: 149963263}
   - component: {fileID: 149963264}
+  - component: {fileID: 149963265}
   m_Layer: 5
   m_Name: SFX Volume Slider
   m_TagString: Untagged
@@ -489,6 +490,22 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &149963265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149963262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80abbed7922f1cf41a85b167caceb7f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  masterVolumeParam: SoundFXVolume
+  audioMixer: {fileID: 24100000, guid: 50395ca79f069f04b8406251f3f71a89, type: 2}
+  volumeSlider: {fileID: 149963264}
+  multiplier: 30
 --- !u!1 &160234547
 GameObject:
   m_ObjectHideFlags: 0
@@ -2131,6 +2148,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1001213896}
   - component: {fileID: 1001213897}
+  - component: {fileID: 1001213898}
   m_Layer: 5
   m_Name: Master Volume Slider
   m_TagString: Untagged
@@ -2212,6 +2230,22 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1001213898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001213895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80abbed7922f1cf41a85b167caceb7f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  masterVolumeParam: MasterVolume
+  audioMixer: {fileID: 24100000, guid: 50395ca79f069f04b8406251f3f71a89, type: 2}
+  volumeSlider: {fileID: 1001213897}
+  multiplier: 30
 --- !u!1 &1070749248
 GameObject:
   m_ObjectHideFlags: 0
@@ -2824,6 +2858,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2043423246}
   - component: {fileID: 2043423247}
+  - component: {fileID: 2043423248}
   m_Layer: 5
   m_Name: Music Volume Slider
   m_TagString: Untagged
@@ -2905,6 +2940,22 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2043423248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2043423245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80abbed7922f1cf41a85b167caceb7f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  masterVolumeParam: MusicVolume
+  audioMixer: {fileID: 0}
+  volumeSlider: {fileID: 0}
+  multiplier: 30
 --- !u!1 &2139255812
 GameObject:
   m_ObjectHideFlags: 0
