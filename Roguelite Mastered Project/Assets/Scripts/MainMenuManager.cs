@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
-    [SerializeField]private GameObject mainMenuPanel;
-    [SerializeField]private GameObject settingsMenuPanel;
-    [SerializeField]private SceneFading sceneFading;
-    [SerializeField]private AudioSource uiClickSFX;
-    
+    [SerializeField] private GameObject mainMenuPanel;
+    [SerializeField] private GameObject settingsMenuPanel;
+    [SerializeField] private SceneFading sceneFading;
+    //[SerializeField] private AudioSource uiClickSFX;
+
     private void Start()
     {
         if (!Screen.fullScreen)
@@ -16,13 +17,18 @@ public class MainMenuManager : MonoBehaviour
             Screen.fullScreenMode = FullScreenMode.ExclusiveFullScreen;
         }
     }
-    
+
+    public void StartGame()
+    {
+        SceneManager.LoadScene("SampleScene");
+    }
+
     /// <summary>
     /// Used to show main menu screen
     /// </summary>
     public void ShowMainMenu()
     {
-        uiClickSFX.Play();
+        //uiClickSFX.Play();
         settingsMenuPanel.SetActive(false);
         mainMenuPanel.SetActive(true);
     }
@@ -32,7 +38,7 @@ public class MainMenuManager : MonoBehaviour
     /// </summary>
     public void EnableSettingsMenu()
     {
-        uiClickSFX.Play();
+        //uiClickSFX.Play();
         mainMenuPanel.SetActive(false);
         settingsMenuPanel.SetActive(true);
     }
@@ -42,7 +48,7 @@ public class MainMenuManager : MonoBehaviour
     /// </summary>
     public void DeleteAllPlayerPrefs()
     {
-        uiClickSFX.Play();
+        //uiClickSFX.Play();
         PlayerPrefs.DeleteAll();
     }
     
@@ -52,7 +58,7 @@ public class MainMenuManager : MonoBehaviour
     /// </summary>
     public void Quit()
     {
-        uiClickSFX.Play();
+        //uiClickSFX.Play();
         Application.Quit();
     }
 }
