@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour
         _enemiesSpawning = true;
         _currentLevel = levelIndex;
         _enemiesToSpawn = _currentLevel * 2;
-        for (int i = 0; i <= _enemiesToSpawn; i++)
+        for (int i = 0; i < _enemiesToSpawn; i++)
         {
             Debug.Log("Entered");
             _enemiesSpawned++;
