@@ -52,7 +52,9 @@ public class EnemyAI : MonoBehaviour
 
             if (_enemyHealth <= 0)
             {
-                Destroy(gameObject);
+                GameManager.Instance._enemiesSpawned--;
+                gameObject.SetActive(false);
+                _enemyHealth = EnemyStats.MAXHealth;
             }
         }
         else

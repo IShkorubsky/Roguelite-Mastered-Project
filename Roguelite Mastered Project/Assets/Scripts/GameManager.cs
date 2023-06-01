@@ -13,7 +13,8 @@ public class GameManager : MonoBehaviour
     private int _currentLevel;
     private Stats _chosenClass;
     private int _chosenClassInt;
-    public int _numberOfEnemies;
+    public int _enemiesToSpawn;
+    public int _enemiesSpawned;
     
     private bool _gameOver;
     private bool _enemiesSpawning;
@@ -42,7 +43,7 @@ public class GameManager : MonoBehaviour
     
     private void Start()
     {
-        _numberOfEnemies = 3;
+        _enemiesToSpawn = 3;
         _currentLevel = 0;
         Time.timeScale = 1;
         _gameOver = false;
@@ -66,9 +67,10 @@ public class GameManager : MonoBehaviour
     private void StartRound(int levelIndex)
     {
         _currentLevel = levelIndex;
-        _numberOfEnemies = _currentLevel * 2;
-        for (int i = 0; i <= _numberOfEnemies; i++)
+        _enemiesToSpawn = _currentLevel * 2;
+        for (int i = 0; i <= _enemiesToSpawn; i++)
         {
+            _enemiesSpawned++;
             EnemySpawner.Instance.SpawnEnemy("Enemy");
         }
     }
