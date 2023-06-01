@@ -54,9 +54,9 @@ public class GameManager : MonoBehaviour
     
     private void Update()
     {
-        if (_enemiesSpawning)
+        if (_enemiesSpawned == 0)
         {
-            return;
+            StartRound(_currentLevel + 1);
         }
     }
 
