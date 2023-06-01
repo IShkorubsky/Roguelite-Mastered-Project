@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +8,7 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private Slider healthBarSlider;
     [SerializeField] private Slider dodgeCooldownSlider;
+    [SerializeField] private Text enemiesSpawned;
 
     public Slider HealthBarSlider => healthBarSlider;
 
@@ -27,5 +29,10 @@ public class UIManager : MonoBehaviour
     private void Awake()
     {
         _instance = this;
+    }
+
+    private void Update()
+    {
+        enemiesSpawned.text = GameManager.Instance._enemiesSpawned.ToString();
     }
 }
