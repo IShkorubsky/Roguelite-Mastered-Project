@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
         _gameOver = false;
         _chosenClassInt = 0;
         _chosenClass = classes[_chosenClassInt];
-        StartRound(6);
+        StartRound(1);
     }
     
     private void Update()

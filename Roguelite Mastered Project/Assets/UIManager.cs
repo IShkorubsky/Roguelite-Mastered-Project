@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Slider healthBarSlider;
     [SerializeField] private Slider dodgeCooldownSlider;
     [SerializeField] private Text enemiesSpawned;
+    [SerializeField] private Text currentRound;
 
     public Slider HealthBarSlider => healthBarSlider;
 
@@ -33,6 +34,7 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
-        enemiesSpawned.text = GameManager.Instance._enemiesSpawned.ToString();
+        currentRound.text = $"Round:{GameManager.Instance.CurrentLevel.ToString()}/5";
+        enemiesSpawned.text = $"Enemies left:{GameManager.Instance._enemiesSpawned.ToString()}";
     }
 }
