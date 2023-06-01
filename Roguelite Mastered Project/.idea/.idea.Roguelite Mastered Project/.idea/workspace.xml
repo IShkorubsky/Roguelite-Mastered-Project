@@ -59,7 +59,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/DealDamage.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/LevelSO.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CameraController.cs" />
-        <option value="$PROJECT_DIR$/Assets/UIManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerLocomotion.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Pool.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerDetectionCollider.cs" />
@@ -77,6 +76,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/VolumeControl.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MainMenuManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/EnemyAI.cs" />
+        <option value="$PROJECT_DIR$/Assets/UIManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
       </list>
     </option>
@@ -154,7 +154,7 @@
       <workItem from="1684793280174" duration="3118000" />
       <workItem from="1685393988838" duration="2273000" />
       <workItem from="1685486993579" duration="557000" />
-      <workItem from="1685657641107" duration="382000" />
+      <workItem from="1685657641107" duration="789000" />
     </task>
     <servers />
   </component>

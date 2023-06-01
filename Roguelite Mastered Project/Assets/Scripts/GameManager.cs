@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
     
     private void Start()
     {
+        _enemiesSpawning = true;
         _enemiesToSpawn = 3;
         _currentLevel = 0;
         Time.timeScale = 1;
@@ -54,7 +55,7 @@ public class GameManager : MonoBehaviour
     
     private void Update()
     {
-        if (_enemiesSpawned == 0)
+        if (_enemiesSpawned == 0 && !_enemiesSpawning)
         {
             StartRound(_currentLevel + 1);
         }
@@ -66,13 +67,16 @@ public class GameManager : MonoBehaviour
     /// <param name="levelIndex"></param>
     private void StartRound(int levelIndex)
     {
+        _enemiesSpawning = true;
         _currentLevel = levelIndex;
         _enemiesToSpawn = _currentLevel * 2;
         for (int i = 0; i <= _enemiesToSpawn; i++)
         {
+            Debug.Log("Entered");
             _enemiesSpawned++;
             EnemySpawner.Instance.SpawnEnemy("Enemy");
         }
+        _enemiesSpawning = false;
     }
     
     /*
