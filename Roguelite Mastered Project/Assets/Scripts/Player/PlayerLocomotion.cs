@@ -58,54 +58,57 @@ public class PlayerLocomotion : PlayerAnimator
     /// </summary>
     private void MoveWithAim()
     {
-        var lookPosition = _rotationTarget - transform.position;
-        lookPosition.y = 0;
-        var rotation = Quaternion.LookRotation(lookPosition);
-
-        var aimDirection = new Vector3(_rotationTarget.x, 0f, _rotationTarget.z);
-        var distanceToMouse = _mousePosition - new Vector2(transform.position.x, transform.position.y);
-
-        if (aimDirection != Vector3.zero && distanceToMouse.magnitude > 3f)
+        if (!UIManager.Instance.IsGamePaused)
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 0.15f);
-        }
+            var lookPosition = _rotationTarget - transform.position;
+            lookPosition.y = 0;
+            var rotation = Quaternion.LookRotation(lookPosition);
 
-        var movement = new Vector3(_movementInput.x, 0f, _movementInput.y);
+            var aimDirection = new Vector3(_rotationTarget.x, 0f, _rotationTarget.z);
+            var distanceToMouse = _mousePosition - new Vector2(transform.position.x, transform.position.y);
 
-        if (movement != Vector3.zero)
-        {
-            ResetAnimatorTrigger(IsIdleHash);
-            SetAnimatorTrigger(IsRunningHash);
-        }
-        else
-        {
-            ResetAnimatorTrigger(IsRunningHash);
-            SetAnimatorTrigger(IsIdleHash);
-        }
-
-        if (dodgeCooldownBar != null)
-        {
-            if (dodgeCooldownBar.value >= 1)
+            if (aimDirection != Vector3.zero && distanceToMouse.magnitude > 3f)
             {
-                dodgeCooldownBar.gameObject.SetActive(false);
+                transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 0.15f);
+            }
 
-                if (IsDodging)
+            var movement = new Vector3(_movementInput.x, 0f, _movementInput.y);
+
+            if (movement != Vector3.zero)
+            {
+                ResetAnimatorTrigger(IsIdleHash);
+                SetAnimatorTrigger(IsRunningHash);
+            }
+            else
+            {
+                ResetAnimatorTrigger(IsRunningHash);
+                SetAnimatorTrigger(IsIdleHash);
+            }
+
+            if (dodgeCooldownBar != null)
+            {
+                if (dodgeCooldownBar.value >= 1)
                 {
-                    HandleDodging(movement);
+                    dodgeCooldownBar.gameObject.SetActive(false);
+
+                    if (IsDodging)
+                    {
+                        HandleDodging(movement);
+                    }
+                }
+                else
+                {
+                    dodgeCooldownBar.gameObject.SetActive(true);
+                    dodgeCooldownBar.value += Time.deltaTime;
                 }
             }
             else
             {
-                dodgeCooldownBar.gameObject.SetActive(true);
-                dodgeCooldownBar.value += Time.deltaTime;
+                dodgeCooldownBar = UIManager.Instance.DodgeCooldownSlider;
             }
-        }
-        else
-        {
-            dodgeCooldownBar = UIManager.Instance.DodgeCooldownSlider;
-        }
         
-        transform.Translate(movement * (GameManager.Instance.ChosenClass.MoveSpeed * Time.deltaTime), Space.World);
+            transform.Translate(movement * (GameManager.Instance.ChosenClass.MoveSpeed * Time.deltaTime), Space.World);
+        }
     }
 
     /// <summary>

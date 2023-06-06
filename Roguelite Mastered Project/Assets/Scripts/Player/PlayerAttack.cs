@@ -18,8 +18,11 @@ public class PlayerAttack : PlayerAnimator
 
     public void OnLeftMouseClick(InputAction.CallbackContext context)
     {
-        IsAttackingMelee = context.ReadValueAsButton();
-        SetAnimatorBool(IsAttackingHash, IsAttackingMelee);
+        if (!UIManager.Instance.IsGamePaused)
+        {
+            IsAttackingMelee = context.ReadValueAsButton();
+            SetAnimatorBool(IsAttackingHash, IsAttackingMelee);
+        }
     }
 
     public void OnRightMouseClick(InputAction.CallbackContext context)
@@ -43,7 +46,7 @@ public class PlayerAttack : PlayerAnimator
 
     private void Update()
     {
-        if (HasInput && !IsAttackingRanged)
+        if (HasInput && !IsAttackingRanged && !UIManager.Instance.IsGamePaused)
         {
             StartCoroutine(RangedPlayerAttack());
         }

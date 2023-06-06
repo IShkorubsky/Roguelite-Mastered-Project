@@ -13,11 +13,14 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Text currentRound;
     [SerializeField] private GameObject inGamePanel;
     [SerializeField] private GameObject pausePanel;
+    private bool _isGamePaused;
     
     public Slider HealthBarSlider => healthBarSlider;
 
     public Slider DodgeCooldownSlider => dodgeCooldownSlider;
     
+    public bool IsGamePaused => _isGamePaused;
+
     public static UIManager Instance
     {
         get
@@ -29,7 +32,8 @@ public class UIManager : MonoBehaviour
             return _instance;
         }
     }
-    
+
+
     private void Awake()
     {
         _instance = this;
@@ -43,6 +47,7 @@ public class UIManager : MonoBehaviour
 
     public void PauseGame()
     {
+        _isGamePaused = true;
         inGamePanel.SetActive(false);
         Time.timeScale = 0;
         pausePanel.SetActive(true);
@@ -50,6 +55,7 @@ public class UIManager : MonoBehaviour
     
     public void UnpauseGame()
     {
+        _isGamePaused = false;
         pausePanel.SetActive(false);
         Time.timeScale = 1;
         inGamePanel.SetActive(true);
