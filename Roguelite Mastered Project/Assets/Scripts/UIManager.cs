@@ -40,14 +40,14 @@ public class UIManager : MonoBehaviour
         enemiesSpawned.text = $"Enemies left:{GameManager.Instance._enemiesSpawned.ToString()}";
     }
 
-    private void PauseGame()
+    public void PauseGame()
     {
         inGamePanel.SetActive(false);
         Time.timeScale = 0;
         pausePanel.SetActive(true);
     }
     
-    private void UnpauseGame()
+    public void UnpauseGame()
     {
         pausePanel.SetActive(false);
         Time.timeScale = 1;

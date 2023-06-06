@@ -48,7 +48,7 @@ public class PlayerLocomotion : PlayerAnimator
 
     public void OnPauseGame(InputAction.CallbackContext context)
     {
-        
+        UIManager.Instance.
     }
 
     #endregion
