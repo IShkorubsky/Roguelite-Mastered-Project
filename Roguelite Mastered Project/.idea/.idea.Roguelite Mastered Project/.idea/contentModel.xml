@@ -92,6 +92,7 @@
           <e p="Pool.cs" t="Include" />
           <e p="SceneFading.cs" t="Include" />
           <e p="Stats.cs" t="Include" />
+          <e p="UIManager.cs" t="Include" />
           <e p="VolumeControl.cs" t="Include" />
         </e>
         <e p="TextMesh Pro" t="Include">
@@ -127,7 +128,6 @@
             <e p="EmojiOne.json" t="Include" />
           </e>
         </e>
-        <e p="UIManager.cs" t="Include" />
       </e>
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive" />

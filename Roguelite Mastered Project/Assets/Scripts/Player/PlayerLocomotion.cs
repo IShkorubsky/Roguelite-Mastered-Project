@@ -46,6 +46,11 @@ public class PlayerLocomotion : PlayerAnimator
         IsDodging = context.ReadValueAsButton();
     }
 
+    public void OnPauseGame(InputAction.CallbackContext context)
+    {
+        
+    }
+
     #endregion
 
     /// <summary>
