@@ -65,6 +65,20 @@ public class UIManager : MonoBehaviour
         inGamePanel.SetActive(true);
     }
 
+    public void GameOver()
+    {
+        Time.timeScale = 0;
+        inGamePanel.SetActive(false);
+        gameOverPanel.SetActive(true);
+    }
+
+    public void Victory()
+    {
+        Time.timeScale = 0;
+        inGamePanel.SetActive(false);
+        victoryPanel.SetActive(true);
+    }
+
     public void RestartGame()
     {
         Time.timeScale = 1;
