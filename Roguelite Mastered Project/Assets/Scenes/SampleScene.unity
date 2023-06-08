@@ -2390,8 +2390,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 125}
-  m_SizeDelta: {x: 472.223, y: 120.0276}
+  m_AnchoredPosition: {x: 0.0000038147, y: 114}
+  m_SizeDelta: {x: 582.08, y: 120.0276}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &755903461
 MonoBehaviour:
@@ -2426,7 +2426,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Victory
+  m_Text: Game Over
 --- !u!222 &755903462
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2843,7 +2843,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -15}
+  m_AnchoredPosition: {x: 0, y: -30.007008}
   m_SizeDelta: {x: 368.278, y: 60.014}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &911759230
@@ -2879,7 +2879,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: You managed to protect your house for another day
+  m_Text: You failed to protect your house. You will need to move location and rebuild.
 --- !u!222 &911759231
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4264,7 +4264,7 @@ GameObject:
   - component: {fileID: 1293536862}
   - component: {fileID: 1293536861}
   m_Layer: 5
-  m_Name: BackToGameButton
+  m_Name: RestartGameButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7214,7 +7214,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Back to Game
+  m_Text: Restart Game
 --- !u!222 &1980801831
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7609,7 +7609,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Back to Game
+  m_Text: Restart Game
 --- !u!222 &2061310494
 CanvasRenderer:
   m_ObjectHideFlags: 0
