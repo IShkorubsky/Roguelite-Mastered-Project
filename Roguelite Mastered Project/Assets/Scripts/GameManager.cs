@@ -57,6 +57,10 @@ public class GameManager : MonoBehaviour
     {
         if (_enemiesSpawned == 0 && !_enemiesSpawning)
         {
+            if (_currentLevel == 5)
+            {
+                UIManager.Instance.Victory();
+            }
             StartRound(_currentLevel + 1);
         }
         
