@@ -14,6 +14,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Text currentRound;
     [SerializeField] private GameObject inGamePanel;
     [SerializeField] private GameObject pausePanel;
+    [SerializeField] private GameObject victoryPanel;
+    [SerializeField] private GameObject gameOverPanel;
+    
     private bool _isGamePaused;
     
     public Slider HealthBarSlider => healthBarSlider;
@@ -62,6 +65,12 @@ public class UIManager : MonoBehaviour
         inGamePanel.SetActive(true);
     }
 
+    public void RestartGame()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(1);
+    }
+    
     public void BackToMainMenu()
     {
         Time.timeScale = 1;
