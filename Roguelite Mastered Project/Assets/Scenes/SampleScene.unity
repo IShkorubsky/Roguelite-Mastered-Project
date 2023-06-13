@@ -7804,8 +7804,8 @@ MonoBehaviour:
   currentRound: {fileID: 1512775704}
   inGamePanel: {fileID: 2064681309}
   pausePanel: {fileID: 1380716855}
-  victoryPanel: {fileID: 0}
-  gameOverPanel: {fileID: 0}
+  victoryPanel: {fileID: 366325061}
+  gameOverPanel: {fileID: 544050801}
 --- !u!1 &2118450170
 GameObject:
   m_ObjectHideFlags: 0
