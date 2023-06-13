@@ -32,6 +32,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Update()
     {
+        healthSlider.gameObject.transform.LookAt(Camera.main.transform);
         if (targetTransform != null)
         {
             _distanceToTarget = (targetTransform.position - transform.position).magnitude;
