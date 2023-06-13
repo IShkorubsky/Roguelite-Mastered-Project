@@ -68,7 +68,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/DieState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/IdleState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/RoamState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/PursueState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/EnemySpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DeactivateBullet.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerAnimator.cs" />
@@ -80,6 +79,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/UIManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/EnemyAI.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/PursueState.cs" />
       </list>
     </option>
   </component>
@@ -159,7 +159,7 @@
       <workItem from="1685657641107" duration="2084000" />
       <workItem from="1686089667468" duration="1927000" />
       <workItem from="1686258845714" duration="571000" />
-      <workItem from="1686692410504" duration="333000" />
+      <workItem from="1686692410504" duration="834000" />
     </task>
     <servers />
   </component>
