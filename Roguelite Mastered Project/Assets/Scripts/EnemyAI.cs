@@ -1,4 +1,3 @@
-using System;
 using FiniteStateMachine;
 using UnityEngine;
 using UnityEngine.AI;
@@ -33,10 +32,10 @@ public class EnemyAI : MonoBehaviour
     private void Update()
     {
         healthSlider.gameObject.transform.LookAt(Camera.main.transform);
+        _distanceToTarget = (targetTransform.position - transform.position).magnitude;
+        
         if (targetTransform != null)
         {
-            _distanceToTarget = (targetTransform.position - transform.position).magnitude;
-
             if (_distanceToTarget <= EnemyStats.AttackRange)
             {
                 targetInRange = true;
