@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -8,6 +7,7 @@ namespace FiniteStateMachine
     {
         private const float RotationSpeed = 2.0f;
         private static readonly int IsAttacking = Animator.StringToHash("isAttacking");
+        private static EnemyAI _enemyAI;
 
         public AttackState(GameObject enemyGameObject,Stats enemyStats, NavMeshAgent agent, Animator myAnimator, Transform targetTransform)
             : base(enemyGameObject,enemyStats, agent, myAnimator, targetTransform)
@@ -19,6 +19,7 @@ namespace FiniteStateMachine
         {
             MyAnimator.SetTrigger(IsAttacking);
             Agent.isStopped = true;
+            _enemyAI = EnemyGameObject.GetComponent<EnemyAI>();
             base.Enter();
         }
 
@@ -28,13 +29,19 @@ namespace FiniteStateMachine
             direction.y = 0;
             
             EnemyGameObject.transform.rotation = Quaternion.Slerp(EnemyGameObject.transform.rotation,Quaternion.LookRotation(direction),Time.deltaTime * RotationSpeed );
-            
 
+            if (!_enemyAI.targetInRange)
+            {
+                NextState = new IdleState(EnemyGameObject,EnemyStats,Agent,MyAnimator,TargetTransform);
+                Stage = Event.Exit;
+            }
+            /*
             if (!CanAttackPlayer())
             {
                 NextState = new IdleState(EnemyGameObject,EnemyStats,Agent,MyAnimator,TargetTransform);
                 Stage = Event.Exit;
             }
+            */
         }
 
         protected override void Exit()

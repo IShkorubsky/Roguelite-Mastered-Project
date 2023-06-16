@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class EnemyAI : MonoBehaviour
 {
     private NavMeshAgent _agent;
-    private Animator _myAnimator;
+    public Animator _myAnimator;
     public Transform targetTransform;
     private StateMachine _currentState;
     public float _distanceToTarget;
@@ -23,7 +23,6 @@ public class EnemyAI : MonoBehaviour
         targetTransform = GameObject.FindGameObjectWithTag("EnemyTarget").transform;
         _agent = GetComponent<NavMeshAgent>();
         _myAnimator = GetComponent<Animator>();
-        
         EnemyStats.SetMaxHealth();
         _enemyHealth = enemyStats.Health;
         healthSlider.maxValue = EnemyStats.MAXHealth;

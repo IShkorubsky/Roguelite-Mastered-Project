@@ -17,8 +17,8 @@ MonoBehaviour:
   health: 150
   maxHealth: 150
   healthRegen: 1
-  moveSpeed: 1
+  moveSpeed: 3
   attackDamage: 10
   attackSpeed: 1
-  attackRange: 5
+  attackRange: 6
   rangedAttackSpeed: 0

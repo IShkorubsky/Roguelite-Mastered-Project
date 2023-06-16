@@ -17,6 +17,7 @@ namespace FiniteStateMachine
 
         protected override void Enter()
         {
+            Agent.isStopped = false;
             Agent.speed = EnemyStats.MoveSpeed;
             MyAnimator.SetTrigger(IsRunning);
             base.Enter();
@@ -24,13 +25,18 @@ namespace FiniteStateMachine
 
         protected override void Update()
         {
-            Agent.isStopped = false;
-            Agent.SetDestination(TargetTransform.position);
-            
-            if (_enemyAI.targetInRange)
-            { 
-                NextState = new AttackState(EnemyGameObject,EnemyStats,Agent,MyAnimator,TargetTransform);
-                Stage = Event.Exit;
+            if (!Agent.hasPath && !_enemyAI.targetInRange)
+            {
+                Agent.isStopped = false;
+                Agent.SetDestination(TargetTransform.position);
+            }
+            else
+            {
+                if (_enemyAI.targetInRange)
+                { 
+                    NextState = new AttackState(EnemyGameObject,EnemyStats,Agent,MyAnimator,TargetTransform);
+                    Stage = Event.Exit;
+                }
             }
         }
 
