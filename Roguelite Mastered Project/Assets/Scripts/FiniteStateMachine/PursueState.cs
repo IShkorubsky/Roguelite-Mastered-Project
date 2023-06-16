@@ -26,13 +26,11 @@ namespace FiniteStateMachine
         {
             Agent.isStopped = false;
             Agent.SetDestination(TargetTransform.position);
-            if (Agent.hasPath)
-            {
-                if (_enemyAI.targetInRange)
-                {
-                    NextState = new AttackState(EnemyGameObject,EnemyStats,Agent,MyAnimator,TargetTransform);
-                    Stage = Event.Exit;
-                }
+            
+            if (_enemyAI.targetInRange)
+            { 
+                NextState = new AttackState(EnemyGameObject,EnemyStats,Agent,MyAnimator,TargetTransform);
+                Stage = Event.Exit;
             }
         }
 
