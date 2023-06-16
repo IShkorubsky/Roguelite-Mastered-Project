@@ -4708,7 +4708,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.826
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -6452,7 +6452,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.826
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -6753,6 +6753,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9ad41aa87b78e2143afbb9ad7f7e56ff, type: 2}
   playerGameObject: {fileID: 155297017264799803}
   gameWorldSpawnPosition: {fileID: 1884987372}
+  _chosenClass: {fileID: 11400000, guid: 2e0ebbce55262764d883cf14e715c159, type: 2}
   _enemiesToSpawn: 0
   _enemiesSpawned: 0
 --- !u!4 &1721627253
@@ -9024,19 +9025,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arrowSpawnPosition: {fileID: 155297015443956773}
   swordCollider: {fileID: 6143942587860999036}
---- !u!114 &155297017264799779
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 155297017264799803}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02bdd97e5300b7b4e80ab4ed45477dd9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBar: {fileID: 1269644210}
 --- !u!4 &155297017264799800
 Transform:
   m_ObjectHideFlags: 0
@@ -9079,7 +9067,6 @@ GameObject:
   - component: {fileID: 155297017264799807}
   - component: {fileID: 155297017264799801}
   - component: {fileID: 155297017264799776}
-  - component: {fileID: 155297017264799779}
   - component: {fileID: 155297017264799778}
   - component: {fileID: 155297017264799805}
   - component: {fileID: 469992389}
@@ -20303,6 +20290,7 @@ GameObject:
   - component: {fileID: 2867425989800693341}
   - component: {fileID: 2867425989802675685}
   - component: {fileID: 2867425989802675686}
+  - component: {fileID: 2867425989802675688}
   m_Layer: 0
   m_Name: SM_Bld_Village_06
   m_TagString: EnemyTarget
@@ -20310,6 +20298,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &2867425989802675688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2867425989802675687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02bdd97e5300b7b4e80ab4ed45477dd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 1269644210}
 --- !u!4 &2867425989803028205
 Transform:
   m_ObjectHideFlags: 0

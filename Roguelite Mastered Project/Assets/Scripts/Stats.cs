@@ -22,7 +22,6 @@ public class Stats : ScriptableObject
 
     //Encapsulated Fields
     public string ClassName => className;
-    public float Health => health;
     public float MAXHealth => maxHealth;
     public float HealthRegen => healthRegen;
     public int MoveSpeed => moveSpeed;
@@ -31,12 +30,18 @@ public class Stats : ScriptableObject
     public int AttackRange => attackRange;
     public int RangedAttackSpeed => rangedAttackSpeed;
 
+    public float Health
+    {
+        get => health;
+        set => health = value;
+    }
+
     /// <summary>
     /// Set health based on maxHealth value
     /// </summary>
     public void SetMaxHealth()
     {
-        health = maxHealth;
+        Health = maxHealth;
     }
 
     /// <summary>
@@ -45,7 +50,7 @@ public class Stats : ScriptableObject
     /// <param name="damageAmount"></param> Desired damage amount
     public void GetDamage(float damageAmount)
     {
-        health -= damageAmount;
+        Health -= damageAmount;
     }
 
     /// <summary>
@@ -53,6 +58,6 @@ public class Stats : ScriptableObject
     /// </summary>
     public void HealthRegeneration()
     {
-        health += healthRegen * Time.deltaTime;
+        Health += healthRegen * Time.deltaTime;
     }
 }

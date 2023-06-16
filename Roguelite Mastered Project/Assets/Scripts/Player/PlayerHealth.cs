@@ -8,15 +8,9 @@ public class PlayerHealth : PlayerAnimator
     
     #region Health
 
-    private void Awake()
+    private void Start()
     {
-        healthBar = UIManager.Instance.HealthBarSlider;
-        
-        
-        if (GameManager.Instance.ChosenClass != null)
-        {
-            GameManager.Instance.ChosenClass.SetMaxHealth();
-        }
+        GameManager.Instance.ChosenClass.SetMaxHealth();
     }
 
     private void Update()
@@ -25,8 +19,7 @@ public class PlayerHealth : PlayerAnimator
 
         if (GameManager.Instance.ChosenClass.Health <= 0)
         {
-            //Handle death
-            Debug.Log("Player Dead!");
+            UIManager.Instance.GameOver();
         }
         
         if (!healthBar)

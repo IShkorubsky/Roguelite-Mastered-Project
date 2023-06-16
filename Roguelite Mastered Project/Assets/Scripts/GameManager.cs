@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform gameWorldSpawnPosition;
     
     private int _currentLevel;
-    private Stats _chosenClass;
+    [SerializeField] private Stats _chosenClass;
     private int _chosenClassInt;
     public int _enemiesToSpawn;
     public int _enemiesSpawned;
@@ -48,8 +48,6 @@ public class GameManager : MonoBehaviour
         _currentLevel = 0;
         Time.timeScale = 1;
         _gameOver = false;
-        _chosenClassInt = 0;
-        _chosenClass = classes[_chosenClassInt];
         StartRound(1);
     }
     

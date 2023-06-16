@@ -78,9 +78,9 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/PursueState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/AttackState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Stats.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/EnemyAI.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Stats.cs" />
       </list>
     </option>
   </component>
@@ -162,7 +162,7 @@
       <workItem from="1686258845714" duration="571000" />
       <workItem from="1686692410504" duration="947000" />
       <workItem from="1686781918040" duration="1176000" />
-      <workItem from="1686896392874" duration="440000" />
+      <workItem from="1686896392874" duration="1582000" />
     </task>
     <servers />
   </component>
