@@ -75,6 +75,6 @@ public class EnemyAI : MonoBehaviour
 
     public void DamageHouse()
     {
-        targetTransform.GetComponent<PlayerHealth>().
+        targetTransform.GetComponent<PlayerHealth>().GetDamaged(enemyStats.AttackDamage);
     }
 }

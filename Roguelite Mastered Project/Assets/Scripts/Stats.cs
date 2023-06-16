@@ -43,9 +43,9 @@ public class Stats : ScriptableObject
     /// Take damage based on the desired amount
     /// </summary>
     /// <param name="damageAmount"></param> Desired damage amount
-    private void GetDamage()
+    public void GetDamage(float damageAmount)
     {
-        health -= attackDamage;
+        health -= damageAmount;
     }
 
     /// <summary>

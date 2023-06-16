@@ -12,6 +12,7 @@ public class PlayerHealth : PlayerAnimator
     {
         healthBar = UIManager.Instance.HealthBarSlider;
         
+        
         if (GameManager.Instance.ChosenClass != null)
         {
             GameManager.Instance.ChosenClass.SetMaxHealth();
@@ -36,9 +37,9 @@ public class PlayerHealth : PlayerAnimator
         healthBar.value = GameManager.Instance.ChosenClass.Health * 0.01f;
     }
 
-    public void GetDamaged()
+    public void GetDamaged(float damageAmount)
     {
-        
+        GameManager.Instance.ChosenClass.GetDamage(damageAmount);
     }
 
     #endregion
