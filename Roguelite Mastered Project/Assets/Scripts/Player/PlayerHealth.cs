@@ -1,10 +1,10 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerHealth : PlayerAnimator
 {
     [SerializeField] private Slider healthBar;
+    private float _playerHealth;
     
     #region Health
 
@@ -34,6 +34,11 @@ public class PlayerHealth : PlayerAnimator
         }
         
         healthBar.value = GameManager.Instance.ChosenClass.Health * 0.01f;
+    }
+
+    public void GetDamaged()
+    {
+        
     }
 
     #endregion

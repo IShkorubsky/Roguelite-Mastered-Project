@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -27,6 +28,7 @@ namespace FiniteStateMachine
             direction.y = 0;
             
             EnemyGameObject.transform.rotation = Quaternion.Slerp(EnemyGameObject.transform.rotation,Quaternion.LookRotation(direction),Time.deltaTime * RotationSpeed );
+            
 
             if (!CanAttackPlayer())
             {

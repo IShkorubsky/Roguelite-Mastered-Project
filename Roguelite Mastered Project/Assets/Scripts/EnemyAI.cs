@@ -72,4 +72,9 @@ public class EnemyAI : MonoBehaviour
     {
         _currentState = new IdleState(gameObject,enemyStats,_agent,_myAnimator,targetTransform);
     }
+
+    public void DamageHouse()
+    {
+        targetTransform.GetComponent<PlayerHealth>().
+    }
 }
