@@ -12,6 +12,8 @@ public class MainMenuManager : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1;
+        
         if (!Screen.fullScreen)
         {
             Screen.fullScreenMode = FullScreenMode.ExclusiveFullScreen;

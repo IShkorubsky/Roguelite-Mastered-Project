@@ -36,7 +36,7 @@ public class EnemyAI : MonoBehaviour
         
         if (targetTransform != null)
         {
-            if (_distanceToTarget < 4)
+            if (_distanceToTarget < EnemyStats.AttackRange)
             {
                 targetInRange = true;
             }
@@ -75,6 +75,6 @@ public class EnemyAI : MonoBehaviour
 
     public void DamageHouse()
     {
-        targetTransform.GetComponent<PlayerHealth>().GetDamaged(enemyStats.AttackDamage);
+        PlayerHealth.GetDamaged(enemyStats.AttackDamage);
     }
 }

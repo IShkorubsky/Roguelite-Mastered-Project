@@ -11,6 +11,7 @@ public class PlayerHealth : PlayerAnimator
     private void Start()
     {
         GameManager.Instance.ChosenClass.SetMaxHealth();
+        healthBar.maxValue = GameManager.Instance.ChosenClass.MAXHealth;
     }
 
     private void Update()
@@ -27,10 +28,10 @@ public class PlayerHealth : PlayerAnimator
             return;
         }
         
-        healthBar.value = GameManager.Instance.ChosenClass.Health * 0.01f;
+        healthBar.value = GameManager.Instance.ChosenClass.Health;
     }
 
-    public void GetDamaged(float damageAmount)
+    public static void GetDamaged(float damageAmount)
     {
         GameManager.Instance.ChosenClass.GetDamage(damageAmount);
     }
