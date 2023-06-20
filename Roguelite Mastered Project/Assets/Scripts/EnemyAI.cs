@@ -52,6 +52,7 @@ public class EnemyAI : MonoBehaviour
             if (_enemyHealth <= 0)
             {
                 GameManager.Instance._enemiesSpawned--;
+                SetIdleState();
                 gameObject.SetActive(false);
                 _enemyHealth = EnemyStats.MAXHealth;
             }
