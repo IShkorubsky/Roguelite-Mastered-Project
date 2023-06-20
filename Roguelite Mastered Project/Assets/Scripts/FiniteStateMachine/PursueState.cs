@@ -30,14 +30,6 @@ namespace FiniteStateMachine
                 Agent.isStopped = false;
                 Agent.SetDestination(TargetTransform.position);
             }
-            else
-            {
-                if (_enemyAI.targetInRange)
-                { 
-                    //NextState = new AttackState(EnemyGameObject,EnemyStats,Agent,MyAnimator,TargetTransform);
-                    Stage = Event.Exit;
-                }
-            }
         }
 
         protected override void Exit()
