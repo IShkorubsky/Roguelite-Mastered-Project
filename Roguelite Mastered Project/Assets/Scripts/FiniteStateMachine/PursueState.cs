@@ -34,7 +34,7 @@ namespace FiniteStateMachine
             {
                 if (_enemyAI.targetInRange)
                 { 
-                    NextState = new AttackState(EnemyGameObject,EnemyStats,Agent,MyAnimator,TargetTransform);
+                    //NextState = new AttackState(EnemyGameObject,EnemyStats,Agent,MyAnimator,TargetTransform);
                     Stage = Event.Exit;
                 }
             }
