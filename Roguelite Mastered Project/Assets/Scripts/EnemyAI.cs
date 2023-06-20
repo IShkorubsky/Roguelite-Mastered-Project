@@ -37,6 +37,8 @@ public class EnemyAI : MonoBehaviour
         {
             if (_distanceToTarget <= EnemyStats.AttackRange)
             {
+                Debug.Log("Entrou");
+                _currentState = new AttackState(gameObject,enemyStats,_agent,_myAnimator,targetTransform);
                 targetInRange = true;
             }
             else

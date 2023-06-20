@@ -21,11 +21,8 @@ namespace FiniteStateMachine
 
         protected override void Update()
         {
-            if (Random.Range(0, 100) < 10)
-            {
-                NextState = new PursueState(EnemyGameObject,EnemyStats, Agent, MyAnimator, TargetTransform);
-                Stage = Event.Exit;
-            }
+            NextState = new PursueState(EnemyGameObject,EnemyStats, Agent, MyAnimator, TargetTransform);
+            Stage = Event.Exit;
         }
 
         protected override void Exit()

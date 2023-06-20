@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
         _currentLevel = 0;
         Time.timeScale = 1;
         _gameOver = false;
-        StartRound(1);
+        StartCoroutine(StartRound(1));
     }
     
     private void Update()
@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
             {
                 UIManager.Instance.Victory();
             }
-            StartRound(_currentLevel + 1);
+            StartCoroutine(StartRound(_currentLevel + 1));
         }
         
     }
@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour
     /// Starts level based on desired level index
     /// </summary>
     /// <param name="levelIndex"></param>
-    private void StartRound(int levelIndex)
+    private IEnumerator StartRound(int levelIndex)
     {
         _enemiesSpawning = true;
         _currentLevel = levelIndex;
@@ -78,6 +78,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("Entered");
             _enemiesSpawned++;
             EnemySpawner.Instance.SpawnEnemy("Enemy");
+            yield return new WaitForSeconds(2f);
         }
         _enemiesSpawning = false;
     }

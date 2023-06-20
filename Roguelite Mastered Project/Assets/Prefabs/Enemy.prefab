@@ -1146,6 +1146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 597069edbf8d3b543bc244da6fb95836, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _myAnimator: {fileID: 660506797293807602}
   targetTransform: {fileID: 0}
   _distanceToTarget: 0
   _enemyHealth: 0
