@@ -38,7 +38,6 @@ public class EnemyAI : MonoBehaviour
         {
             if (_distanceToTarget <= EnemyStats.AttackRange)
             {
-                Debug.Log("Entrou");
                 _currentState = new AttackState(gameObject,enemyStats,_agent,myAnimator,targetTransform);
                 targetInRange = true;
             }
@@ -48,7 +47,6 @@ public class EnemyAI : MonoBehaviour
             }
         
             _currentState = _currentState.Process();
-            Debug.Log(_currentState);
 
             healthSlider.value = enemyHealth;
 

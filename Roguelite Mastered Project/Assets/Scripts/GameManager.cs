@@ -70,7 +70,6 @@ public class GameManager : MonoBehaviour
         _enemiesToSpawn = _currentLevel * 2;
         for (int i = 0; i < _enemiesToSpawn; i++)
         {
-            Debug.Log("Entered");
             enemiesSpawned++;
             EnemySpawner.Instance.SpawnEnemy("Enemy");
             yield return new WaitForSeconds(2f);

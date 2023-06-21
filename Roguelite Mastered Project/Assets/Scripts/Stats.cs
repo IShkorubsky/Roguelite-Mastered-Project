@@ -1,7 +1,4 @@
-using System;
 using UnityEngine;
-
-//Create a player scriptable object to be used as a holder for stats and creating different classes
 
 [CreateAssetMenu(menuName = "CreateClass",fileName = "New Class")]
 public class Stats : ScriptableObject

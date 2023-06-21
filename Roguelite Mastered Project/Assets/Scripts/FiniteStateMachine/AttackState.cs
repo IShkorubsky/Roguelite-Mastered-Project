@@ -24,7 +24,8 @@ namespace FiniteStateMachine
         {
             var direction = TargetTransform.position - EnemyGameObject.transform.position;
             direction.y = 0;
-            EnemyGameObject.transform.rotation = Quaternion.Slerp(EnemyGameObject.transform.rotation,Quaternion.LookRotation(direction),Time.deltaTime * RotationSpeed );
+            EnemyGameObject.transform.rotation = Quaternion.Slerp(
+                EnemyGameObject.transform.rotation,Quaternion.LookRotation(direction),Time.deltaTime * RotationSpeed );
         }
 
         protected override void Exit()
