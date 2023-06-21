@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,8 +6,6 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private GameObject mainMenuPanel;
     [SerializeField] private GameObject settingsMenuPanel;
     [SerializeField] private SceneFading sceneFading;
-    //[SerializeField] private AudioSource uiClickSFX;
-
     private void Start()
     {
         Time.timeScale = 1;

@@ -1,18 +1,9 @@
-using System;
-using Player;
 using UnityEngine;
 
 public class DeactivateBullet : MonoBehaviour
 {
     private float _timer;
     [SerializeField] private float timeBeforeDeactivation;
-    private PlayerAnimator _playerController;
-    
-
-    private void Start()
-    {
-        _playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerAnimator>();
-    }
 
     private void Update()
     {
@@ -27,7 +18,7 @@ public class DeactivateBullet : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             Debug.Log("Entered");
-            other.gameObject.GetComponent<EnemyAI>()._enemyHealth -= 10;
+            other.gameObject.GetComponent<EnemyAI>().enemyHealth -= 10;
             _timer = 0;
             Deactivate();
         }

@@ -83,7 +83,6 @@
           <e p="Player" t="Include">
             <e p="PlayerAnimator.cs" t="Include" />
             <e p="PlayerAttack.cs" t="Include" />
-            <e p="PlayerDetectionCollider.cs" t="Include" />
             <e p="PlayerHealth.cs" t="Include" />
             <e p="PlayerLocomotion.cs" t="Include" />
           </e>

@@ -54,33 +54,33 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/GameController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerAnimator.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerAttack.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/DealDamage.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/LevelSO.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/CameraController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerLocomotion.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Pool.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerDetectionCollider.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerHealth.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/DieState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/RoamState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/DeactivateBullet.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/VolumeControl.cs" />
         <option value="$PROJECT_DIR$/Assets/UIManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerLocomotion.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UIManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Stats.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/MainMenuManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/EnemySpawner.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/IdleState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/EnemyAI.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/PursueState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/StateMachine.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/AttackState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerAnimator.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerAttack.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerDetectionCollider.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DealDamage.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerLocomotion.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CameraController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DeactivateBullet.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/EnemyAI.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/LevelSO.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MainMenuManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UIManager.cs" />
       </list>
     </option>
   </component>
@@ -172,7 +172,7 @@
       <workItem from="1686781918040" duration="1176000" />
       <workItem from="1686896392874" duration="7024000" />
       <workItem from="1687183346696" duration="663000" />
-      <workItem from="1687294499945" duration="4047000" />
+      <workItem from="1687294499945" duration="4600000" />
     </task>
     <servers />
   </component>

@@ -1,6 +1,4 @@
-using System;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -46,7 +44,7 @@ public class UIManager : MonoBehaviour
     private void Update()
     {
         currentRound.text = $"Round:{GameManager.Instance.CurrentLevel.ToString()}/5";
-        enemiesSpawned.text = $"Enemies left:{GameManager.Instance._enemiesSpawned.ToString()}";
+        enemiesSpawned.text = $"Enemies left:{GameManager.Instance.enemiesSpawned.ToString()}";
     }
 
     public void PauseGame()

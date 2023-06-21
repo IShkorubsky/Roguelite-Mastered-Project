@@ -1,41 +1,43 @@
-using Player;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerHealth : PlayerAnimator
+namespace Player
 {
-    [SerializeField] private Slider healthBar;
-    private float _playerHealth;
+    public class PlayerHealth : PlayerAnimator
+    {
+        [SerializeField] private Slider healthBar;
+        private float _playerHealth;
     
-    #region Health
+        #region Health
 
-    private void Start()
-    {
-        GameManager.Instance.ChosenClass.SetMaxHealth();
-        healthBar.maxValue = GameManager.Instance.ChosenClass.MAXHealth;
-    }
-
-    private void Update()
-    {
-        //playerStats.HealthRegeneration();
-
-        if (GameManager.Instance.ChosenClass.Health <= 0)
+        private void Start()
         {
-            UIManager.Instance.GameOver();
+            GameManager.Instance.ChosenClass.SetMaxHealth();
+            healthBar.maxValue = GameManager.Instance.ChosenClass.MAXHealth;
         }
-        
-        if (!healthBar)
+
+        private void Update()
         {
-            return;
-        }
+            //playerStats.HealthRegeneration();
+
+            if (GameManager.Instance.ChosenClass.Health <= 0)
+            {
+                UIManager.Instance.GameOver();
+            }
         
-        healthBar.value = GameManager.Instance.ChosenClass.Health;
-    }
+            if (!healthBar)
+            {
+                return;
+            }
+        
+            healthBar.value = GameManager.Instance.ChosenClass.Health;
+        }
 
-    public static void GetDamaged(float damageAmount)
-    {
-        GameManager.Instance.ChosenClass.GetDamage(damageAmount);
-    }
+        public static void GetDamaged(float damageAmount)
+        {
+            GameManager.Instance.ChosenClass.GetDamage(damageAmount);
+        }
 
-    #endregion
+        #endregion
+    }
 }

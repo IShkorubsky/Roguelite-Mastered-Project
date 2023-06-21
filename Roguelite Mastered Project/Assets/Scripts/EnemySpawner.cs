@@ -30,7 +30,7 @@ public class EnemySpawner : MonoBehaviour
         var randomSpawnPoint = spawnPoints[Random.Range(0, 3)];
         spawnedEnemy.SetActive(true);
         spawnedEnemy.GetComponent<EnemyAI>().SetIdleState();
-        spawnedEnemy.GetComponent<EnemyAI>()._myAnimator.runtimeAnimatorController =
+        spawnedEnemy.GetComponent<EnemyAI>().myAnimator.runtimeAnimatorController =
             spawnedEnemy.GetComponent<Animator>().runtimeAnimatorController;
         spawnedEnemy.transform.position = randomSpawnPoint.transform.position;
     }

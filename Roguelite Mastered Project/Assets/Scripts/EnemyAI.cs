@@ -1,4 +1,5 @@
 using FiniteStateMachine;
+using Player;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
@@ -6,11 +7,11 @@ using UnityEngine.UI;
 public class EnemyAI : MonoBehaviour
 {
     private NavMeshAgent _agent;
-    public Animator _myAnimator;
+    public Animator myAnimator;
     public Transform targetTransform;
     private StateMachine _currentState;
-    public float _distanceToTarget;
-    public float _enemyHealth;
+    private float _distanceToTarget;
+    public float enemyHealth;
     public bool targetInRange;
     
     [SerializeField] private Stats enemyStats;
@@ -22,9 +23,9 @@ public class EnemyAI : MonoBehaviour
     {
         targetTransform = GameObject.FindGameObjectWithTag("EnemyTarget").transform;
         _agent = GetComponent<NavMeshAgent>();
-        _myAnimator = GetComponent<Animator>();
+        myAnimator = GetComponent<Animator>();
         EnemyStats.SetMaxHealth();
-        _enemyHealth = enemyStats.Health;
+        enemyHealth = enemyStats.Health;
         healthSlider.maxValue = EnemyStats.MAXHealth;
     }
 
@@ -38,7 +39,7 @@ public class EnemyAI : MonoBehaviour
             if (_distanceToTarget <= EnemyStats.AttackRange)
             {
                 Debug.Log("Entrou");
-                _currentState = new AttackState(gameObject,enemyStats,_agent,_myAnimator,targetTransform);
+                _currentState = new AttackState(gameObject,enemyStats,_agent,myAnimator,targetTransform);
                 targetInRange = true;
             }
             else
@@ -49,14 +50,14 @@ public class EnemyAI : MonoBehaviour
             _currentState = _currentState.Process();
             Debug.Log(_currentState);
 
-            healthSlider.value = _enemyHealth;
+            healthSlider.value = enemyHealth;
 
-            if (_enemyHealth <= 0)
+            if (enemyHealth <= 0)
             {
-                GameManager.Instance._enemiesSpawned--;
+                GameManager.Instance.enemiesSpawned--;
                 SetIdleState();
                 gameObject.SetActive(false);
-                _enemyHealth = EnemyStats.MAXHealth;
+                enemyHealth = EnemyStats.MAXHealth;
             }
         }
         else
@@ -67,12 +68,12 @@ public class EnemyAI : MonoBehaviour
 
     public void GetDamaged()
     {
-        _enemyHealth -= GameManager.Instance.ChosenClass.AttackDamage;
+        enemyHealth -= GameManager.Instance.ChosenClass.AttackDamage;
     }
 
     public void SetIdleState()
     {
-        _currentState = new IdleState(gameObject,enemyStats,_agent,_myAnimator,targetTransform);
+        _currentState = new IdleState(gameObject,enemyStats,_agent,myAnimator,targetTransform);
     }
 
     public void DamageHouse()
