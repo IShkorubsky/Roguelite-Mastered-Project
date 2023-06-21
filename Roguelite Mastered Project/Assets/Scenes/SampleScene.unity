@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: b86a968a24323d4489c364bec69c56b2, type: 2}
-  m_LightingSettings: {fileID: 0}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 4b0a97208d59e24478fe448f81999121, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -360,7 +360,7 @@ MeshRenderer:
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
+  m_ReflectionProbeUsage: 0
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
@@ -27729,8 +27729,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.066560276, y: 0.69830835, z: 0.11571399}
-  m_Center: {x: -0.007049714, y: 0.65355086, z: -0.030872587}
+  m_Size: {x: 0.2422428, y: 1.0022343, z: 0.1051217}
+  m_Center: {x: 0.0076070256, y: 0.8055082, z: -0.03616885}
 --- !u!1 &6143942587860999038
 GameObject:
   m_ObjectHideFlags: 0
