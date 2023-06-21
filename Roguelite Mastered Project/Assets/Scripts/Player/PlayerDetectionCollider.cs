@@ -1,24 +1,24 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerDetectionCollider : MonoBehaviour
+namespace Player
 {
-    [SerializeField] private EnemyAI enemyAI;
-    private void OnTriggerEnter(Collider other)
+    public class PlayerDetectionCollider : MonoBehaviour
     {
-        if (other.CompareTag("Player"))
+        [SerializeField] private EnemyAI enemyAI;
+        private void OnTriggerEnter(Collider other)
         {
-            enemyAI.targetInRange = true;
+            if (other.CompareTag("Player"))
+            {
+                enemyAI.targetInRange = true;
+            }
         }
-    }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
+        private void OnTriggerExit(Collider other)
         {
-            enemyAI.targetInRange = false;
+            if (other.CompareTag("Player"))
+            {
+                enemyAI.targetInRange = false;
+            }
         }
     }
 }

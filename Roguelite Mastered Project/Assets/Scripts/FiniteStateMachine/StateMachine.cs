@@ -77,28 +77,5 @@ namespace FiniteStateMachine
 
             return this;
         }
-
-        public bool CanAttackPlayer()
-        {
-            var direction = TargetTransform.position - EnemyGameObject.transform.position;
-            if (direction.magnitude < EnemyStats.AttackRange)
-            {
-                return true;
-            }
-
-            return false;
-        }
-        
-        public bool CanSeePlayer()
-        {
-            var direction = TargetTransform.position - EnemyGameObject.transform.position;
-            var angle = Vector3.Angle(direction, EnemyGameObject.transform.forward);
-            if (direction.magnitude < EnemyStats.AttackRange * 2 && angle < 30)
-            {
-                return true;
-            }
-
-            return false;
-        }
     }
 }

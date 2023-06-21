@@ -72,10 +72,8 @@
           <e p="EnemySpawner.cs" t="Include" />
           <e p="FiniteStateMachine" t="Include">
             <e p="AttackState.cs" t="Include" />
-            <e p="DieState.cs" t="Include" />
             <e p="IdleState.cs" t="Include" />
             <e p="PursueState.cs" t="Include" />
-            <e p="RoamState.cs" t="Include" />
             <e p="StateMachine.cs" t="Include" />
           </e>
           <e p="GameManager.cs" t="Include" />
