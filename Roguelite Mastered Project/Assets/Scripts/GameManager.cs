@@ -16,7 +16,6 @@ public class GameManager : MonoBehaviour
     public int _enemiesToSpawn;
     public int _enemiesSpawned;
     
-    private bool _gameOver;
     private bool _enemiesSpawning;
     //private GameObject _currentGameWorld;
     
