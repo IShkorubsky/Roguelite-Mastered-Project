@@ -1146,10 +1146,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 597069edbf8d3b543bc244da6fb95836, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _myAnimator: {fileID: 660506797293807602}
+  myAnimator: {fileID: 0}
   targetTransform: {fileID: 0}
-  _distanceToTarget: 0
-  _enemyHealth: 0
+  enemyHealth: 0
   targetInRange: 0
   enemyStats: {fileID: 11400000, guid: 9ad41aa87b78e2143afbb9ad7f7e56ff, type: 2}
   healthSlider: {fileID: 660506797780617337}
@@ -2429,7 +2428,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 2
 --- !u!1 &660506798324478949
 GameObject:
   m_ObjectHideFlags: 0
@@ -2535,7 +2534,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 2
 --- !u!1 &660506798356270614
 GameObject:
   m_ObjectHideFlags: 0

@@ -70,7 +70,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerAttack.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerDetectionCollider.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DealDamage.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerLocomotion.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CameraController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DeactivateBullet.cs" />
@@ -82,6 +81,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/FiniteStateMachine/AttackState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Stats.cs" />
         <option value="$PROJECT_DIR$/Assets/RotateAround.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" />
       </list>
     </option>
   </component>
@@ -174,7 +174,7 @@
       <workItem from="1686896392874" duration="7024000" />
       <workItem from="1687183346696" duration="663000" />
       <workItem from="1687294499945" duration="7272000" />
-      <workItem from="1688360927641" duration="359000" />
+      <workItem from="1688360927641" duration="1197000" />
     </task>
     <servers />
   </component>
