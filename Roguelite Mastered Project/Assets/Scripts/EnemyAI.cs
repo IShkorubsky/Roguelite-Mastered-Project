@@ -22,6 +22,7 @@ public class EnemyAI : MonoBehaviour
     private void Awake()
     {
         targetTransform = GameObject.FindGameObjectWithTag("EnemyTarget").transform;
+        gameObject.GetComponent<ParticleSystem>().Play();
         _agent = GetComponent<NavMeshAgent>();
         myAnimator = GetComponent<Animator>();
         EnemyStats.SetMaxHealth();

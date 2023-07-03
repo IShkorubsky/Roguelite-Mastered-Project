@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EnemyStats
   m_EditorClassIdentifier: 
   className: Enemy
-  characterAsset: {fileID: 1283017171755564, guid: f10c394033f254647873f3d28a75a062, type: 3}
+  characterAsset: {fileID: 660506797293807615, guid: 18a24e8fe71b39f44b4b3f9c6806221c, type: 3}
   health: 150
   maxHealth: 150
   healthRegen: 1
