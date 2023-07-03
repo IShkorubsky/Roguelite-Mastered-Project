@@ -10,7 +10,7 @@ namespace Player
     
         #region Health
 
-        private void Start()
+        private void Awake()
         {
             GameManager.Instance.ChosenClass.SetMaxHealth();
             healthBar.maxValue = GameManager.Instance.ChosenClass.MAXHealth;

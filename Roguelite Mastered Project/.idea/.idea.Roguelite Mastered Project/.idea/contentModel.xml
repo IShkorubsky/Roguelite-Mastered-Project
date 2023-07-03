@@ -61,6 +61,7 @@
           <e p="UI" t="Include" />
         </e>
         <e p="Prefabs" t="Include" />
+        <e p="RotateAround.cs" t="Include" />
         <e p="Scenes" t="Include">
           <e p="SampleScene" t="Include" />
         </e>

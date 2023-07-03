@@ -1115,6 +1115,7 @@ GameObject:
   - component: {fileID: 316229003}
   - component: {fileID: 316229002}
   - component: {fileID: 316229001}
+  - component: {fileID: 316229004}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1181,12 +1182,26 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 316229000}
   m_LocalRotation: {x: 0.37303677, y: -0, z: -0, w: 0.92781657}
-  m_LocalPosition: {x: -9.4, y: 19.5, z: -27.3}
+  m_LocalPosition: {x: -9.4, y: 17, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 43.806, y: 0, z: 0}
+--- !u!114 &316229004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 316229000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d83d0ebc07f3ac34bb62c81b83259738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1152903478736083319}
+  rotationSpeed: 20
 --- !u!1 &322859837
 GameObject:
   m_ObjectHideFlags: 0
@@ -1508,7 +1523,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.93685544, g: 1, b: 0.6650944, a: 0.3882353}
+  m_Color: {r: 0.86925524, g: 1, b: 0.6666667, a: 0.45490196}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6137,19 +6152,6 @@ Transform:
   m_Father: {fileID: 5052834288355223654}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: -43.923, z: 0}
---- !u!114 &1152903478736566898
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1152903478736566909}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02bdd97e5300b7b4e80ab4ed45477dd9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBar: {fileID: 0}
 --- !u!54 &1152903478736566908
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6179,7 +6181,6 @@ GameObject:
   - component: {fileID: 1152903478734354887}
   - component: {fileID: 1152903478736566911}
   - component: {fileID: 1152903478736566908}
-  - component: {fileID: 1152903478736566898}
   m_Layer: 0
   m_Name: SM_Bld_Village_06
   m_TagString: EnemyTarget
