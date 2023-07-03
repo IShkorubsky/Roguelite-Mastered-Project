@@ -58,7 +58,23 @@
           </e>
           <e p="Audio" t="Include" />
           <e p="Materials" t="Include" />
-          <e p="UI" t="Include" />
+          <e p="UI" t="Include">
+            <e p="UI pack" t="Include">
+              <e p="Button" t="Include" />
+              <e p="Circles" t="Include" />
+              <e p="Documentation.txt" t="Include" />
+              <e p="Fonts" t="Include" />
+              <e p="Icons" t="Include" />
+              <e p="Prefabs" t="Include">
+                <e p="Bars" t="Include" />
+                <e p="Buttons" t="Include" />
+                <e p="Sliders" t="Include" />
+              </e>
+              <e p="Scripts" t="Include">
+                <e p="FillValueNumber.cs" t="Include" />
+              </e>
+            </e>
+          </e>
         </e>
         <e p="Prefabs" t="Include" />
         <e p="RotateAround.cs" t="Include" />
