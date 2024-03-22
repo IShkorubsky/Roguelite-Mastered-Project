@@ -3,6 +3,7 @@
   <component name="ContentModelStore">
     <e p="C:\Users\ILLYA\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
     <e p="C:\Users\ILLYA\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_Roguelite Mastered Project.-1688419122.00" t="ExcludeRecursive" />
+    <e p="C:\Users\ILLYA\AppData\Roaming\JetBrains\Rider2020.2\scratches" t="IncludeRecursive" />
     <e p="C:\Users\ILLYA\Documents\Roguelite-Mastered-Project\Roguelite Mastered Project" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
@@ -25,6 +26,184 @@
             </e>
           </e>
           <e p="Assets" t="Include">
+            <e p="FlexibleCelShader" t="Include">
+              <e p="Editor" t="Include">
+                <e p="CelCustomEditor.cs" t="Include" />
+                <e p="PresetDataConainer.cs" t="Include" />
+                <e p="PresetHelper.cs" t="Include" />
+              </e>
+              <e p="Example" t="Include" />
+              <e p="Presets" t="Include">
+                <e p="!Default.json" t="Include" />
+                <e p="Earthy Light.json" t="Include" />
+                <e p="Electric Blue.json" t="Include" />
+                <e p="Glacier.json" t="Include" />
+                <e p="Inverted.json" t="Include" />
+                <e p="Noir Purple.json" t="Include" />
+                <e p="Solid Gold.json" t="Include" />
+                <e p="Subtle Breeze.json" t="Include" />
+                <e p="Summer Evening.json" t="Include" />
+              </e>
+              <e p="Shaders" t="Include">
+                <e p="CelNoOutline.shader" t="Include" />
+                <e p="CelOutline.shader" t="Include" />
+                <e p="CelSilhouette.shader" t="Include" />
+              </e>
+            </e>
+            <e p="JMO Assets" t="Include">
+              <e p="Cartoon FX (legacy)" t="Include">
+                <e p="CartoonFX Free.txt" t="Include" />
+                <e p="CFX Prefabs" t="Include">
+                  <e p="Electric" t="Include" />
+                  <e p="Explosions" t="Include" />
+                  <e p="Hits" t="Include" />
+                  <e p="Misc" t="Include" />
+                </e>
+                <e p="CFX2 Prefabs" t="Include">
+                  <e p="Blood" t="Include" />
+                  <e p="Debris Hits" t="Include" />
+                  <e p="Electric" t="Include" />
+                  <e p="Explosions" t="Include" />
+                  <e p="Misc" t="Include" />
+                  <e p="Pickup Items" t="Include" />
+                  <e p="Skull &amp; Ghosts Effects" t="Include" />
+                  <e p="Water" t="Include" />
+                </e>
+                <e p="CFX3 Prefabs" t="Include">
+                  <e p="Electric" t="Include" />
+                  <e p="Environment" t="Include" />
+                  <e p="Fire" t="Include" />
+                  <e p="Light" t="Include" />
+                  <e p="Magic Dark" t="Include" />
+                  <e p="Magic Misc" t="Include" />
+                  <e p="Misc" t="Include" />
+                </e>
+                <e p="CFX4 Prefabs" t="Include">
+                  <e p="Electric" t="Include" />
+                  <e p="Fire" t="Include" />
+                  <e p="Light" t="Include" />
+                  <e p="Magic" t="Include" />
+                  <e p="Misc" t="Include" />
+                  <e p="Water" t="Include" />
+                </e>
+                <e p="Demo" t="Include">
+                  <e p="Assets" t="Include">
+                    <e p="CFX_AutoStopLoopedEffect.cs" t="Include" />
+                    <e p="CFX_Demo_New.cs" t="Include" />
+                    <e p="CFX_Demo_RandomDir.cs" t="Include" />
+                    <e p="CFX_Demo_RandomDirectionTranslate.cs" t="Include" />
+                    <e p="CFX_Demo_RotateCamera.cs" t="Include" />
+                    <e p="CFX_Demo_Translate.cs" t="Include" />
+                  </e>
+                  <e p="UI Canvas" t="Include" />
+                </e>
+                <e p="Materials" t="Include">
+                  <e p="Animated" t="Include" />
+                  <e p="Blood" t="Include" />
+                  <e p="Electric" t="Include" />
+                  <e p="Fire" t="Include" />
+                  <e p="Light" t="Include" />
+                  <e p="Misc" t="Include" />
+                  <e p="Stretched" t="Include" />
+                  <e p="Symbols" t="Include" />
+                  <e p="Texts" t="Include" />
+                  <e p="Water" t="Include" />
+                </e>
+                <e p="Mesh" t="Include" />
+                <e p="Scripts" t="Include">
+                  <e p="CFX_AutoDestructShuriken.cs" t="Include" />
+                  <e p="CFX_AutoRotate.cs" t="Include" />
+                  <e p="CFX_LightFlicker.cs" t="Include" />
+                  <e p="CFX_LightIntensityFade.cs" t="Include" />
+                </e>
+                <e p="Shaders" t="Include">
+                  <e p="CFX3 Multiply Color.shader" t="Include" />
+                  <e p="CFXM_MobileParticleAdd_Alpha8.shader" t="Include" />
+                </e>
+                <e p="Textures" t="Include" />
+              </e>
+              <e p="Cartoon FX Remaster" t="Include">
+                <e p="CFXR Assets" t="Include">
+                  <e p="Editor" t="Include">
+                    <e p="CFXR Editor.asmdef" t="Include" />
+                    <e p="CFXR_BuildShaderPreprocessor.cs" t="Include" />
+                    <e p="CFXR_ExpressionParser.cs" t="Include" />
+                    <e p="CFXR_MaterialInspector.cs" t="Include" />
+                    <e p="CFXR_Styles.cs" t="Include" />
+                  </e>
+                  <e p="Graphics" t="Include" />
+                  <e p="Meshes" t="Include" />
+                  <e p="Misc" t="Include" />
+                  <e p="Scripts" t="Include">
+                    <e p="CFXR Runtime.asmdef" t="Include" />
+                    <e p="CFXR_Effect.CameraShake.cs" t="Include" />
+                    <e p="CFXR_Effect.cs" t="Include" />
+                    <e p="CFXR_EmissionBySurface.cs" t="Include" />
+                    <e p="CFXR_ParticleText.cs" t="Include" />
+                    <e p="CFXR_ParticleTextFontAsset.cs" t="Include" />
+                  </e>
+                  <e p="Shaders" t="Include">
+                    <e p="CFXR Particle Distortion.shader" t="Include" />
+                    <e p="CFXR Particle Glow.shader" t="Include" />
+                    <e p="CFXR Particle Procedural Ring.shader" t="Include" />
+                    <e p="CFXR Particle Ubershader.shader" t="Include" />
+                    <e p="CFXR.cginc" t="Include" />
+                    <e p="CFXR_PASSES.cginc" t="Include" />
+                    <e p="CFXR_SETTINGS.cginc" t="Include" />
+                    <e p="CFXR_URP.cginc" t="Include" />
+                  </e>
+                </e>
+                <e p="CFXR Prefabs" t="Include">
+                  <e p="Eerie" t="Include" />
+                  <e p="Electric" t="Include" />
+                  <e p="Explosions" t="Include" />
+                  <e p="Fire" t="Include" />
+                  <e p="Ice" t="Include" />
+                  <e p="Impacts" t="Include" />
+                  <e p="Light" t="Include" />
+                  <e p="Liquids" t="Include" />
+                  <e p="Magic Misc" t="Include" />
+                  <e p="Misc" t="Include" />
+                  <e p="Nature" t="Include" />
+                  <e p="Sword Trails" t="Include">
+                    <e p="Fire" t="Include" />
+                    <e p="Ice" t="Include" />
+                    <e p="Plain" t="Include" />
+                  </e>
+                  <e p="Texts" t="Include">
+                    <e p="_Make your own text effect.txt" t="Include" />
+                  </e>
+                </e>
+                <e p="Demo Assets" t="Include">
+                  <e p="CFXR Demo.asmdef" t="Include" />
+                  <e p="CFXR_Demo.cs" t="Include" />
+                  <e p="CFXR_Demo_Rotate.cs" t="Include" />
+                  <e p="CFXR_Demo_Translate.cs" t="Include" />
+                  <e p="Kino Bloom" t="Include">
+                    <e p="Bloom.cs" t="Include" />
+                    <e p="Editor" t="Include">
+                      <e p="BloomEditor.cs" t="Include" />
+                      <e p="BloomGraphDrawer.cs" t="Include" />
+                      <e p="KinoBloom.Editor.asmdef" t="Include" />
+                    </e>
+                    <e p="Kino Bloom License.txt" t="Include" />
+                    <e p="KinoBloom.Runtime.asmdef" t="Include" />
+                    <e p="Shader" t="Include">
+                      <e p="Bloom.cginc" t="Include" />
+                      <e p="Bloom.shader" t="Include" />
+                    </e>
+                  </e>
+                  <e p="UI" t="Include" />
+                </e>
+                <e p="Readme Cartoon FX Remaster FREE.txt" t="Include" />
+              </e>
+              <e p="Welcome Screen" t="Include">
+                <e p="CFXR.WelcomeScreen.asmdef" t="Include" />
+                <e p="CFXR_WelcomeScreen.cs" t="Include" />
+                <e p="CFXR_WelcomeScreen.uss" t="Include" />
+                <e p="CFXR_WelcomeScreen.uxml" t="Include" />
+              </e>
+            </e>
             <e p="PolygonAdventure" t="Include">
               <e p="DemoScene" t="Include" />
               <e p="Materials" t="Include" />
@@ -77,190 +256,13 @@
             </e>
           </e>
         </e>
-        <e p="FlexibleCelShader" t="Include">
-          <e p="Editor" t="Include">
-            <e p="CelCustomEditor.cs" t="Include" />
-            <e p="PresetDataConainer.cs" t="Include" />
-            <e p="PresetHelper.cs" t="Include" />
-          </e>
-          <e p="Example" t="Include" />
-          <e p="Presets" t="Include">
-            <e p="!Default.json" t="Include" />
-            <e p="Earthy Light.json" t="Include" />
-            <e p="Electric Blue.json" t="Include" />
-            <e p="Glacier.json" t="Include" />
-            <e p="Inverted.json" t="Include" />
-            <e p="Noir Purple.json" t="Include" />
-            <e p="Solid Gold.json" t="Include" />
-            <e p="Subtle Breeze.json" t="Include" />
-            <e p="Summer Evening.json" t="Include" />
-          </e>
-          <e p="Shaders" t="Include">
-            <e p="CelNoOutline.shader" t="Include" />
-            <e p="CelOutline.shader" t="Include" />
-            <e p="CelSilhouette.shader" t="Include" />
-          </e>
-        </e>
-        <e p="JMO Assets" t="Include">
-          <e p="Cartoon FX (legacy)" t="Include">
-            <e p="CartoonFX Free.txt" t="Include" />
-            <e p="CFX Prefabs" t="Include">
-              <e p="Electric" t="Include" />
-              <e p="Explosions" t="Include" />
-              <e p="Hits" t="Include" />
-              <e p="Misc" t="Include" />
-            </e>
-            <e p="CFX2 Prefabs" t="Include">
-              <e p="Blood" t="Include" />
-              <e p="Debris Hits" t="Include" />
-              <e p="Electric" t="Include" />
-              <e p="Explosions" t="Include" />
-              <e p="Misc" t="Include" />
-              <e p="Pickup Items" t="Include" />
-              <e p="Skull &amp; Ghosts Effects" t="Include" />
-              <e p="Water" t="Include" />
-            </e>
-            <e p="CFX3 Prefabs" t="Include">
-              <e p="Electric" t="Include" />
-              <e p="Environment" t="Include" />
-              <e p="Fire" t="Include" />
-              <e p="Light" t="Include" />
-              <e p="Magic Dark" t="Include" />
-              <e p="Magic Misc" t="Include" />
-              <e p="Misc" t="Include" />
-            </e>
-            <e p="CFX4 Prefabs" t="Include">
-              <e p="Electric" t="Include" />
-              <e p="Fire" t="Include" />
-              <e p="Light" t="Include" />
-              <e p="Magic" t="Include" />
-              <e p="Misc" t="Include" />
-              <e p="Water" t="Include" />
-            </e>
-            <e p="Demo" t="Include">
-              <e p="Assets" t="Include">
-                <e p="CFX_AutoStopLoopedEffect.cs" t="Include" />
-                <e p="CFX_Demo_New.cs" t="Include" />
-                <e p="CFX_Demo_RandomDir.cs" t="Include" />
-                <e p="CFX_Demo_RandomDirectionTranslate.cs" t="Include" />
-                <e p="CFX_Demo_RotateCamera.cs" t="Include" />
-                <e p="CFX_Demo_Translate.cs" t="Include" />
-              </e>
-              <e p="UI Canvas" t="Include" />
-            </e>
-            <e p="Materials" t="Include">
-              <e p="Animated" t="Include" />
-              <e p="Blood" t="Include" />
-              <e p="Electric" t="Include" />
-              <e p="Fire" t="Include" />
-              <e p="Light" t="Include" />
-              <e p="Misc" t="Include" />
-              <e p="Stretched" t="Include" />
-              <e p="Symbols" t="Include" />
-              <e p="Texts" t="Include" />
-              <e p="Water" t="Include" />
-            </e>
-            <e p="Mesh" t="Include" />
-            <e p="Scripts" t="Include">
-              <e p="CFX_AutoDestructShuriken.cs" t="Include" />
-              <e p="CFX_AutoRotate.cs" t="Include" />
-              <e p="CFX_LightFlicker.cs" t="Include" />
-              <e p="CFX_LightIntensityFade.cs" t="Include" />
-            </e>
-            <e p="Shaders" t="Include">
-              <e p="CFX3 Multiply Color.shader" t="Include" />
-              <e p="CFXM_MobileParticleAdd_Alpha8.shader" t="Include" />
-            </e>
-            <e p="Textures" t="Include" />
-          </e>
-          <e p="Cartoon FX Remaster" t="Include">
-            <e p="CFXR Assets" t="Include">
-              <e p="Editor" t="Include">
-                <e p="CFXR Editor.asmdef" t="Include" />
-                <e p="CFXR_BuildShaderPreprocessor.cs" t="Include" />
-                <e p="CFXR_ExpressionParser.cs" t="Include" />
-                <e p="CFXR_MaterialInspector.cs" t="Include" />
-                <e p="CFXR_Styles.cs" t="Include" />
-              </e>
-              <e p="Graphics" t="Include" />
-              <e p="Meshes" t="Include" />
-              <e p="Misc" t="Include" />
-              <e p="Scripts" t="Include">
-                <e p="CFXR Runtime.asmdef" t="Include" />
-                <e p="CFXR_Effect.CameraShake.cs" t="Include" />
-                <e p="CFXR_Effect.cs" t="Include" />
-                <e p="CFXR_EmissionBySurface.cs" t="Include" />
-                <e p="CFXR_ParticleText.cs" t="Include" />
-                <e p="CFXR_ParticleTextFontAsset.cs" t="Include" />
-              </e>
-              <e p="Shaders" t="Include">
-                <e p="CFXR Particle Distortion.shader" t="Include" />
-                <e p="CFXR Particle Glow.shader" t="Include" />
-                <e p="CFXR Particle Procedural Ring.shader" t="Include" />
-                <e p="CFXR Particle Ubershader.shader" t="Include" />
-                <e p="CFXR.cginc" t="Include" />
-                <e p="CFXR_PASSES.cginc" t="Include" />
-                <e p="CFXR_SETTINGS.cginc" t="Include" />
-                <e p="CFXR_URP.cginc" t="Include" />
-              </e>
-            </e>
-            <e p="CFXR Prefabs" t="Include">
-              <e p="Eerie" t="Include" />
-              <e p="Electric" t="Include" />
-              <e p="Explosions" t="Include" />
-              <e p="Fire" t="Include" />
-              <e p="Ice" t="Include" />
-              <e p="Impacts" t="Include" />
-              <e p="Light" t="Include" />
-              <e p="Liquids" t="Include" />
-              <e p="Magic Misc" t="Include" />
-              <e p="Misc" t="Include" />
-              <e p="Nature" t="Include" />
-              <e p="Sword Trails" t="Include">
-                <e p="Fire" t="Include" />
-                <e p="Ice" t="Include" />
-                <e p="Plain" t="Include" />
-              </e>
-              <e p="Texts" t="Include">
-                <e p="_Make your own text effect.txt" t="Include" />
-              </e>
-            </e>
-            <e p="Demo Assets" t="Include">
-              <e p="CFXR Demo.asmdef" t="Include" />
-              <e p="CFXR_Demo.cs" t="Include" />
-              <e p="CFXR_Demo_Rotate.cs" t="Include" />
-              <e p="CFXR_Demo_Translate.cs" t="Include" />
-              <e p="Kino Bloom" t="Include">
-                <e p="Bloom.cs" t="Include" />
-                <e p="Editor" t="Include">
-                  <e p="BloomEditor.cs" t="Include" />
-                  <e p="BloomGraphDrawer.cs" t="Include" />
-                  <e p="KinoBloom.Editor.asmdef" t="Include" />
-                </e>
-                <e p="Kino Bloom License.txt" t="Include" />
-                <e p="KinoBloom.Runtime.asmdef" t="Include" />
-                <e p="Shader" t="Include">
-                  <e p="Bloom.cginc" t="Include" />
-                  <e p="Bloom.shader" t="Include" />
-                </e>
-              </e>
-              <e p="UI" t="Include" />
-            </e>
-            <e p="Readme Cartoon FX Remaster FREE.txt" t="Include" />
-          </e>
-          <e p="Welcome Screen" t="Include">
-            <e p="CFXR.WelcomeScreen.asmdef" t="Include" />
-            <e p="CFXR_WelcomeScreen.cs" t="Include" />
-            <e p="CFXR_WelcomeScreen.uss" t="Include" />
-            <e p="CFXR_WelcomeScreen.uxml" t="Include" />
-          </e>
-        </e>
         <e p="Prefabs" t="Include" />
         <e p="Resources" t="Include">
           <e p="BillingMode.json" t="Include" />
         </e>
         <e p="Scenes" t="Include">
           <e p="SampleScene" t="Include" />
+          <e p="SampleScene_Profiles" t="Include" />
         </e>
         <e p="Scripts" t="Include">
           <e p="CameraController.cs" t="Include" />

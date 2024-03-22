@@ -14,7 +14,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private GameObject victoryPanel;
     [SerializeField] private GameObject gameOverPanel;
-    
+    [SerializeField] private AudioSource uiClickSFX;
+
     private bool _isGamePaused;
     
     public Slider HealthBarSlider => healthBarSlider;
@@ -43,8 +44,8 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
-        currentRound.text = $"Round:{GameManager.Instance.CurrentLevel.ToString()}/5";
-        enemiesSpawned.text = $"Enemies left:{GameManager.Instance.enemiesSpawned.ToString()}";
+        currentRound.text = $"Round {GameManager.Instance.CurrentLevel.ToString()}/5";
+        enemiesSpawned.text = $"Enemies left {GameManager.Instance.enemiesSpawned.ToString()}";
     }
 
     public void PauseGame()
@@ -57,6 +58,7 @@ public class UIManager : MonoBehaviour
     
     public void UnpauseGame()
     {
+        uiClickSFX.Play();
         _isGamePaused = false;
         pausePanel.SetActive(false);
         Time.timeScale = 1;
@@ -79,12 +81,14 @@ public class UIManager : MonoBehaviour
 
     public void RestartGame()
     {
+        uiClickSFX.Play();
         Time.timeScale = 1;
         SceneManager.LoadScene(1);
     }
     
     public void BackToMainMenu()
     {
+        uiClickSFX.Play();
         Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }

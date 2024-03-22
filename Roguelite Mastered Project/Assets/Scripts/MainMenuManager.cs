@@ -6,6 +6,7 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private GameObject mainMenuPanel;
     [SerializeField] private GameObject settingsMenuPanel;
     [SerializeField] private SceneFading sceneFading;
+    [SerializeField] private AudioSource uiClickSFX;
     private void Start()
     {
         Time.timeScale = 1;
@@ -26,7 +27,7 @@ public class MainMenuManager : MonoBehaviour
     /// </summary>
     public void ShowMainMenu()
     {
-        //uiClickSFX.Play();
+        uiClickSFX.Play();
         settingsMenuPanel.SetActive(false);
         mainMenuPanel.SetActive(true);
     }
@@ -36,7 +37,7 @@ public class MainMenuManager : MonoBehaviour
     /// </summary>
     public void EnableSettingsMenu()
     {
-        //uiClickSFX.Play();
+        uiClickSFX.Play();
         mainMenuPanel.SetActive(false);
         settingsMenuPanel.SetActive(true);
     }
@@ -46,7 +47,7 @@ public class MainMenuManager : MonoBehaviour
     /// </summary>
     public void DeleteAllPlayerPrefs()
     {
-        //uiClickSFX.Play();
+        uiClickSFX.Play();
         PlayerPrefs.DeleteAll();
     }
     
@@ -56,7 +57,7 @@ public class MainMenuManager : MonoBehaviour
     /// </summary>
     public void Quit()
     {
-        //uiClickSFX.Play();
+        uiClickSFX.Play();
         Application.Quit();
     }
 }
